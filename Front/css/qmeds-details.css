@@ -1,0 +1,733 @@
+/* screen - qmeds-details */
+
+.qmeds-details {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  display: flex;
+  min-width: 1094px;
+}
+
+.qmeds-details .overlap-group9 {
+  height: 1920px;
+  position: relative;
+  width: 1094px;
+}
+
+.qmeds-details .overlap-group8 {
+  height: 1920px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1044px;
+}
+
+.qmeds-details .description {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  left: 170px;
+  min-height: 1084px;
+  padding: 89px 40.3px;
+  position: absolute;
+  top: 333px;
+  width: 874px;
+}
+
+.qmeds-details .flex-row {
+  align-self: center;
+  margin-left: 80.69px;
+  min-width: 489px;
+}
+
+.qmeds-details .overlap-group {
+  height: 46px;
+  margin-top: 4.5px;
+  position: relative;
+  width: 73px;
+}
+
+.qmeds-details .csv {
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: 9px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 73px;
+}
+
+.qmeds-details .mask-group {
+  height: 46px;
+  left: 13px;
+  position: absolute;
+  top: 0;
+  width: 48px;
+}
+
+.qmeds-details .text-14 {
+  margin-bottom: 13.0px;
+  margin-left: 36px;
+  min-height: 24px;
+  min-width: 49px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.qmeds-details .mask-group-1 {
+  height: 57px;
+  margin-left: 64px;
+  width: 57px;
+}
+
+.qmeds-details .text-15 {
+  align-self: flex-start;
+  margin-left: 46px;
+  margin-top: 7px;
+  min-height: 24px;
+  min-width: 49px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.qmeds-details .mask-group-2 {
+  align-self: flex-end;
+  height: 56px;
+  margin-left: 59px;
+  width: 56px;
+}
+
+.qmeds-details .flex-row-1 {
+  align-items: flex-start;
+  display: flex;
+  height: 512px;
+  margin-right: 15.0px;
+  margin-top: 37px;
+  min-width: 655px;
+}
+
+.qmeds-details .flex-col {
+  flex-direction: column;
+  gap: 115px;
+  min-height: 512px;
+  width: 180px;
+}
+
+.qmeds-details .upload-your-data {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 30.0px;
+  min-height: 37px;
+  text-align: center;
+  width: 74px;
+}
+
+.qmeds-details .clustering-is-a-meth {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 360px;
+  width: 180px;
+}
+
+.qmeds-details .flex-col-1 {
+  align-items: flex-start;
+  gap: 120px;
+  margin-left: 67px;
+  min-height: 412px;
+  width: 153px;
+}
+
+.qmeds-details .quantum-computer-wil {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 3px;
+  min-height: 37px;
+  text-align: center;
+  width: 143px;
+}
+
+.qmeds-details .classical-clustering {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 255px;
+  width: 153px;
+}
+
+.qmeds-details .our-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 108px;
+  margin-left: 63px;
+  min-height: 494px;
+  width: 192px;
+}
+
+.qmeds-details .download-your-clustered-data {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 51px;
+  text-align: center;
+  width: 133px;
+}
+
+.qmeds-details .our-q-medoids-quantu {
+  align-self: flex-end;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 335px;
+  width: 169px;
+}
+
+.qmeds-details .vector {
+  height: 1px;
+  margin-top: 103px;
+  width: 687px;
+}
+
+.qmeds-details .button-sign {
+  align-items: flex-start;
+  border-radius: 17px;
+  background: linear-gradient(to left,#03FE9C, 40%, #3A64FA);
+  box-shadow: 0px 0px 4px 5px #00000040;
+  cursor: pointer;
+  display: flex;
+  height: 40px;
+  left: 849px;
+  min-width: 147px;
+  padding: 10px 13.7px;
+  position: absolute;
+  top: 322px;
+}
+
+.qmeds-details .vector-1 {
+  top: 390px;
+}
+
+.qmeds-details .vector-2 {
+  top: 602px;
+}
+
+.qmeds-details .side {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  display: flex;
+  height: 1920px;
+  justify-content: flex-end;
+  left: 0;
+  min-width: 213px;
+  padding: 6px 3.4px;
+  position: absolute;
+  top: 0;
+}
+
+.qmeds-details .overlap-group1 {
+  height: 447px;
+  position: relative;
+  width: 200px;
+}
+
+.qmeds-details .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 200px;
+  left: 4px;
+  position: absolute;
+  top: 118px;
+  width: 191px;
+}
+
+.qmeds-details .side-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+  left: 0;
+  min-height: 447px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+.qmeds-details .mask-group-3 {
+  cursor: pointer;
+  height: 72px;
+  margin-left: 1.0px;
+  width: 199px;
+}
+
+.qmeds-details .flex-row-2 {
+  align-items: flex-end;
+  display: flex;
+  gap: 36px;
+  height: 299px;
+  margin-left: 1.9px;
+  min-width: 173px;
+}
+
+.qmeds-details .flex-col-2 {
+  align-items: flex-start;
+  margin-bottom: 0.89px;
+  min-height: 295px;
+  width: 23px;
+}
+
+.qmeds-details .app-2 {
+  cursor: pointer;
+  height: 21px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.qmeds-details .usine-2 {
+  height: 20px;
+  margin-top: 191px;
+  object-fit: cover;
+  width: 20px;
+}
+
+.qmeds-details .rapport-danalyse-2 {
+  cursor: pointer;
+  height: 23px;
+  margin-top: 40px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qmeds-details .flex-col-3 {
+  align-items: flex-end;
+  min-height: 299px;
+  width: 114px;
+}
+
+.qmeds-details .q-apps {
+  cursor: pointer;
+  margin-right: 0.48px;
+  min-height: 24px;
+  width: 92px;
+}
+
+.qmeds-details .by-industry {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 0.67px;
+  margin-top: 190px;
+  min-height: 25px;
+  text-align: right;
+  width: 114px;
+}
+
+.qmeds-details .dashboard {
+  cursor: pointer;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 35px;
+  min-height: 25px;
+  text-align: right;
+  width: 108px;
+}
+
+.qmeds-details .text-16 {
+  left: 25px;
+  position: absolute;
+  top: 270px;
+  transform: rotate(-90deg);
+  width: 19px;
+}
+
+.qmeds-details .rectangle-8 {
+  height: 29px;
+  left: 1px;
+  position: absolute;
+  top: 155px;
+  width: 197px;
+}
+
+.qmeds-details .q-seg {
+  left: 119px;
+  position: absolute;
+  top: 182px;
+  width: 68px;
+}
+
+.qmeds-details .q-road {
+  left: 133px;
+  position: absolute;
+  top: 208px;
+  width: 53px;
+}
+
+.qmeds-details .q-sched {
+  left: 77px;
+  position: absolute;
+  top: 235px;
+  width: 110px;
+}
+
+.qmeds-details .q-pgm {
+  left: 123px;
+  position: absolute;
+  top: 261px;
+  width: 64px;
+}
+
+.qmeds-details .q-color {
+  left: 106px;
+  position: absolute;
+  top: 287px;
+  width: 80px;
+}
+
+.qmeds-details .q-medoids {
+  left: 91px;
+  position: absolute;
+  top: 159px;
+  width: 96px;
+}
+
+.qmeds-details .applications-for-q-med {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  left: 332px;
+  min-height: 131px;
+  position: absolute;
+  top: 1228px;
+  width: 678px;
+}
+
+.qmeds-details .applications-for-q-medoids {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -42px;
+  min-height: 29px;
+  width: 261px;
+}
+
+.qmeds-details .overlap-group-container {
+  align-items: flex-end;
+  display: flex;
+  height: 131px;
+  min-width: 678px;
+}
+
+.qmeds-details .group-container {
+  align-items: center;
+  background-color: var(--midnight);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 1px #ffffff40;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 131px;
+  padding: 3px 2.6px;
+  width: 131px;
+}
+
+.qmeds-details .analyse-customer-groups {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 1.4px;
+  min-height: 18px;
+  text-align: center;
+  width: 124px;
+}
+
+.qmeds-details .overlap-group7 {
+  align-items: center;
+  background-color: var(--fiord);
+  border-radius: 5px;
+  display: flex;
+  height: 62px;
+  margin-left: 1.0px;
+  min-width: 70px;
+  padding: 0 15px;
+}
+
+.qmeds-details .mask-group-4 {
+  height: 40px;
+  width: 40px;
+}
+
+.qmeds-details .overlap-group4 {
+  align-items: center;
+  background-color: var(--midnight);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 1px #ffffff40;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 48px;
+  min-height: 131px;
+  padding: 2px 6px;
+  width: 131px;
+}
+
+.qmeds-details .optimizing-the-supply-chain {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 3.0px;
+  min-height: 18px;
+  text-align: center;
+  width: 116px;
+}
+
+.qmeds-details .overlap-group2 {
+  align-items: flex-start;
+  background-color: var(--fiord);
+  border-radius: 5px;
+  display: flex;
+  height: 62px;
+  margin-left: 1.0px;
+  min-width: 70px;
+  padding: 9px 13px;
+}
+
+.qmeds-details .mask-group-5 {
+  height: 43px;
+  width: 43px;
+}
+
+.qmeds-details .overlap-group6 {
+  align-items: center;
+  background-color: var(--midnight);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 1px #ffffff40;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-left: 47px;
+  min-height: 131px;
+  padding: 4px 0;
+  width: 131px;
+}
+
+.qmeds-details .find-anomalies {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 13px;
+  min-width: 81px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.qmeds-details .overlap-group-1 {
+  align-items: flex-start;
+  background-color: var(--fiord);
+  border-radius: 5px;
+  display: flex;
+  height: 62px;
+  margin-left: 1.0px;
+  min-width: 70px;
+  padding: 15px 19px;
+}
+
+.qmeds-details .diagram_7654033-1 {
+  height: 31px;
+  object-fit: cover;
+  width: 31px;
+}
+
+.qmeds-details .overlap-group5 {
+  align-items: flex-end;
+  background-color: var(--midnight);
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 1px #ffffff40;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-left: 59px;
+  min-height: 130px;
+  padding: 2px 23.5px;
+  width: 131px;
+}
+
+.qmeds-details .segmenting-images {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 18px;
+  text-align: center;
+  width: 84px;
+}
+
+.qmeds-details .overlap-group1-1 {
+  align-items: flex-start;
+  align-self: center;
+  background-color: var(--fiord);
+  border-radius: 5px;
+  display: flex;
+  height: 62px;
+  margin-left: 1.0px;
+  min-width: 70px;
+  padding: 9px 14px;
+}
+
+.qmeds-details .mask-group-6 {
+  height: 42px;
+  width: 42px;
+}
+
+.qmeds-details .intro {
+  align-items: center;
+  display: flex;
+  gap: 36px;
+  height: 138px;
+  left: 332px;
+  min-width: 652px;
+  position: absolute;
+  top: 124px;
+}
+
+.qmeds-details .mask-group-7 {
+  height: 126px;
+  margin-bottom: 3.08px;
+  width: 129px;
+}
+
+.qmeds-details .flex-col-4 {
+  align-items: flex-start;
+  align-self: flex-end;
+  gap: 9px;
+  margin-bottom: -32px;
+  min-height: 167px;
+  width: 483px;
+}
+
+.qmeds-details .title {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 32px;
+  text-align: justify;
+  width: 163px;
+}
+
+.qmeds-details .drastically-accelera {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 126px;
+  text-align: justify;
+  width: 483px;
+}
+
+.qmeds-details .header {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  justify-content: flex-start;
+  left: 288px;
+  min-width: 806px;
+  position: absolute;
+  top: 16px;
+  width: auto;
+}
+
+.qmeds-details .overlap-group2-1 {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  display: flex;
+  gap: 231px;
+  height: 88px;
+  justify-content: flex-end;
+  margin-left: -75px;
+  margin-top: -16px;
+  min-width: 881px;
+  padding: 16px 9px;
+}
+
+.qmeds-details .overlap-group-2 {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 332px;
+}
+
+.qmeds-details .flex-col-5 {
+  align-items: center;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+}
+
+.qmeds-details .flex-row-3 {
+  align-items: flex-end;
+  display: flex;
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.qmeds-details .mask-group-8 {
+  height: 20px;
+  width: 20px;
+}
+
+.qmeds-details .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qmeds-details .overlap-group1-2 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.qmeds-details .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qmeds-details .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qmeds-details .flex {
+  align-items: center;
+  display: flex;
+}
+
+.qmeds-details .flex-col-6 {
+  display: flex;
+  flex-direction: column;
+}
+
+.qmeds-details .q {
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: right;
+}
+
+.qmeds-details .text {
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.qmeds-details .vector-3 {
+  height: 1px;
+  left: 320px;
+  position: absolute;
+  width: 673px;
+}

@@ -1,0 +1,498 @@
+/* screen - qseg-result */
+
+.qseg-result {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  display: flex;
+  gap: 23px;
+  min-width: 1094px;
+}
+
+.qseg-result .side {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  display: flex;
+  height: 1920px;
+  justify-content: flex-end;
+  min-width: 213px;
+  padding: 6px 3.4px;
+}
+
+.qseg-result .overlap-group {
+  height: 447px;
+  position: relative;
+  width: 200px;
+}
+
+.qseg-result .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 200px;
+  left: 4px;
+  position: absolute;
+  top: 118px;
+  width: 191px;
+}
+
+.qseg-result .side-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  min-height: 447px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+.qseg-result .mask-group {
+  height: 72px;
+  margin-left: 1.0px;
+  width: 199px;
+}
+
+.qseg-result .group-42 {
+  align-items: center;
+  gap: 60px;
+  height: 24px;
+  margin-left: 3.42px;
+  margin-top: 54px;
+}
+
+.qseg-result .app-2 {
+  height: 21px;
+  margin-top: 1.0px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.qseg-result .q-apps {
+  min-height: 24px;
+  width: 92px;
+}
+
+.qseg-result .flex-row {
+  gap: 39px;
+  height: 25px;
+  margin-left: 1.24px;
+  margin-top: 189px;
+  min-width: 173px;
+}
+
+.qseg-result .usine-2 {
+  height: 20px;
+  margin-top: 1px;
+  object-fit: cover;
+  width: 20px;
+}
+
+.qseg-result .by-industry {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 114px;
+}
+
+.qseg-result .group-41 {
+  align-items: flex-start;
+  gap: 42px;
+  height: 25px;
+  margin-left: 3.9px;
+  margin-top: 36px;
+}
+
+.qseg-result .rapport-danalyse-2 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-result .dashboard {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 108px;
+}
+
+.qseg-result .text-1 {
+  left: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 286px;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  width: 10px;
+}
+
+.qseg-result .rectangle-8 {
+  height: 29px;
+  left: 1px;
+  position: absolute;
+  top: 179px;
+  width: 197px;
+}
+
+.qseg-result .q-seg {
+  left: 119px;
+  position: absolute;
+  top: 182px;
+  width: 68px;
+}
+
+.qseg-result .q-road {
+  left: 133px;
+  position: absolute;
+  top: 208px;
+  width: 53px;
+}
+
+.qseg-result .q-sched {
+  left: 77px;
+  position: absolute;
+  top: 235px;
+  width: 110px;
+}
+
+.qseg-result .q-pgm {
+  left: 123px;
+  position: absolute;
+  top: 261px;
+  width: 64px;
+}
+
+.qseg-result .q-color {
+  left: 106px;
+  position: absolute;
+  top: 287px;
+  width: 80px;
+}
+
+.qseg-result .q-medoids {
+  left: 91px;
+  position: absolute;
+  top: 159px;
+  width: 96px;
+}
+
+.qseg-result .flex-col {
+  flex-direction: column;
+  gap: 52px;
+  margin-top: 16px;
+  min-height: 841px;
+  width: 858px;
+}
+
+.qseg-result .flex-row-1 {
+  gap: 16px;
+  height: 156px;
+  min-width: 858px;
+}
+
+.qseg-result .valide-1 {
+  height: 33px;
+  margin-bottom: 1px;
+  object-fit: cover;
+  width: 33px;
+}
+
+.qseg-result .flex-col-1 {
+  align-items: flex-start;
+  gap: 40px;
+  min-height: 156px;
+  width: 809px;
+}
+
+.qseg-result .header {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  height: 80px;
+  justify-content: flex-start;
+  margin-left: 3px;
+  min-width: 806px;
+  width: auto;
+}
+
+.qseg-result .overlap-group1 {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  display: flex;
+  gap: 231px;
+  height: 88px;
+  justify-content: flex-end;
+  margin-left: -75px;
+  margin-top: -16px;
+  min-width: 881px;
+  padding: 16px 9px;
+}
+
+.qseg-result .overlap-group-1 {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 332px;
+}
+
+.qseg-result .flex-col-2 {
+  align-items: center;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+}
+
+.qseg-result .flex-row-2 {
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.qseg-result .mask-group-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.qseg-result .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-result .overlap-group2 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.qseg-result .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-result .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-result .overlap-group3 {
+  height: 36px;
+  position: relative;
+  width: 809px;
+}
+
+.qseg-result .image-q-processed {
+  height: 36px;
+  left: 0;
+  letter-spacing: 1.00px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 246px;
+}
+
+.qseg-result .line-7 {
+  height: 1px;
+  left: 242px;
+  position: absolute;
+  top: 19px;
+  width: 567px;
+}
+
+.qseg-result .results {
+  align-items: center;
+  display: flex;
+  gap: 41px;
+  min-width: 836px;
+}
+
+.qseg-result .overlap-group2-1 {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(55, 97, 249, 0.2) 0%, rgba(0, 255, 158, 0.2) 100%);
+  border-radius: 12px;
+  box-shadow: 0px 4px 27px -4px #00000040;
+  display: flex;
+  flex-direction: column;
+  gap: 51px;
+  min-height: 633px;
+  width: 345px;
+}
+
+.qseg-result .overlap-group1-1 {
+  align-items: center;
+  background-color: #5e647933;
+  border-radius: 12px;
+  box-shadow: 0px 4px 27px -4px #00000040;
+  display: flex;
+  height: 103px;
+  justify-content: flex-end;
+  min-width: 345px;
+  padding: 0 84px;
+}
+
+.qseg-result .original-image {
+  height: 23px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  white-space: nowrap;
+  width: 176px;
+}
+
+.qseg-result .image2-1 {
+  height: 326px;
+  margin-left: 0;
+  width: 323px;
+}
+
+.qseg-result .overlap-group-2 {
+  align-items: center;
+  border-radius: 23px;
+  display: flex;
+  gap: 22px;
+  height: 37px;
+  min-width: 247px;
+  padding: 6px 17px;
+}
+
+.qseg-result .mask-group-2 {
+  align-self: flex-end;
+  height: 23px;
+  width: 23px;
+}
+
+.qseg-result .change-original-image {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 1.0px;
+  min-height: 18px;
+  min-width: 162px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.qseg-result .logoquantique {
+  height: 63px;
+  width: 63px;
+}
+
+.qseg-result .overlap-group1-2 {
+  height: 633px;
+  position: relative;
+  width: 346px;
+}
+
+.qseg-result .rectangle-69 {
+  background: linear-gradient(180deg, rgba(55, 97, 249, 0.2) 0%, rgba(0, 255, 158, 0.2) 100%);
+  border-radius: 12px;
+  box-shadow: 0px 4px 27px -4px #00000040;
+  height: 633px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 345px;
+}
+
+.qseg-result .rectangle-72 {
+  background-color: #5e647933;
+  border-radius: 12px;
+  box-shadow: 0px 4px 27px -4px #00000040;
+  height: 103px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 345px;
+}
+
+.qseg-result .segmented-image {
+  height: 19px;
+  left: 64px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 40px;
+  white-space: nowrap;
+  width: 218px;
+}
+
+.qseg-result .image3-1 {
+  height: 283px;
+  left: 31px;
+  position: absolute;
+  top: 175px;
+  width: 284px;
+}
+
+.qseg-result .overlap-group-3 {
+  align-items: center;
+  border-radius: 25px;
+  display: flex;
+  gap: 11px;
+  height: 37px;
+  left: 104px;
+  min-width: 143px;
+  padding: 0 13px;
+  position: absolute;
+  top: 530px;
+}
+
+.qseg-result .mask-group-3 {
+  height: 19px;
+  width: 19px;
+}
+
+.qseg-result .download {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 1.0px;
+  min-height: 18px;
+  min-width: 74px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.qseg-result .flex {
+  align-items: flex-start;
+  display: flex;
+}
+
+.qseg-result .flex-col-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.qseg-result .flex-row-3 {
+  align-items: flex-end;
+  display: flex;
+}
+
+.qseg-result .group {
+  cursor: pointer;
+  display: flex;
+  min-width: 175px;
+}
+
+.qseg-result .q {
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: right;
+}

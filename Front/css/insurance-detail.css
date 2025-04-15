@@ -1,0 +1,726 @@
+/* screen - insurance-detail */
+
+.insurance-detail {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  display: flex;
+  gap: 35px;
+  height: 1920px;
+  min-width: 1094px;
+  overflow-x: hidden;
+}
+
+.insurance-detail .side {
+  align-items: center;
+  background-color: var(--ebony-clay);
+  display: flex;
+  flex-direction: column;
+  min-height: 1920px;
+  padding: 6px 3.5px;
+  width: 216px;
+}
+
+.insurance-detail .mask-group {
+  align-self: flex-end;
+  cursor: pointer;
+  height: 72px;
+  width: 201px;
+}
+
+.insurance-detail .group-39 {
+  gap: 61px;
+  height: 24px;
+  margin-left: 10.1px;
+  margin-top: 54px;
+  min-width: 177px;
+}
+
+.insurance-detail .app-2 {
+  height: 21px;
+  margin-top: 1.27px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.insurance-detail .q-apps {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 24px;
+  text-align: right;
+  width: 93px;
+}
+
+.insurance-detail .overlap-group {
+  height: 203px;
+  margin-left: 0;
+  margin-top: 29px;
+  position: relative;
+  width: 202px;
+}
+
+.insurance-detail .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 203px;
+  left: 3px;
+  position: absolute;
+  top: 0;
+  width: 196px;
+}
+
+.insurance-detail .rectangle-8 {
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 47px;
+  width: 202px;
+}
+
+.insurance-detail .insurance {
+  left: 79px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 50px;
+  width: 98px;
+}
+
+.insurance-detail .logistics {
+  left: 105px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 75px;
+  width: 69px;
+}
+
+.insurance-detail .place {
+  left: 120px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 101px;
+  width: 54px;
+}
+
+.insurance-detail .manufacturing {
+  left: 62px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 125px;
+  width: 112px;
+}
+
+.insurance-detail .telecom {
+  left: 108px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 151px;
+  width: 65px;
+}
+
+.insurance-detail .retail {
+  left: 130px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 177px;
+  width: 43px;
+}
+
+.insurance-detail .text-42 {
+  left: 30px;
+  position: absolute;
+  top: 160px;
+  transform: rotate(-90deg);
+  width: 19px;
+}
+
+.insurance-detail .by-industry {
+  left: 77px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 9px;
+  width: 115px;
+}
+
+.insurance-detail .usine-2 {
+  height: 20px;
+  left: 16px;
+  object-fit: cover;
+  position: absolute;
+  top: 12px;
+  width: 20px;
+}
+
+.insurance-detail .group-40 {
+  gap: 44px;
+  height: 25px;
+  margin-left: 11.6px;
+  margin-top: 26px;
+  min-width: 179px;
+}
+
+.insurance-detail .rapport-danalyse-2 {
+  height: 23px;
+  margin-top: 0.41px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.insurance-detail .dashboard {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 110px;
+}
+
+.insurance-detail .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  min-height: 1213px;
+  width: 845px;
+}
+
+.insurance-detail .header {
+  align-items: flex-start;
+  align-self: flex-end;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  height: 80px;
+  justify-content: flex-start;
+  min-width: 806px;
+  width: auto;
+}
+
+.insurance-detail .overlap-group-1 {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  display: flex;
+  gap: 231px;
+  height: 88px;
+  justify-content: flex-end;
+  margin-left: -76px;
+  margin-top: -15px;
+  min-width: 881px;
+  padding: 15px 8px;
+}
+
+.insurance-detail .overlap-group1 {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 2.0px;
+  position: relative;
+  width: 332px;
+}
+
+.insurance-detail .flex-col-1 {
+  align-items: center;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+}
+
+.insurance-detail .flex-row {
+  align-items: flex-end;
+  display: flex;
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.insurance-detail .mask-group-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.insurance-detail .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.insurance-detail .overlap-group2 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.insurance-detail .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.insurance-detail .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.insurance-detail .intro {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  margin-top: 41px;
+  min-height: 256px;
+  width: 736px;
+}
+
+.insurance-detail .vehicule-classification-for-pricing {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1px;
+  min-height: 27px;
+  width: 446px;
+}
+
+.insurance-detail .flex-row-1 {
+  gap: 39px;
+  height: 183px;
+  margin-left: 0.22px;
+  min-width: 736px;
+}
+
+.insurance-detail .overlap-group-2 {
+  align-items: flex-start;
+  align-self: flex-end;
+  background-image: url(../img/image-210@2x.png);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  min-height: 180px;
+  padding: 13.6px 11.3px;
+  width: 180px;
+}
+
+.insurance-detail .vehicle-classification-for-pricing {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 61px;
+  min-height: 30px;
+  width: 139px;
+}
+
+.insurance-detail .insurance-1 {
+  align-self: flex-end;
+  margin-right: 18.34px;
+}
+
+.insurance-detail .flex-col-2 {
+  align-items: flex-start;
+  gap: 19px;
+  min-height: 91px;
+  width: 517px;
+}
+
+.insurance-detail .turn-complexity-into {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 21px;
+  width: 425px;
+}
+
+.insurance-detail .the-q-medoids-app-em {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 0.01px;
+  min-height: 50px;
+  text-align: justify;
+  width: 517px;
+}
+
+.insurance-detail .schem {
+  align-items: flex-start;
+  align-self: center;
+  display: flex;
+  height: 142px;
+  margin-right: 137.25px;
+  margin-top: 76px;
+  min-width: 527px;
+}
+
+.insurance-detail .flex-col-3 {
+  align-items: flex-start;
+  align-self: center;
+  gap: 40px;
+  margin-top: 1.0px;
+  min-height: 123px;
+  width: 74px;
+}
+
+.insurance-detail .overlap-group-3 {
+  height: 46px;
+  margin-left: 1px;
+  position: relative;
+  width: 73px;
+}
+
+.insurance-detail .csv {
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: 9px;
+  font-weight: 700;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 11px;
+  width: 73px;
+}
+
+.insurance-detail .mask-group-2 {
+  height: 46px;
+  left: 13px;
+  position: absolute;
+  top: 0;
+  width: 48px;
+}
+
+.insurance-detail .upload-your-vehicle-list {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 37px;
+  text-align: center;
+  width: 74px;
+}
+
+.insurance-detail .text-40 {
+  margin-left: 36px;
+  margin-top: 12px;
+  min-height: 24px;
+  min-width: 49px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.insurance-detail .flex-col-4 {
+  align-items: center;
+  gap: 37px;
+  margin-left: 23px;
+  margin-top: 2px;
+  min-height: 131px;
+  width: 143px;
+}
+
+.insurance-detail .mask-group-3 {
+  height: 57px;
+  margin-right: 4.0px;
+  width: 57px;
+}
+
+.insurance-detail .quantum-computer-wil {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 37px;
+  text-align: center;
+  width: 143px;
+}
+
+.insurance-detail .text-41 {
+  margin-left: 1px;
+  margin-top: 9px;
+  min-height: 24px;
+  min-width: 49px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.insurance-detail .vehic-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-left: 19px;
+  min-height: 141px;
+  width: 133px;
+}
+
+.insurance-detail .vehiculelogo {
+  align-items: flex-end;
+  background-image: url(../img/mask-group-106@2x.png);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.65px;
+  min-height: 58px;
+  padding: 0 0.4px;
+  width: 58px;
+}
+
+.insurance-detail .line-container {
+  height: 36px;
+  margin-right: 1.0px;
+  position: relative;
+  width: 29px;
+}
+
+.insurance-detail .line-10 {
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 18px;
+  width: 29px;
+}
+
+.insurance-detail .line-8 {
+  height: 36px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 2px;
+}
+
+.insurance-detail .line-9 {
+  height: 1px;
+  object-fit: cover;
+  width: 29px;
+}
+
+.insurance-detail .download-your-sorted-list-of-vehicles {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 51px;
+  text-align: center;
+  width: 133px;
+}
+
+.insurance-detail .vector {
+  height: 1px;
+  margin-left: 25.54px;
+  margin-top: 56px;
+  width: 619px;
+}
+
+.insurance-detail .how-it-works {
+  align-items: flex-start;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+  margin-right: 25.56px;
+  margin-top: 28px;
+  min-height: 221px;
+  width: 761px;
+}
+
+.insurance-detail .how-it-works-1 {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 0.02px;
+  margin-top: -1px;
+  min-height: 21px;
+  width: 115px;
+}
+
+.insurance-detail .flex-row-2 {
+  gap: 68px;
+  height: 166px;
+  min-width: 763px;
+}
+
+.insurance-detail .our-q-medoids-app-he {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 166px;
+  text-align: justify;
+  width: 473px;
+}
+
+.insurance-detail .overlap-group3 {
+  height: 151px;
+  margin-top: 1.29px;
+  position: relative;
+  width: 223px;
+}
+
+.insurance-detail .vector-1 {
+  height: 151px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 206px;
+}
+
+.insurance-detail .mask-group-4 {
+  height: 65px;
+  left: 16px;
+  position: absolute;
+  top: 16px;
+  width: 66px;
+}
+
+.insurance-detail .discover {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+  height: 14px;
+  left: 160px;
+  min-width: 62px;
+  position: absolute;
+  top: 117px;
+}
+
+.insurance-detail .use {
+  color: #008ef4;
+  font-family: var(--font-family-inter);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 14px;
+  width: 60px;
+}
+
+.insurance-detail .cluster-data-faster {
+  left: 94px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: 21px;
+  width: 96px;
+}
+
+.insurance-detail .vector-2 {
+  height: 1px;
+  margin-left: 15.41px;
+  margin-top: 17px;
+  width: 619px;
+}
+
+.insurance-detail .other-use-cases {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  margin-left: 22px;
+  margin-top: 92px;
+  min-height: 202px;
+  width: 487px;
+}
+
+.insurance-detail .discover-other-use-cases-in-insurance {
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: 12.4px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 0.34px;
+  margin-top: -1px;
+  min-height: 27px;
+  width: 487px;
+}
+
+.insurance-detail .overlap-group-container {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  height: 142px;
+  min-width: 295px;
+}
+
+.insurance-detail .overlap-group5 {
+  align-items: flex-end;
+  background-image: url(../img/image-213@2x.png);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 47px;
+  min-height: 142px;
+  padding: 7.1px 3.9px;
+  width: 142px;
+}
+
+.insurance-detail .early-fraud-detection {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 3.7px;
+  margin-top: 52px;
+  min-height: 14px;
+  width: 119px;
+}
+
+.insurance-detail .overlap-group4 {
+  align-items: flex-end;
+  background-image: url(../img/image-216@2x.png);
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  min-height: 142px;
+  padding: 7.1px 7.8px;
+  width: 142px;
+}
+
+.insurance-detail .detection-of-disaste {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 52px;
+  min-height: 35px;
+  width: 119px;
+}
+
+.insurance-detail .insurance-3 {
+  margin-right: 0.81px;
+}
+
+.insurance-detail .flex-col-5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.insurance-detail .flex-row-3 {
+  align-items: flex-start;
+  display: flex;
+}
+
+.insurance-detail .group {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+
+.insurance-detail .insurance-4 {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 14px;
+  white-space: nowrap;
+  width: 71px;
+}
+
+.insurance-detail .text {
+  letter-spacing: 0;
+  line-height: normal;
+}

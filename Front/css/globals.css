@@ -1,0 +1,273 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inter:100,400,600,700italic,300,700");
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/67efad16c79d4573ff5eb3ca.67efad16c79d4573ff5eb3cd.auI5SBv.hcp.png");
+
+@font-face {
+  font-family: "JejuMyeongjo-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/JejuMyeongjo-Regular.ttf") format("truetype");
+}
+
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.loupe-arrondie-1 {
+  height: 22px;
+  left: 9px;
+  object-fit: cover;
+  position: absolute;
+  top: 6px;
+  width: 22px;
+}
+
+.find-q-apps-or-industry {
+  left: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 206px;
+}
+
+.discover-our-q-apps {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 27px;
+  width: 242px;
+}
+
+.select-1 {
+  margin-right: 8.0px;
+  min-height: 13px;
+  width: 46px;
+}
+
+.segment-images-insta {
+  align-self: flex-end;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 78px;
+  width: 87px;
+}
+
+.discover-it {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 60px;
+}
+
+.flche {
+  height: 3px;
+  left: 56px;
+  position: absolute;
+  top: 5px;
+  width: 16px;
+}
+
+.discover-1 {
+  align-items: flex-start;
+  align-self: flex-end;
+  cursor: pointer;
+  display: flex;
+  height: 14px;
+  margin-top: 33px;
+  min-width: 62px;
+}
+
+.optimize-routes-in-r {
+  height: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  width: 98px;
+}
+
+.square {
+  align-self: center;
+  height: 33px;
+  margin-left: 0.72px;
+  margin-top: 7px;
+  width: 31px;
+}
+
+.q-pacq {
+  height: 11px;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 43px;
+}
+
+.packaging-optimization {
+  height: 10px;
+  left: 4px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 34px;
+}
+
+.select-5 {
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.group-30 {
+  align-items: flex-start;
+  height: 43px;
+  left: 315px;
+  min-width: 140px;
+  position: absolute;
+  top: 320px;
+}
+
+.processing {
+  color: #c0c0c0;
+  font-family: var(--font-family-inter);
+  font-size: 17px;
+  font-weight: 700;
+  height: 41px;
+  letter-spacing: 0;
+  line-height: normal;
+  min-width: 109px;
+  text-align: center;
+}
+.processingseg {
+  color: #c0c0c0;
+  font-family: var(--font-family-inter);
+  font-size: 17px;
+  font-weight: 700;
+  height: 4px;
+  letter-spacing: 0;
+  line-height: normal;
+  min-width: 109px;
+  text-align: center;
+}
+.sign-in-to-use-it {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 18px;
+  width: 118px;
+}
+
+.reducing-delivery-ca {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 9.44px;
+  margin-top: 22px;
+  min-height: 16px;
+  width: 69px;
+}
+
+.loading-unloading {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 1.28px;
+  margin-top: 22px;
+  min-height: 14px;
+  width: 116px;
+}
+
+.rectangle-57 {
+  background: linear-gradient(90deg, rgba(58, 100, 250, 1) 0%, rgba(3, 254, 156, 1) 100%);
+  border-radius: 21.5px;
+  height: 43px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 138px;
+}
+
+.run-button {
+  position: relative;
+  width: 138px;
+  height: 43px;
+}
+
+.rectangle-58 {
+  background: linear-gradient(90deg, rgba(58, 100, 250, 1) 0%, rgba(3, 254, 156, 1) 100%);
+  border-radius: 21.5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.button-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 28px; /* espace entre "run" et ">" */
+  align-items: center;
+  z-index: 1;
+}
+
+.run {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+}
+
+.text-37 {
+  font-size: 25px;
+  font-weight: 600;
+  color: black;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 20px 14px; /* Ajuste la hauteur et l'espacement du texte */
+  background-color: transparent;
+  border: none;
+  text-align: left; /* Si tu veux le texte aligné à gauche */
+  border-radius: 999px;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #324158;
+}
