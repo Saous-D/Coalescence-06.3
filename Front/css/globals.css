@@ -259,11 +259,12 @@
 
 .sidebar button {
   width: 100%;
-  padding: 20px 14px; /* Ajuste la hauteur et l'espacement du texte */
+  padding: 14px 12px; /* Ajuste la hauteur et l'espacement du texte */
+  margin-right: 0px;
   background-color: transparent;
   border: none;
-  text-align: left; /* Si tu veux le texte aligné à gauche */
-  border-radius: 999px;
+  text-align: right; /* Si tu veux le texte aligné à gauche */
+  border-radius: 25px;
   color: white;
   transition: background-color 0.3s ease;
 }

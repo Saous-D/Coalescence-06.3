@@ -131,9 +131,9 @@
 }
 
 .insurance .text-25 {
-  left: 30px;
+  left: 15px;
   position: absolute;
-  top: 160px;
+  top: 170px;
   transform: rotate(-90deg);
   width: 19px;
 }
@@ -450,14 +450,17 @@
 
 .insurance .overlap-group3 {
   align-items: flex-start;
-  background-image: url(../img/vector-82.svg);
+  background-image: url(../img/vector-18.svg);
   background-size: 100% 100%;
   display: flex;
-  gap: 9px;
+  gap: 8px;
   height: 151px;
   justify-content: flex-end;
+  left: 0px;
   min-width: 200px;
-  padding: 10px 1.6px;
+  padding: 9px 2.6px;
+  position: absolute;
+  top: 0;
 }
 
 .insurance .flex-col {

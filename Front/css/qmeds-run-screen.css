@@ -119,8 +119,9 @@
 }
 
 .qmeds-run-screen .text-43 {
-  left: 25px;
-  top: 270px;
+ left: 15px;
+  position: absolute;
+  top: 280px;
   transform: rotate(-90deg);
   width: 19px;
 }
