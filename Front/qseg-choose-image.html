@@ -76,8 +76,23 @@
                   DRAG AND DROP YOUR IMAGE OR SELECT FROM FILES
                 </p>
                 <img class="cloud" src="img/cloud-1@2x.png" alt="Cloud" />
+                <div id="imagePopup" class="popup" style="display: none;">
+                  <span class="popup-close" onclick="closePopup()">&times;</span>
+                  <img src="img/Ghana_141271_S2Hand.png" alt="Image 1" onclick="selectImage('img/Ghana_141271_S2Hand.tif');">
+                  <img src="img/Spain_5650136_S2Hand.png" alt="Image 2" onclick="selectImage('img/Spain_5650136_S2Hand.tif')">
+                  <img src="img/India_399883_S2Hand.png" alt="Image 3" onclick="selectImage('img/India_399883_S2Hand.tif')">
+                  <img src="img/India_631692_S2Hand.png" alt="Image 4" onclick="selectImage('img/India_631692_S2Hand.tif')">
+                  <img src="img/India_900498_S2Hand.png" alt="Image 5" onclick="selectImage('img/India_900498_S2Hand.tif')">
+                  <img src="img/India_1018327_S2Hand.png" alt="Image 6" onclick="selectImage('img/India_1018327_S2Hand.tif')">
+                  <img src="img/Paraguay_280900_S2Hand.png" alt="Image 7" onclick="selectImage('img/Paraguay_280900_S2Hand.tif')">
+                  <img src="img/Paraguay_651904_S2Hand.png" alt="Image 8" onclick="selectImage('img/Paraguay_651904_S2Hand.tif')">
+                  <img src="img/Paraguay_790830_S2Hand.png" alt="Image 9" onclick="selectImage('img/Paraguay_790830_S2Hand.tif')">
+                  <img src="img/Sri-Lanka_534068_S2Hand.png" alt="Image 10" onclick="selectImage('img/Sri-Lanka_534068_S2Hand.tif')">
+                  <img src="img/Sri-Lanka_713926_S2Hand.png" alt="Image 11" onclick="selectImage('img/Sri-Lanka_713926_S2Hand.tif')">
+              </div>
                 <div class="overlap-group-1 overlap-group-3">
-                  <a href="qseg-choose-image-selection.html"><div class="select-image">select image</div> </a>
+                  <!-- <a href="qseg-choose-image-selection.html"><div class="select-image">select image</div> </a> -->
+                  <label class="custom-file-upload" id="chooseImageBtn">Choisir une image</label>
                 </div>
                 <div class="overlap-group1-1">
                   <div class="accepted-files-tif">Accepted files : .tif</div>
@@ -104,5 +119,80 @@
         </div>
       </div>
     </div>
+    <script>
+
+        let imagePath = "";
+
+        document.getElementById("chooseImageBtn").addEventListener("click", function() {
+          document.getElementById("imagePopup").style.display = "block";
+        });
+
+        function closePopup() {
+            document.getElementById("imagePopup").style.display = "none";
+        }
+
+        function selectImage(selectedPath) {
+            imagePath = selectedPath;
+            console.log("Chemin de l'image sélectionnée :", imagePath);
+
+            closePopup();
+        }
+
+        $(document).ready(function() {
+            var socket = io();
+
+             // Handle real-time messages from the server
+             socket.on('messages', function(data) {
+                $('#statusMessages').empty(); // Clear previous messages
+                $('#statusMessages').text(data.data); // Add the new message
+            });
+
+            $("#run inter-semi-bold-black-17px").click(function() {
+                if (imagePath === "") {
+                    alert("Please choose an image first");
+                    return;
+                }
+
+                $("#loading").show();
+                $('#statusMessages').empty(); // Clear previous messages
+
+                var formData = new FormData();
+                formData.append('image_path', imagePath);
+                formData.append('image_height', localStorage.getItem('image_height'));
+                formData.append('image_width', localStorage.getItem('image_width'));
+                formData.append('water_penalty', localStorage.getItem('water_penalty'));
+                formData.append('no_water_penalty', localStorage.getItem('no_water_penalty'));
+                formData.append('sigma', localStorage.getItem('sigma'));
+                formData.append('mu', localStorage.getItem('mu'));
+                formData.append('k', localStorage.getItem('k'));
+                $.ajax({
+                    url: '/process',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        $("#loading").hide();
+                        $('#statusMessages').empty(); // Clear previous messages when processing is done
+
+                        if (response.image_data) {
+                            var processedImageData = "data:image/png;base64," + response.image_data;
+                            $("#resultImage").attr("src", processedImageData).show();
+                            $("#downloadButton").attr("href", processedImageData).show();
+                        } else {
+                            alert("Error processing image");
+                        }
+                    },
+                    error: function(response) {
+                        $("#loading").hide();
+                        $('#statusMessages').empty(); // Clear previous messages on error
+                        alert("An error occurred while processing the image");
+                    }
+                });
+            });
+        });
+
+  </script>
+
   </body>
 </html>
