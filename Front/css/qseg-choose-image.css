@@ -536,3 +536,50 @@ h2 {
   letter-spacing: 0;
   line-height: normal;
 }
+
+   .upload-container {
+  border: 2px dashed #aaa;
+  border-radius: 10px;
+  padding: 40px;
+  cursor: pointer;
+  display: flex;               /* Flexbox */
+  flex-direction: column;     /* Stack image and text vertically */
+  align-items: center;        /* Horizontal centering */
+  justify-content: center;    /* Vertical centering */
+  width: 100%;
+  transition: background-color 0.3s ease;
+    }
+
+    .upload-container:hover {
+      background-color: #f9f9f9;
+    }
+
+    .upload-container img {
+      width: 60px;
+    }
+
+    .upload-container p {
+      margin: auto;
+      font-size: 16px;
+      color: #fff;
+      width: 100%;
+    }
+
+    .accept-file-tif {
+      color: #000;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    #file-info {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }

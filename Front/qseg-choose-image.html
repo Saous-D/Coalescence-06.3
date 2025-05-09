@@ -74,7 +74,17 @@
             <img class="mask-group-2" src="img/mask-group-58@2x.png" alt="Mask group" />
             <div class="flex-col-2 flex-col-3">
               <div class="upload-your-image inter-bold-white-20px">UPLOAD YOUR IMAGE</div>
-              <div class="overlap-group4">
+                <label for="file-upload" class="upload-container">
+                  <p class="drag-and-drop-your-i inter-normal-white-20px">DRAG AND DROP YOUR IMAGE OR SELECT FROM FILES</p>
+                  <p class="drag-and-drop-your-i inter-normal-white-20px">Accepted files : .tif</p>
+                  <img src="img/cloud-1@2x.png" alt="Upload Icon">
+                </label>
+                <input id="file-upload" type="file" name="tifFile" accept=".tif" required>
+
+                <div id="file-info"></div>
+                <div id="error-message"></div>
+
+              <!-- <div class="overlap-group4">
                 <p class="drag-and-drop-your-i inter-normal-white-20px">
                   DRAG AND DROP YOUR IMAGE OR SELECT FROM FILES
                 </p>
@@ -94,14 +104,14 @@
                   <img src="img/Sri-Lanka_713926_S2Hand.png" alt="Image 11" onclick="selectImage('img/Sri-Lanka_713926_S2Hand.tif')">
               </div>
                 <div class="overlap-group-1 overlap-group-3">
-                  <!-- <a href="qseg-choose-image-selection.html"><div class="select-image">select image</div> </a> -->
+              
                   <label class="custom-file-upload" id="chooseImageBtn">Choisir une image</label>
                 </div>
                 <div class="overlap-group1-1">
                   <div class="accepted-files-tif">Accepted files : .tif</div>
                   <img class="mask-group-3" src="img/mask-group-75@2x.png" alt="Mask group" />
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="buttons">
@@ -114,8 +124,10 @@
               <div class="run-button">
   <div class="rectangle-58"></div>
   <div class="button-content">
+    <a href="qseg-result.html">
     <div class="run inter-semi-bold-black-17px">run</div>
     <div class="text-37 text inter-semi-bold-black-25px">&gt;</div>
+  </a>
   </div>
 </div>
           </div>
@@ -124,85 +136,121 @@
     </div>
     <script>
 
-        let imagePath = "";
+        // Old popup logic
+    //     let imagePath = "";
 
-        document.getElementById("chooseImageBtn").addEventListener("click", function() {
-          document.getElementById("imagePopup").style.display = "block";
-        });
+    //     document.getElementById("chooseImageBtn").addEventListener("click", function() {
+    //       document.getElementById("imagePopup").style.display = "block";
+    //     });
 
-        function closePopup() {
-            document.getElementById("imagePopup").style.display = "none";
+    //     function closePopup() {
+    //         document.getElementById("imagePopup").style.display = "none";
+    //     }
+
+    //     function selectImage(selectedPath) {
+    //         imagePath = selectedPath;
+    //         console.log("Chemin de l'image sélectionnée :", imagePath);
+
+    //         closePopup();
+    //     }
+
+    //     let image_height = 520;
+    //     let image_width = 520;
+    //     let water_penalty = 0.75;
+    //     let no_water_penalty = -0.75;
+    //     let sigma = 0.2;
+    //     let mu = 1;
+    //     let k = 2;
+
+    //     $(document).ready(function() {
+    //         var socket = io();
+
+    //          // Handle real-time messages from the server
+    //          socket.on('messages', function(data) {
+    //             $('#statusMessages').empty(); // Clear previous messages
+    //             $('#statusMessages').text(data.data); // Add the new message
+    //         });
+
+    //         $("#run inter-semi-bold-black-17px").click(function() {
+    //             if (imagePath === "") {
+    //                 alert("Please choose an image first");
+    //                 return;
+    //             }
+
+    //             $("#loading").show();
+    //             $('#statusMessages').empty(); // Clear previous messages
+
+    //             var formData = new FormData();
+    //             formData.append('image_path', imagePath);
+    //             formData.append('image_height', image_height); // localStorage.getItem('image_height'));
+    //             formData.append('image_width', image_width);//localStorage.getItem('image_width'));
+    //             formData.append('water_penalty', water_penalty);//localStorage.getItem('water_penalty'));
+    //             formData.append('no_water_penalty', no_water_penalty);//localStorage.getItem('no_water_penalty'));
+    //             formData.append('sigma', sigma);//localStorage.getItem('sigma'));
+    //             formData.append('mu', mu);//localStorage.getItem('mu'));
+    //             formData.append('k', k);//localStorage.getItem('k'));
+    //             $.ajax({
+    //                 url: '/process',
+    //                 type: 'POST',
+    //                 data: formData,
+    //                 processData: false,
+    //                 contentType: false,
+    //                 success: function(response) {
+    //                     $("#loading").hide();
+    //                     $('#statusMessages').empty(); // Clear previous messages when processing is done
+
+    //                     if (response.image_data) {
+    //                         var processedImageData = "data:image/png;base64," + response.image_data;
+    //                         $("#resultImage").attr("src", processedImageData).show();
+    //                         $("#downloadButton").attr("href", processedImageData).show();
+    //                     } else {
+    //                         alert("Error processing image");
+    //                     }
+    //                 },
+    //                 error: function(response) {
+    //                     $("#loading").hide();
+    //                     $('#statusMessages').empty(); // Clear previous messages on error
+    //                     alert("An error occurred while processing the image");
+    //                 }
+    //             });
+    //         });
+    //     });
+
+          const fileInput = document.getElementById('file-upload');
+    const fileInfo = document.getElementById('file-info');
+    const errorMessage = document.getElementById('error-message');
+    const form = document.getElementById('upload-form');
+
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      fileInfo.textContent = '';
+      errorMessage.textContent = '';
+
+      if (file) {
+        if (file.name.toLowerCase().endsWith('.tif')) {
+          fileInfo.textContent = `Selected file: ${file.name}`;
+
+          const reader = new FileReader();
+          reader.onload = function () {
+            localStorage.setItem('uploadedTiff', reader.result); 
+            localStorage.setItem('uploadedFileName', file.name);
+          };
+          reader.readAsDataURL(file);
+
+        } else {
+          errorMessage.textContent = 'Please upload a valid .tif file.';
+          fileInput.value = ''; // Clear the invalid file
         }
+      }
 
-        function selectImage(selectedPath) {
-            imagePath = selectedPath;
-            console.log("Chemin de l'image sélectionnée :", imagePath);
+    });
 
-            closePopup();
-        }
-
-        let image_height = 520;
-        let image_width = 520;
-        let water_penalty = 0.75;
-        let no_water_penalty = -0.75;
-        let sigma = 0.2;
-        let mu = 1;
-        let k = 2;
-
-        $(document).ready(function() {
-            var socket = io();
-
-             // Handle real-time messages from the server
-             socket.on('messages', function(data) {
-                $('#statusMessages').empty(); // Clear previous messages
-                $('#statusMessages').text(data.data); // Add the new message
-            });
-
-            $("#run inter-semi-bold-black-17px").click(function() {
-                if (imagePath === "") {
-                    alert("Please choose an image first");
-                    return;
-                }
-
-                $("#loading").show();
-                $('#statusMessages').empty(); // Clear previous messages
-
-                var formData = new FormData();
-                formData.append('image_path', imagePath);
-                formData.append('image_height', image_height); // localStorage.getItem('image_height'));
-                formData.append('image_width', image_width);//localStorage.getItem('image_width'));
-                formData.append('water_penalty', water_penalty);//localStorage.getItem('water_penalty'));
-                formData.append('no_water_penalty', no_water_penalty);//localStorage.getItem('no_water_penalty'));
-                formData.append('sigma', sigma);//localStorage.getItem('sigma'));
-                formData.append('mu', mu);//localStorage.getItem('mu'));
-                formData.append('k', k);//localStorage.getItem('k'));
-                $.ajax({
-                    url: '/process',
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        $("#loading").hide();
-                        $('#statusMessages').empty(); // Clear previous messages when processing is done
-
-                        if (response.image_data) {
-                            var processedImageData = "data:image/png;base64," + response.image_data;
-                            $("#resultImage").attr("src", processedImageData).show();
-                            $("#downloadButton").attr("href", processedImageData).show();
-                        } else {
-                            alert("Error processing image");
-                        }
-                    },
-                    error: function(response) {
-                        $("#loading").hide();
-                        $('#statusMessages').empty(); // Clear previous messages on error
-                        alert("An error occurred while processing the image");
-                    }
-                });
-            });
-        });
-
+    form.addEventListener('submit', (e) => {
+      if (!fileInput.files[0]) {
+        e.preventDefault();
+        errorMessage.textContent = 'You must upload a .tif file before submitting.';
+      }
+    });
   </script>
 
   </body>

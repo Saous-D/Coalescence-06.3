@@ -88,7 +88,10 @@
                 <div class="original-image valign-text-middle inter-bold-white-20px">ORIGINAL IMAGE</div>
               </div>
 
-              <img class="image2-1" src="img/image2-1@2x.png" alt="Image2 1" />
+  <canvas id="canvas"></canvas>
+  <p id="fileName"></p>
+
+              <!-- <img class="image2-1" src="img/image2-1@2x.png" alt="Image2 1" /> -->
               <div class="overlap-group-2">
                 <div style="
                 position: absolute;
@@ -132,4 +135,28 @@
       </div>
     </div>
   </body>
+  <script type="text/javascript">
+    const buffer = localStorage.getItem('uploadedTiff');
+    const fileName = localStorage.getItem('uploadedFileName');
+    document.getElementById('fileName').textContent = `File: ${fileName}`;
+
+    if (buffer) {
+      const bytes = new Uint8Array(JSON.parse(buffer));
+      const ifds = UTIF.decode(bytes);
+      UTIF.decodeImage(bytes, ifds[0]);
+      const rgba = UTIF.toRGBA8(ifds[0]);
+      const width = ifds[0].width;
+      const height = ifds[0].height;
+
+      const canvas = document.getElementById("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      const imageData = ctx.createImageData(width, height);
+      imageData.data.set(rgba);
+      ctx.putImageData(imageData, 0, 0);
+    } else {
+      document.body.innerHTML += "<p>No image found in storage. Please go back and upload one.</p>";
+    }
+  </script>
 </html>
