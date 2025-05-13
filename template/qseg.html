@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Seg Settings</title>
+    <link href='/static/style.css' rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Q-Seg</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" id="imageFile" name="file" style="display: none;">
+            <div class="buttons">
+                <button type="button" class="param-button" data-water-penalty="0.75" data-no-water-penalty="-0.75" data-sigma="0.2" data-mu="1" data-k="2" title="This model maximizes the similarity between the predicted mask and the ground truth mask by finding a balance between confidence in detection (True Positives) and missed pixels (False Negatives).">Q-Seg Balanced</button>
+                <button type="button" class="param-button" data-water-penalty="0.9" data-no-water-penalty="-0.6" data-sigma="0.3" data-mu="1" data-k="2" title="This model maximizes precision, meaning it favors the certainty of detections.">Q-Seg Trusted</button>
+                <button type="button" class="param-button" data-water-penalty="0.6" data-no-water-penalty="-0.6" data-sigma="0.3" data-mu="1" data-k="2" title="This model maximizes recall, meaning it minimizes False Negatives as much as possible.">Q-Seg Exhaustive</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $(".param-button").click(function() {
+                var waterPenalty = $(this).data('water-penalty');
+                var noWaterPenalty = $(this).data('no-water-penalty');
+                var sigma = $(this).data('sigma');
+                var mu = $(this).data('mu');
+                var k = $(this).data('k');
+
+                // Redirect to the index page
+                window.location.href = '/index';
+            });
+        });
+    </script>
+</body>
+</html>

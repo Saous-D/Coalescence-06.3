@@ -1,4 +1,5 @@
 Flask
+qiskit==1.4.2
 matplotlib
 werkzeug
 numpy

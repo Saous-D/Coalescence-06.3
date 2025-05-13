@@ -2,13 +2,13 @@ from flask import Flask, request, jsonify, render_template
 from flask_socketio import SocketIO, emit
 import io
 import base64
-import Back.quantum_segmentation as quantum_segmentation
+import quantum_segmentation
 import matplotlib.pyplot as plt
 from werkzeug.utils import secure_filename
 import os
 import sys
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='Front')
 socketio = SocketIO(app, async_mode='threading')
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -18,7 +18,16 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 @app.route('/')
 def qseg():
-    return render_template('Front/qseg-choose-image.html')
+    return render_template('qseg-choose-image.html')
+
+@app.route('/qseg-result')
+def qseg_result():
+    return render_template('qseg-result.html')
+
+
+@app.route('/multiclass')
+def multiclass():
+    return render_template('multiclass.html')
 
 @app.route('/extract_rgb', methods=['POST'])
 def extract_rgb():
@@ -40,6 +49,8 @@ def extract_rgb():
         return jsonify({'image_data': img_base64})
     except Exception as e:
         return jsonify({'error': str(e)})
+
+
 
 @app.route('/upload', methods=['POST'])
 def upload_image():

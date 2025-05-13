@@ -1,0 +1,176 @@
+/* ======== GLOBAL ======== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0F172A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ======== TITRES ======== */
+h1 {
+    color: #f0efef;
+    text-align: center;
+    width: 100%;
+}
+
+h3 {
+    color: #ffffff;
+}
+
+/* ======== BUTTONS & FILE UPLOAD ======== */
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.buttons button, 
+.buttons input[type="file"] + label, 
+.buttons a {
+    background-color: #00d47e;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buttons button:hover, 
+.buttons input[type="file"] + label:hover, 
+.buttons a:hover {
+    background-color: #028a5e;
+    transform: scale(1.05);
+}
+
+.buttons input[type="file"] {
+    display: none; /* Cacher le vrai champ */
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #00d47e;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #028a5e;
+    transform: scale(1.05);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup img {
+    width: 100px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.image-option {
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 3px solid transparent;
+    margin: 10px;
+    max-width: 45%;
+}
+
+.image-option:hover {
+    transform: scale(1.05);
+    border-color: #4CAF50;
+}
+
+h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+
+/* ======== IMAGES CONTAINER ======== */
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+}
+
+.images > div {
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+/* ======== DOWNLOAD BUTTON ======== */
+#downloadButton {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 20px;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#downloadButton:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+/* ======== STATUS MESSAGES ======== */
+.status-messages {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+    .images {
+        grid-template-columns: 1fr;
+    }
+}
