@@ -49,6 +49,7 @@ def threshold(array, inequality):
 water_inequality = lambda x: x > water_thresh 
 no_water_inequality = lambda x: x < no_water_thresh
 def extract_rgb_bands(image):
+        
         img_data = imageio.imread(image)
         rgb_bands = [3, 2, 1]
         rgb_data = img_data[rgb_bands, :, :]

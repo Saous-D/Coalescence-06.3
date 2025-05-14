@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
     <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
     <meta name="viewport" content="width=1094, maximum-scale=1.0" />
@@ -137,28 +139,54 @@
   </body>
   <script type="text/javascript">
 
-    
-    const buffer = localStorage.getItem('uploadedTiff');
-    const fileName = localStorage.getItem('uploadedFileName');
-    document.getElementById('fileName').textContent = `File: ${fileName}`;
+        function selectImage(File) {
+            imagePath = File;
+            console.log("Chemin de l'image sélectionnée :", imagePath);
 
-    if (buffer) {
-      const bytes = new Uint8Array(JSON.parse(buffer));
-      const ifds = UTIF.decode(bytes);
-      UTIF.decodeImage(bytes, ifds[0]);
+            // Envoyer l'image au serveur pour appliquer extract_rgb_bands()
+            $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: { image_path: imagePath },
+                success: function(response) {
+                    if (response.image_data) {
+                        // Afficher l'image transformée
+                        var processedImageData = "data:image/png;base64," + response.image_data;
+                        document.getElementById('fileName')= processedImageData;
+                    } else {
+                        alert("Erreur : " + response.error);
+                    }
+                },
+                error: function() {
+                    alert("Erreur lors du traitement de l'image");
+                }
+            });
+        }
+
+
+    const stored = localStorage.getItem('tiffImage');
+    const fileName = localStorage.getItem('fileName');
+ 
+    document.getElementById("fileName").textContent = `File: ${fileName}`;
+    if (!stored) {
+      document.body.innerHTML += "<p>No image found. Please go back and upload a .tif file.</p>";
+    } else {
+      const byteArray = new Uint8Array(JSON.parse(stored));
+      const ifds = UTIF.decode(byteArray);
+      UTIF.decodeImage(byteArray, ifds[0]);
       const rgba = UTIF.toRGBA8(ifds[0]);
-      const width = ifds[0].width;
-      const height = ifds[0].height;
+      const { width, height } = ifds[0];
 
+      selectImage(rgba);
+ 
       const canvas = document.getElementById("canvas");
       canvas.width = width;
       canvas.height = height;
       const ctx = canvas.getContext("2d");
-      const imageData = ctx.createImageData(width, height);
-      imageData.data.set(rgba);
-      ctx.putImageData(imageData, 0, 0);
-    } else {
-      document.body.innerHTML += "<p>No image found in storage. Please go back and upload one.</p>";
+      const imgData = ctx.createImageData(width, height);
+      imgData.data.set(rgba);
+      ctx.putImageData(imgData, 0, 0);
+ 
     }
   </script>
 </html>
