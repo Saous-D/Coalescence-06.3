@@ -107,25 +107,35 @@
       </div>
     </div>
     <script>
-          const fileInput = document.getElementById('file-upload');
+ const fileInput = document.getElementById('file-upload');
     const fileInfo = document.getElementById('file-info');
     const errorMessage = document.getElementById('error-message');
     const form = document.getElementById('upload-form');
-
-    document.getElementById('file-upload').addEventListener('change', function () {
-  const file = this.files[0];
-  if (file && file.name.toLowerCase().endsWith('.tif')) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      const uint8Array = new Uint8Array(reader.result);
-      localStorage.setItem('tiffImage', JSON.stringify(Array.from(uint8Array)));
-      localStorage.setItem('fileName', file.name);
-      window.location.href = "display.html"; // or your next page
-    };
-    reader.readAsArrayBuffer(file); // ⬅️ very important!
-  }
-});
-  
+ 
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      fileInfo.textContent = '';
+      errorMessage.textContent = '';
+ 
+      if (file) {
+        if (file.name.toLowerCase().endsWith('.tif')) {
+          fileInfo.textContent = `Selected file: ${file.name}`;
+ 
+          const reader = new FileReader();
+          reader.onload = function () {
+            localStorage.setItem('uploadedTiff', reader.result); 
+            localStorage.setItem('uploadedFileName', file.name);
+          };
+          reader.readAsDataURL(file);
+ 
+        } else {
+          errorMessage.textContent = 'Please upload a valid .tif file.';
+          fileInput.value = ''; // Clear the invalid file
+        }
+      }
+ 
+    });
+ 
     form.addEventListener('submit', (e) => {
       if (!fileInput.files[0]) {
         e.preventDefault();
