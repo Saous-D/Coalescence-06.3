@@ -115,7 +115,7 @@
               <div class="rectangle-69"></div>
               <div class="rectangle-72"></div>
               <div class="segmented-image valign-text-middle inter-bold-white-20px">SEGMENTED IMAGE</div>
-              <img class="image3-1" src="/static/images/image3-1@2x.png" alt="Image3 1" />
+              <img class="image3-1" src="" alt="Image3 1" />
               <div class="overlap-group-3">
                  <div style="
                   position: absolute;
@@ -206,8 +206,76 @@ function base64ToBlob(base64, contentType) {
     });
   }
 
+
+  function processImageFromLocalStorage() {
+    const base64 = localStorage.getItem('uploadedTiff');
+    const fileName = localStorage.getItem('uploadedFileName');
+
+    if (!base64 || !fileName) {
+        alert("Aucun fichier trouvé dans le stockage local.");
+        return;
+    }
+
+    const contentTypeMatch = base64.match(/^data:(.*);base64,/);
+    const contentType = contentTypeMatch ? contentTypeMatch[1] : 'image/tiff';
+
+    const blob = base64ToBlob(base64, contentType);
+    const formData = new FormData();
+    formData.append('file', blob, fileName);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert("Erreur d'upload : " + data.error);
+            return;
+        }
+
+        const imagePath = data.image_path;
+
+        const processData = new FormData();
+        processData.append('image_path', imagePath);
+        processData.append('image_height', '256');
+        processData.append('image_width', '256');
+        processData.append('water_penalty', '0.5');
+        processData.append('no_water_penalty', '0.3');
+        processData.append('sigma', '1.0');
+        processData.append('mu', '2');
+        processData.append('k', '4');
+
+        fetch('/process', {
+            method: 'POST',
+            body: processData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.error) {
+                alert("Erreur de traitement : " + result.error);
+                return;
+            }
+
+            const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            const imgEl = document.querySelector('.image3-1');
+            if (imgEl) {
+                imgEl.src = segmentedImg;
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du traitement :', error);
+        });
+    })
+    .catch(error => {
+        console.error('Erreur lors de l\'upload :', error);
+    });
+}
   // Appel automatique au chargement de la page
-  window.onload = selectImageFromLocalStorage;
+  window.onload = function () {
+    selectImageFromLocalStorage();
+    processImageFromLocalStorage();
+};
 </script>
 
 </html>
