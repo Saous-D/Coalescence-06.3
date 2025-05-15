@@ -179,3 +179,47 @@ def perform_kmeans(img, K=2, attempts=10):
     # Reshape the result back to the original image shape
     result_image = res.reshape((img.shape))
     return result_image,label, center
+
+
+import imageio
+import numpy as np
+import matplotlib.pyplot as plt
+import io
+
+def return_heatmap(image_path, color="viridis"):
+    """
+    Generates a heatmap (NDWI) from a TIFF image and returns it as a PNG image in memory.
+
+    Parameters:
+        image_path (str): Path to the input .tif file
+        color (str): Matplotlib colormap to use (e.g. 'viridis', 'inferno', etc.)
+
+    Returns:
+        io.BytesIO: PNG image buffer containing the heatmap
+    """
+    # Load the image (assumed to be multi-band)
+    image = imageio.imread(image_path)
+
+    # Extract green and SWIR bands (adjust indices as needed)
+    green = image[2, :, :]
+    swir = image[11, :, :]
+
+    # Compute NDWI (Normalized Difference Water Index)
+    NDWI = (green - swir) / (green + swir + 1e-6) # Avoid division by zero
+
+    # Plot NDWI heatmap
+    fig, ax = plt.subplots()
+    # interpolation='nearest' ensures sharp edges in pixelated data (no smoothing)
+    cax = ax.imshow(NDWI, cmap=color, interpolation='nearest')  
+    ax.axis('off')
+    fig.colorbar(cax)
+    plt.tight_layout(pad=0)
+
+    # Save figure to in-memory PNG
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.1)
+    plt.close(fig)
+    buf.seek(0)
+
+    return buf
+ 

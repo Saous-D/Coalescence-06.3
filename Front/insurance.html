@@ -8,26 +8,26 @@
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="css/insurance.css" />
-    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/insurance.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/globals.css" />
   </head>
   <body style="margin: 0; background: #0e172b">
     <input type="hidden" id="anPageName" name="page" value="insurance" />
     <div class="container-center-horizontal">
       <div class="insurance screen">
         <div class="side">
-          <a href="index.html">
-          <img class="mask-group-1" src="img/mask-group-8@2x.png" alt="Mask group" />
+          <a href="{{ url_for('index')}}">
+          <img class="mask-group-1" src="static/images/mask-group-8@2x.png" alt="Mask group" />
 </a>
           <div class="flex-row flex">
-            <a href="qapps.html" class="align-self-flex-end"
-              ><img class="app-2" src="img/app-2-1@2x.png" alt="app 2" /> </a
-            ><a href="qapps.html"><div class="q-apps q inter-bold-white-18px">Q-Apps</div> </a>
+            <a href="{{ url_for('qapps')}}" class="align-self-flex-end"
+              ><img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" /> </a
+            ><a href="{{ url_for('qapps')}}"><div class="q-apps q inter-bold-white-18px">Q-Apps</div> </a>
           </div>
           <div class="overlap-group">
             <div class="rectangle-10"></div>
-            <img class="rectangle-8" src="img/rectangle-8-7.svg" alt="Rectangle 8" />
+            <img class="rectangle-8" src="/static/images/rectangle-8-7.svg" alt="Rectangle 8" />
             <div class="insurance-2 insurance-4 inter-bold-spring-green-12px">INSURANCE</div>
             <div class="logistics logistics-3 inter-normal-white-12px">Logistics</div>
             <div class="place inter-normal-white-12px">Energy</div>
@@ -36,11 +36,11 @@
             <div class="retail inter-normal-white-12px">Retail</div>
             <div class="text-25 text jejumyeongjo-regular-normal-white-20px">&gt;</div>
             <div class="by-industry inter-bold-white-18px">By industry</div>
-            <img class="usine-2" src="img/usine-2-1@2x.png" alt="usine 2" />
+            <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
           </div>
-          <a href="dashboard.html">
+          <a href="{{ url_for('dashboard')}}">
             <div class="group-38">
-              <img class="rapport-danalyse-2" src="img/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+              <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
               <div class="dashboard inter-bold-white-18px">Dashboard</div>
             </div></a
           >
@@ -49,13 +49,13 @@
           <header class="header">
             <div class="overlap-group-1">
               <div class="overlap-group1">
-                <img class="loupe-arrondie-1" src="img/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
                 <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
               </div>
               <div class="flex-col-2 flex-col-8">
                 <div class="flex-row-1">
-                  <img class="mask-group-2" src="img/mask-group-1@2x.png" alt="Mask group" />
-                  <img class="question-1" src="img/question-1@2x.png" alt="question 1" />
+                  <img class="mask-group-2" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
                 </div>
                 <div class="overlap-group2 inter-normal-white-12px">
                   <div class="account">Account</div>
@@ -70,7 +70,7 @@
               <div class="overlap-group8">
                 <div class="overlap-group-2">
                   <div class="flex-row-2">
-                    <img class="mask-group-3" src="img/mask-group-9@2x.png" alt="Mask group" />
+                    <img class="mask-group-3" src="/static/images/mask-group-9@2x.png" alt="Mask group" />
                     <p class="optimize-resource-al valign-text-middle inter-bold-catskill-white-10px">
                       <span
                         ><span class="inter-bold-catskill-white-10px">Optimize&nbsp;&nbsp;resource allocation </span
@@ -82,7 +82,7 @@
                 </div>
                 <div class="overlap-group1-1">
                   <div class="flex-row-3">
-                    <img class="mask-group-4" src="img/mask-group-69@2x.png" alt="Mask group" />
+                    <img class="mask-group-4" src="/static/images/mask-group-69@2x.png" alt="Mask group" />
                     <p class="detect-rare-events valign-text-middle inter-bold-catskill-white-10px">
                       <span
                         ><span class="inter-bold-catskill-white-10px">Detect rare events- </span
@@ -96,7 +96,7 @@
                 </div>
                 <div class="overlap-group2-1">
                   <div class="flex-row-4">
-                    <img class="mask-group" src="img/mask-group-11@2x.png" alt="Mask group" />
+                    <img class="mask-group" src="/static/images/mask-group-11@2x.png" alt="Mask group" />
                     <p class="master-scheduling-an valign-text-middle inter-bold-catskill-white-10px">
                       <span
                         ><span class="inter-bold-catskill-white-10px">Master scheduling </span
@@ -110,7 +110,7 @@
                 <div class="group-4 inter-bold-white-15px">
                   <div class="flex-col-4 flex-col-8">
                     <div class="overlap-group3">
-                      <img class="mask-group" src="img/mask-group-4@2x.png" alt="Mask group" />
+                      <img class="mask-group" src="/static/images/mask-group-4@2x.png" alt="Mask group" />
                       <div class="flex-col flex">
                         <div class="q-medoids q">Q-MEDOIDS</div>
                         <p class="cluster-data-faster valign-text-middle inter-normal-catskill-white-10px">
@@ -123,7 +123,7 @@
                             ><span class="inter-bold-catskill-white-10px"> without limits</span>
                           </span>
                         </p>
-                        <a href="qmeds-details.html" class="align-self-flex-end">
+                        <a href="{{ url_for('qmeds_details')}}" class="align-self-flex-end">
                           <div class="discover"><div class="select select-5 inter-bold-blue-9px">Select</div></div></a
                         >
                       </div>
@@ -135,7 +135,7 @@
                 </div>
                 <div class="overlap-group4">
                   <div class="flex-row-5">
-                    <img class="mask-group-5" src="img/mask-group-5@2x.png" alt="Mask group" />
+                    <img class="mask-group-5" src="/static/images/mask-group-5@2x.png" alt="Mask group" />
                     <p class="segment-images-insta inter-bold-catskill-white-10px">
                       <span class="inter-bold-catskill-white-10px">Segment images instantly -</span
                       ><span class="inter-normal-catskill-white-10px"> <br />no labels, </span
@@ -145,11 +145,11 @@
                   </div>
                   <div class="overlap-group-3">
                     <div class="discover-it inter-bold-spring-green-9px">Discover it</div>
-                    <img class="flche" src="img/fl-che@2x.png" alt="flche" />
+                    <img class="flche" src="/static/images/fl-che@2x.png" alt="flche" />
                   </div>
                 </div>
                 <div class="overlap-group5">
-                  <img class="mask-group" src="img/mask-group-6@2x.png" alt="Mask group" />
+                  <img class="mask-group" src="/static/images/mask-group-6@2x.png" alt="Mask group" />
                   <div class="flex-col flex">
                     <div class="q-seg q inter-bold-white-15px">Q-SEG</div>
                     <div
@@ -160,13 +160,13 @@
                         ><span class="inter-bold-catskill-white-10px">instantly<br />no training</span>
                       </span>
                     </div>
-                    <a href="qseg-details.html" class="align-self-flex-end">
+                    <a href="{{ url_for('qseg_details')}}" class="align-self-flex-end">
                       <div class="discover"><div class="select select-5 inter-bold-blue-9px">Select</div></div></a
                     >
                   </div>
                 </div>
                 <div class="overlap-group7">
-                  <img class="mask-group" src="img/mask-group-7@2x.png" alt="Mask group" />
+                  <img class="mask-group" src="/static/images/mask-group-7@2x.png" alt="Mask group" />
                   <div class="flex-col-5 flex-col-8">
                     <p class="optimize-routes-in-r valign-text-middle inter-bold-catskill-white-10px">
                       <span
@@ -184,7 +184,7 @@
               <div class="overlap-group9">
                 <div class="overlap-group6">
                   <div class="overlap-group-4">
-                    <img class="square" src="img/square@2x.png" alt="square" />
+                    <img class="square" src="/static/images/square@2x.png" alt="square" />
                     <div class="overlap-group1-2">
                       <div class="q-pacq valign-text-middle q inter-bold-catskill-white-4-5px">Q-PACQ</div>
                       <div class="packaging-optimization valign-text-middle inter-normal-catskill-white-4-5px">
@@ -206,7 +206,7 @@
             <div class="explore-insurance-cases inter-bold-white-18px">EXPLORE INSURANCE CASES</div>
             <div class="flex-row-6">
               <div class="overlap-group5-1 inter-normal-white-10px">
-                <a href="insurance-detail.html"> <div class="group"></div></a>
+                <a href="{{ url_for('insurance_detail')}}"> <div class="group"></div></a>
                 <div class="insurance-3 insurance-4">INSURANCE</div>
                 <div class="vehicle-classification-for-pricing">Vehicle classification <br />for pricing</div>
               </div>

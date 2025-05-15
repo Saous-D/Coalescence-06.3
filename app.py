@@ -17,17 +17,73 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
 @app.route('/')
-def qseg():
+def index():
+    return render_template('index.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+@app.route('/enter-code')
+def enter():
+    return render_template('enter-code.html')
+
+@app.route('/insurance-detail.html')
+def insurance_detail():
+    return render_template('insurance-detail.html')
+
+@app.route('/insurance')
+def insurance():
+    return render_template('insurance.html')
+
+@app.route('/qapps')
+def qapps():
+    return render_template('qapps.html')
+
+@app.route('/qmeds-details')
+def qmeds_details():
+    return render_template('qmeds-details.html')
+
+@app.route('/qmeds-results')
+def qmeds_results():
+    return render_template('qmeds-results.html')
+
+@app.route('/qmeds-run-screen')
+def qmeds_run_screen():
+    return render_template('qmeds-run-screen.html')
+
+@app.route('/qmeds-upload')
+def qmeds_upload():
+    return render_template('qmeds-upload.html')
+
+@app.route('/qseg-choose-image-selection')
+def qseg_choose_image_selection():
+    return render_template('qseg-choose-image-selection.html')
+
+@app.route('/qseg-choose-image')
+def qseg_choose_image():
     return render_template('qseg-choose-image.html')
+
+@app.route('/qseg-details')
+def qseg_details():
+    return render_template('qseg-details.html')
+
+@app.route('/qseg-runing-screen')
+def qseg_runing_screen():
+    return render_template('qseg-runing-screen.html')
+
+@app.route('/qseg-settings')
+def qseg_settings():
+    return render_template('qseg-settings.html')
+
+@app.route('/sign-in')
+def sign_in():
+    return render_template('sign-in.html')
 
 @app.route('/qseg-result')
 def qseg_result():
     return render_template('qseg-result.html')
 
-
-@app.route('/multiclass')
-def multiclass():
-    return render_template('multiclass.html')
 
 @app.route('/extract_rgb', methods=['POST'])
 def extract_rgb():
