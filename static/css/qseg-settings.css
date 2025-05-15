@@ -122,6 +122,18 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   width: 68px;
 }
 
+.qseg-settings .rectangle-63 {
+  display: flex;                /* active Flexbox */
+  justify-content: center;      /* centre horizontalement */
+  align-items: center; 
+  background: linear-gradient(180deg, rgba(58, 103, 249, 0.1) 0%, rgba(4, 250, 158, 0.1) 100%);
+  border-radius: 6px;
+  height: 65px;
+  left: 78px;
+  top: 13px;
+  width: 68px;
+}
+
 .qseg-settings .trusted {
   left: 21px;
   letter-spacing: 0;
@@ -151,7 +163,7 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
 }
 
 .qseg-settings .group-26 {
-  background-image: url(../img/mask-group-99@2x.png);
+  background-image: url(/static/images/mask-group-99@2x.png);
   background-size: 100% 100%;
   height: 39px;
   left: 92px;
@@ -185,7 +197,7 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
 }
 
 .qseg-settings .mask-group {
-  background-image: url(../img/mask-group-98@2x.png);
+  background-image: url(/static/images/mask-group-98@2x.png);
   background-size: 100% 100%;
   height: 47px;
   width: 47px;

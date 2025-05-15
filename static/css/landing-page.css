@@ -302,7 +302,7 @@
 
 .landing-page .overlap-group-1 {
   align-items: flex-end;
-  background-image: url(../img/vector-13.svg);
+  background-image: url(/static/images/vector-13.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -337,7 +337,7 @@
 
 .landing-page .overlap-group1-1 {
   align-items: flex-end;
-  background-image: url(../img/vector-14.svg);
+  background-image: url(/static/images/vector-14.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -380,7 +380,7 @@
 
 .landing-page .overlap-group2-1 {
   align-items: flex-end;
-  background-image: url(../img/vector-15.svg);
+  background-image: url(/static/images/vector-15.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -435,7 +435,7 @@
 
 .landing-page .overlap-group3 {
 align-items: flex-start;
-  background-image: url(../img/vector-18.svg);
+  background-image: url(/static/images/vector-18.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 8px;
@@ -520,7 +520,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group4 {
   align-items: flex-end;
-  background-image: url(../img/vector-17.svg);
+  background-image: url(/static/images/vector-17.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -555,7 +555,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group5 {
   align-items: flex-start;
-  background-image: url(../img/vector-18.svg);
+  background-image: url(/static/images/vector-18.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 8px;
@@ -588,7 +588,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group7 {
   align-items: flex-start;
-  background-image: url(../img/vector-21.svg);
+  background-image: url(/static/images/vector-21.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 7px;
@@ -645,7 +645,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group6 {
   align-items: flex-start;
-  background-image: url(../img/vector-19.svg);
+  background-image: url(/static/images/vector-19.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 5px;
@@ -660,7 +660,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group-3 {
   align-items: flex-end;
-  background-image: url(../img/vector-7.svg);
+  background-image: url(/static/images/vector-7.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -1394,7 +1394,7 @@ align-items: flex-start;
 }
 
 .landing-page .group {
-  background-image: url(../img/image-9@2x.png);
+  background-image: url(/static/images/image-9@2x.png);
   background-size: 100% 100%;
   cursor: pointer;
   height: 142px;
@@ -1421,7 +1421,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group13 {
   align-items: flex-end;
-  background-image: url(../img/mask-group-36@2x.png);
+  background-image: url(/static/images/mask-group-36@2x.png);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -1449,7 +1449,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group14 {
   align-items: flex-end;
-  background-image: url(../img/mask-group-39@2x.png);
+  background-image: url(/static/images/mask-group-39@2x.png);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -1471,7 +1471,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group16 {
   align-items: flex-start;
-  background-image: url(../img/mask-group-40@2x.png);
+  background-image: url(/static/images/mask-group-40@2x.png);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -1489,7 +1489,7 @@ align-items: flex-start;
 
 .landing-page .overlap-group15 {
   align-items: flex-end;
-  background-image: url(../img/mask-group-41@2x.png);
+  background-image: url(/static/images/mask-group-41@2x.png);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;

@@ -29,7 +29,7 @@
 
 .qapps .overlap-group {
   align-items: flex-start;
-  background-image: url(../img/rectangle-8-1.svg);
+  background-image: url(/static/images/rectangle-8-1.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 61px;
@@ -234,7 +234,7 @@
 
 .qapps .overlap-group-2 {
   align-items: flex-end;
-  background-image: url(../img/vector.svg);
+  background-image: url(/static/images/vector.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -269,7 +269,7 @@
 
 .qapps .overlap-group1-1 {
   align-items: flex-end;
-  background-image: url(../img/vector-1.svg);
+  background-image: url(/static/images/vector-1.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -310,7 +310,7 @@
 
 .qapps .overlap-group2-1 {
   align-items: flex-end;
-  background-image: url(../img/vector-2.svg);
+  background-image: url(/static/images/vector-2.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -370,7 +370,7 @@
 
 .qapps .overlap-group3 {
   align-items: flex-start;
-  background-image: url(../img/vector-3.svg);
+  background-image: url(/static/images/vector-3.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 5px;
@@ -455,7 +455,7 @@
 
 .qapps .overlap-group4 {
   align-items: flex-end;
-  background-image: url(../img/vector-4.svg);
+  background-image: url(/static/images/vector-4.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
@@ -490,7 +490,7 @@
 
 .qapps .overlap-group5 {
   align-items: flex-start;
-  background-image: url(../img/vector-5.svg);
+  background-image: url(/static/images/vector-5.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 8px;
@@ -523,7 +523,7 @@
 
 .qapps .overlap-group7 {
   align-items: flex-start;
-  background-image: url(../img/vector-8.svg);
+  background-image: url(/static/images/vector-8.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 7px;
@@ -580,7 +580,7 @@
 
 .qapps .overlap-group6 {
   align-items: flex-start;
-  background-image: url(../img/vector-6.svg);
+  background-image: url(/static/images/vector-6.svg);
   background-size: 100% 100%;
   display: flex;
   gap: 5px;
@@ -595,7 +595,7 @@
 
 .qapps .overlap-group-4 {
   align-items: flex-end;
-  background-image: url(../img/vector-7.svg);
+  background-image: url(/static/images/vector-7.svg);
   background-size: 100% 100%;
   display: flex;
   flex-direction: column;
