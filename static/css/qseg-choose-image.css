@@ -572,13 +572,14 @@ h2 {
     input[type="file"] {
       display: none;
     }
-
-    #file-info {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #333;
-    }
-
+#file-info {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;      /* Thin */
+  font-size: 16px;       /* à ajuster selon vos besoins */
+  line-height: 1.4;      /* pour un meilleur confort de lecture */
+  color: #9c9d9f;
+}
+  
     #error-message {
       color: red;
       margin-top: 10px;
