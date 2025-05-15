@@ -23,22 +23,22 @@
           <div class="overlap-group">
             <div class="rectangle-10"></div>
             <div class="side-bar">
-              <a href="index.html">
+              <a href="{{ url_for('index')}}">
               <img class="mask-group" src="/static/images/mask-group@2x.png" alt="Mask group" />
             </a>
-              <a href="qapps.html">
+              <a href="{{ url_for('qapps')}}">
                 <div class="group-42 group">
                   <img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" />
                   <div class="q-apps q inter-bold-white-18px">Q-Apps</div>
                 </div></a
               >
               <div class="flex-row flex">
-                <a href="insurance.html">
+                <a href="{{ url_for('insurance')}}">
                 <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
                 <div class="by-industry inter-bold-white-18px">By industry</div>
               </a>
               </div>
-              <a href="dashboard.html">
+              <a href="{{ url_for('dashboard')}}">
                 <div class="group-41 group">
                   <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
                   <div class="dashboard inter-bold-white-18px">Dashboard</div>
@@ -209,6 +209,71 @@ function base64ToBlob(base64, contentType) {
     });
   }
 
+
+  function processImageFromLocalStorage() {
+    const base64 = localStorage.getItem('uploadedTiff');
+    const fileName = localStorage.getItem('uploadedFileName');
+
+    if (!base64 || !fileName) {
+        alert("Aucun fichier trouvé dans le stockage local.");
+        return;
+    }
+
+    const contentTypeMatch = base64.match(/^data:(.*);base64,/);
+    const contentType = contentTypeMatch ? contentTypeMatch[1] : 'image/tiff';
+
+    const blob = base64ToBlob(base64, contentType);
+    const formData = new FormData();
+    formData.append('file', blob, fileName);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert("Erreur d'upload : " + data.error);
+            return;
+        }
+
+        const imagePath = data.image_path;
+
+        const processData = new FormData();
+        processData.append('image_path', imagePath);
+        processData.append('image_height', '512');
+        processData.append('image_width', '512');
+        processData.append('water_penalty', '0.75');
+        processData.append('no_water_penalty', '-0.75');
+        processData.append('sigma', '0.2');
+        processData.append('mu', '1');
+        processData.append('k', '2');
+
+        fetch('/process', {
+            method: 'POST',
+            body: processData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.error) {
+                alert("Erreur de traitement : " + result.error);
+                return;
+            }
+
+            const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            const imgEl = document.querySelector('.image3-1');
+            if (imgEl) {
+                imgEl.src = segmentedImg;
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du traitement :', error);
+        });
+    })
+    .catch(error => {
+        console.error('Erreur lors de l\'upload :', error);
+    });
+}
   // Appel automatique au chargement de la page
   window.onload = selectImageFromLocalStorage;
 </script>

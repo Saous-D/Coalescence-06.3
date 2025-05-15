@@ -8,26 +8,26 @@
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="css/insurance-detail.css" />
-    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/insurance-detail.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
   </head>
   <body style="margin: 0; background: #0e172b">
     <input type="hidden" id="anPageName" name="page" value="insurance-detail" />
     <div class="container-center-horizontal">
       <div class="insurance-detail screen">
         <div class="side">
-          <a href="index.html" class="align-self-flex-end"
-            ><img class="mask-group" src="img/mask-group-8@2x.png" alt="Mask group" /> </a
-          ><a href="qapps.html">
+          <a href="{{ url_for('index')}}" class="align-self-flex-end"
+            ><img class="mask-group" src="/static/images/mask-group-8@2x.png" alt="Mask group" /> </a
+          ><a href="{{ url_for('qapps')}}">
             <div class="group-39 group">
-              <img class="app-2" src="img/app-2-1@2x.png" alt="app 2" />
+              <img class="app-2" src="static/images/app-2-1@2x.png" alt="app 2" />
               <div class="q-apps inter-bold-white-18px">Q-Apps</div>
             </div></a
           >
           <div class="overlap-group">
             <div class="rectangle-10"></div>
-            <img class="rectangle-8" src="img/rectangle-8-13.svg" alt="Rectangle 8" />
+            <img class="rectangle-8" src="/static/images/rectangle-8-13.svg" alt="Rectangle 8" />
             <div class="insurance inter-bold-spring-green-12px">INSURANCE</div>
             <div class="logistics inter-normal-white-12px">Logistics</div>
             <div class="place inter-normal-white-12px">Energy</div>
@@ -36,11 +36,11 @@
             <div class="retail inter-normal-white-12px">Retail</div>
             <div class="text-42 text jejumyeongjo-regular-normal-white-20px">&gt;</div>
             <div class="by-industry inter-bold-white-18px">By industry</div>
-            <img class="usine-2" src="img/usine-2-1@2x.png" alt="usine 2" />
+            <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
           </div>
-          <a href="dashboard.html">
+          <a href="{{ url_for('dashboard')}}">
             <div class="group-40 group">
-              <img class="rapport-danalyse-2" src="img/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+              <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
               <div class="dashboard inter-bold-white-18px">Dashboard</div>
             </div></a
           >
@@ -49,13 +49,13 @@
           <header class="header">
             <div class="overlap-group-1">
               <div class="overlap-group1">
-                <img class="loupe-arrondie-1" src="img/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
                 <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
               </div>
               <div class="flex-col-1 flex-col-5">
                 <div class="flex-row">
-                  <img class="mask-group-1" src="img/mask-group-1@2x.png" alt="Mask group" />
-                  <img class="question-1" src="img/question-1@2x.png" alt="question 1" />
+                  <img class="mask-group-1" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
                 </div>
                 <div class="overlap-group2 inter-normal-white-12px">
                   <div class="account">Account</div>
@@ -90,7 +90,7 @@
             <div class="flex-col-3 flex-col-5">
               <div class="overlap-group-3">
                 <div class="csv">CSV</div>
-                <img class="mask-group-2" src="img/mask-group-105@2x.png" alt="Mask group" />
+                <img class="mask-group-2" src="/static/images/mask-group-105@2x.png" alt="Mask group" />
               </div>
               <div class="upload-your-vehicle-list inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">upload</span
@@ -100,7 +100,7 @@
             </div>
             <p class="text-40 text inter-bold-white-20px">.&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
             <div class="flex-col-4 flex-col-5">
-              <img class="mask-group-3" src="img/mask-group-104@2x.png" alt="Mask group" />
+              <img class="mask-group-3" src="/static/images/mask-group-104@2x.png" alt="Mask group" />
               <p class="quantum-computer-wil inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Quantum computer<br /></span
                 ><span class="inter-bold-white-14px-2">will process it with Q-Medoids</span>
@@ -110,10 +110,10 @@
             <div class="vehic-container">
               <div class="vehiculelogo">
                 <div class="line-container">
-                  <img class="line-10" src="img/line-10.svg" alt="Line 10" />
-                  <img class="line-8" src="img/line-8.svg" alt="Line 8" />
+                  <img class="line-10" src="/static/images/line-10.svg" alt="Line 10" />
+                  <img class="line-8" src="/static/images/line-8.svg" alt="Line 8" />
                 </div>
-                <img class="line-9" src="img/line-9.svg" alt="Line 9" />
+                <img class="line-9" src="/static/images/line-9.svg" alt="Line 9" />
               </div>
               <p class="download-your-sorted-list-of-vehicles inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Download<br /></span
@@ -121,7 +121,7 @@
               </p>
             </div>
           </div>
-          <img class="vector" src="img/vector-102.svg" alt="Vector" />
+          <img class="vector" src="/static/images/vector-102.svg" alt="Vector" />
           <div class="how-it-works">
             <div class="how-it-works-1 inter-bold-white-12px">How it works</div>
             <div class="flex-row-2 flex-row-3">
@@ -139,9 +139,9 @@
                 >
               </p>
               <div class="overlap-group3">
-                <img class="vector-1" src="img/vector-104.svg" alt="Vector" />
-                <img class="mask-group-4" src="img/mask-group-103@2x.png" alt="Mask group" />
-                <a href="qmeds-details.html">
+                <img class="vector-1" src="/static/images/vector-104.svg" alt="Vector" />
+                <img class="mask-group-4" src="/static/images/mask-group-103@2x.png" alt="Mask group" />
+                <a href="{{ url_for('qmeds-details')}}">
                   <div class="discover"><div class="use">USE</div></div></a
                 >
                 <p class="cluster-data-faster inter-light-white-10px">
@@ -155,7 +155,7 @@
               </div>
             </div>
           </div>
-          <img class="vector-2" src="img/vector-102.svg" alt="Vector" />
+          <img class="vector-2" src="/static/images/vector-102.svg" alt="Vector" />
           <div class="other-use-cases">
             <p class="discover-other-use-cases-in-insurance">DISCOVER OTHER USE CASES IN INSURANCE</p>
             <div class="overlap-group-container">

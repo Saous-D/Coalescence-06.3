@@ -8,9 +8,9 @@
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="css/sign-in.css" />
-    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/sign-in.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
   </head>
   <body style="margin: 0; background: #0e172b">
     <input type="hidden" id="anPageName" name="page" value="sign-in" />
@@ -20,12 +20,12 @@
           <div class="overlap-group">
             <div class="rectangle-10 rectangle"></div>
             <div class="side-bar">
-              <a href="index.html"><img class="mask-group" src="img/mask-group@2x.png" alt="Mask group" /> </a>
+              <a href="{{ url_for('index')}}"><img class="mask-group" src="/static/images/mask-group@2x.png" alt="Mask group" /> </a>
               <div class="flex-row">
                 <div class="flex-col">
-                  <img class="app-2" src="img/app-2-1@2x.png" alt="app 2" />
-                  <img class="usine-2" src="img/usine-2-1@2x.png" alt="usine 2" />
-                  <img class="rapport-danalyse-2" src="img/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+                  <img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" />
+                  <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
+                  <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
                 </div>
                 <div class="flex-col-1 flex-col-6 inter-bold-white-18px">
                   <div class="q-apps q">Q-Apps</div>
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="text-19 jejumyeongjo-regular-normal-white-20px">&gt;</div>
-            <img class="rectangle-8 rectangle" src="img/rectangle-8-5.svg" alt="Rectangle 8" />
+            <img class="rectangle-8 rectangle" src="/static/images/rectangle-8-5.svg" alt="Rectangle 8" />
             <div class="q-seg q inter-bold-spring-green-12px">Q-SEG</div>
             <div class="q-road q inter-normal-white-12px">Q-ROAD</div>
             <div class="q-sched q inter-normal-white-12px">Q-SCHED</div>
@@ -48,13 +48,13 @@
           <header class="header">
             <div class="overlap-group1">
               <div class="overlap-group-1">
-                <img class="loupe-arrondie-1" src="img/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
                 <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
               </div>
               <div class="flex-col-3 flex-col-6">
                 <div class="flex-row-1">
-                  <img class="mask-group-1" src="img/mask-group-1@2x.png" alt="Mask group" />
-                  <img class="question-1" src="img/question-1@2x.png" alt="question 1" />
+                  <img class="mask-group-1" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
                 </div>
                 <div class="overlap-group2 inter-normal-white-12px">
                   <div class="account">Account</div>
@@ -64,16 +64,16 @@
             </div>
           </header>
           <p class="create-an-account-to inter-bold-white-20px">Create an account to access to QbitSoft Platform</p>
-          <img class="vector-1" src="img/vector-70.svg" alt="Vector" />
+          <img class="vector-1" src="/static/images/vector-70.svg" alt="Vector" />
           <div class="fill inter-normal-white-15px">
             <div class="flex-col-4 flex-col-6">
               <div class="e-mail">E-mail</div>
-              <img class="vector-2" src="img/vector-71.svg" alt="Vector" />
+              <img class="vector-2" src="/static/images/vector-71.svg" alt="Vector" />
               <div class="last-name">Last name</div>
-              <img class="vector" src="img/vector-72.svg" alt="Vector" />
+              <img class="vector" src="/static/images/vector-72.svg" alt="Vector" />
               <div class="tel">Tel</div>
-              <img class="vector" src="img/vector-74.svg" alt="Vector" />
-              <a href="enter-code.html">
+              <img class="vector" src="/static/images/vector-74.svg" alt="Vector" />
+              <a href="{{ url_for('enter-code')}}">
                 <div class="group-54">
                   <div class="overlap-group-2"><div class="submit valign-text-middle">SUBMIT</div></div>
                 </div></a
@@ -81,9 +81,9 @@
             </div>
             <div class="flex-col-5 flex-col-6">
               <div class="place">Name</div>
-              <img class="vector" src="img/vector-73.svg" alt="Vector" />
+              <img class="vector" src="/static/images/vector-73.svg" alt="Vector" />
               <div class="company">Company</div>
-              <img class="vector" src="img/vector-75.svg" alt="Vector" />
+              <img class="vector" src="/static/images/vector-75.svg" alt="Vector" />
             </div>
           </div>
         </div>

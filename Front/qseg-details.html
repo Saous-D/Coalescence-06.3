@@ -8,9 +8,9 @@
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="css/qseg-details.css" />
-    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
-    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/qseg-details.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
   </head>
   <body style="margin: 0; background: #0e172b">
     <input type="hidden" id="anPageName" name="page" value="qseg-details" />
@@ -20,30 +20,30 @@
           <div class="overlap-group2">
             <div class="rectangle-10"></div>
             <div class="side-bar">
-              <a href="index.html">
+              <a href="{{ url_for('index')}}">
               <img class="mask-group-1" src="img/mask-group@2x.png" alt="Mask group" />
             </a>
-              <a href="qapps.html">
+              <a href="{{ url_for('qapps')}}">
                 <div class="group-50 group">
                   <img class="app-2" src="img/app-2-1@2x.png" alt="app 2" />
                   <div class="q-apps q inter-bold-white-18px">Q-Apps</div>
                 </div></a
               >
               <div class="flex-row flex">
-                <a href="insurance.html">
+                <a href="{{ url_for('insurance')}}">
                 <img class="usine-2" src="img/usine-2-1@2x.png" alt="usine 2" />
                 <div class="by-industry inter-bold-white-18px">By industry</div>
               </a>
               </div>
-              <a href="dashboard.html">
+              <a href="{{ url_for('dashboard')}}">
                 <div class="group-51 group">
-                  <img class="rapport-danalyse-2" src="img/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+                  <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
                   <div class="dashboard inter-bold-white-18px">Dashboard</div>
                 </div></a
               >
             </div>
             <div class="text-27 text jejumyeongjo-regular-normal-white-20px">&gt;</div>
-            <img class="rectangle-8" src="img/rectangle-8-9.svg" alt="Rectangle 8" />
+            <img class="rectangle-8" src="/static/images/rectangle-8-9.svg" alt="Rectangle 8" />
             <div class="q-seg q inter-bold-spring-green-12px">Q-SEG</div>
             <div class="q-road q inter-normal-white-12px">Q-ROAD</div>
             <div class="q-sched q inter-normal-white-12px">Q-SCHED</div>
@@ -56,13 +56,13 @@
           <header class="header">
             <div class="overlap-group3">
               <div class="overlap-group1">
-                <img class="loupe-arrondie-1" src="img/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
                 <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
               </div>
               <div class="flex-col-1 flex-col-7">
                 <div class="flex-row-1">
-                  <img class="mask-group-2" src="img/mask-group-1@2x.png" alt="Mask group" />
-                  <img class="question-1" src="img/question-1@2x.png" alt="question 1" />
+                  <img class="mask-group-2" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
                 </div>
                 <div class="overlap-group inter-normal-white-12px">
                   <div class="account">Account</div>
@@ -73,8 +73,8 @@
           </header>
           <div class="intro">
             <div class="overlap-group1-1">
-              <img class="mask-group-3" src="img/mask-group-80@2x.png" alt="Mask group" />
-              <img class="qseg-1" src="img/qseg-1.png" alt="Qseg 1" />
+              <img class="mask-group-3" src="/static/images/mask-group-80@2x.png" alt="Mask group" />
+              <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
             </div>
             <div class="flex-col-2 flex-col-7">
               <h1 class="q-seg-our-quantum-mo inter-bold-white-25px">
@@ -84,7 +84,7 @@
                   detect flooded areas from satellite images.</span
                 >
               </h1>
-              <a href="qseg-settings.html">
+              <a href="{{ url_for('qseg_settings')}}">
                 <div class="buttonsi">
                   <div class="overlap-group-1 overlap-group-3">
                     <p class="sign-in-to-use-it inter-bold-white-15px-2">Sign in to use it</p>
@@ -93,10 +93,10 @@
               >
             </div>
           </div>
-          <img class="vector" src="img/vector-102.svg" alt="Vector" style="margin-top: 70px;" />
+          <img class="vector" src="/static/images/vector-102.svg" alt="Vector" style="margin-top: 70px;" />
           <div class="schem inter-bold-white-20px" style="margin-top: 70px;">
             <div class="flex-col-3 flex-col-7">
-              <img class="mask-group-4" src="img/mask-group-84@2x.png" alt="Mask group" />
+              <img class="mask-group-4" src="/static/images/mask-group-84@2x.png" alt="Mask group" />
               <div class="select-your-image inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Select</span
                 ><span class="inter-normal-white-14px"> <br /></span
@@ -105,7 +105,7 @@
             </div>
             <p class="text-28 text">.&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
             <div class="flex-col-4 flex-col-7">
-              <img class="mask-group-5" src="img/mask-group-29@2x.png" alt="Mask group" />
+              <img class="mask-group-5" src="/static/images/mask-group-29@2x.png" alt="Mask group" />
               <div class="upload-it-to-q-seg inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Upload</span
                 ><span class="inter-normal-white-14px"> <br /></span
@@ -114,7 +114,7 @@
             </div>
             <p class="text-29 text">.&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
             <div class="flex-col-5 flex-col-7">
-              <img class="mask-group-6" src="img/mask-group-28@2x.png" alt="Mask group" />
+              <img class="mask-group-6" src="/static/images/mask-group-28@2x.png" alt="Mask group" />
               <div class="quantum-computer-will-process-it inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Quantum computer<br /></span
                 ><span class="inter-bold-white-14px-2">will process it</span>
@@ -122,16 +122,16 @@
             </div>
             <p class="text-30 text">.&nbsp;&nbsp;.&nbsp;&nbsp;.&nbsp;&nbsp;.</p>
             <div class="flex-col-6 flex-col-7">
-              <img class="mask-group-7" src="img/mask-group-85@2x.png" alt="Mask group" />
+              <img class="mask-group-7" src="/static/images/mask-group-85@2x.png" alt="Mask group" />
               <p class="download-your-image inter-bold-white-14px">
                 <span class="inter-bold-spring-green-14px">Download<br /></span
                 ><span class="inter-bold-white-14px-2">your image processed by quantum computer</span>
               </p>
             </div>
           </div>
-          <img class="vector-1" src="img/vector-102.svg" alt="Vector" />
+          <img class="vector-1" src="/static/images/vector-102.svg" alt="Vector" />
           <div class="overlap-group8">
-            <img class="vector-2" src="img/vector-97.svg" alt="Vector" />
+            <img class="vector-2" src="/static/images/vector-97.svg" alt="Vector" />
             <div class="description inter-bold-white-15px-2">
               <p class="image-segmentation-i">
                 <span class="inter-bold-white-15px-2"
@@ -182,7 +182,7 @@
               <div class="overlap-group7">
                 <div class="disaster-recognition inter-bold-white-12px">Disaster recognition</div>
                 <div class="overlap-group1-2">
-                  <img class="mask-group-8" src="img/mask-group-88@2x.png" alt="Mask group" />
+                  <img class="mask-group-8" src="/static/images/mask-group-88@2x.png" alt="Mask group" />
                 </div>
               </div>
               <div class="overlap-group5">
@@ -194,13 +194,13 @@
               <div class="overlap-group6">
                 <div class="quality-control inter-bold-white-12px">Quality control</div>
                 <div class="overlap-group-2 overlap-group-3">
-                  <img class="mask-group" src="img/mask-group-87@2x.png" alt="Mask group" />
+                  <img class="mask-group" src="/static/images/mask-group-87@2x.png" alt="Mask group" />
                 </div>
               </div>
               <div class="overlap-group4">
                 <div class="loss-detection inter-bold-white-12px">Loss detection</div>
                 <div class="overlap-group3-1">
-                  <img class="mask-group" src="img/mask-group-86@2x.png" alt="Mask group" />
+                  <img class="mask-group" src="/static/images/mask-group-86@2x.png" alt="Mask group" />
                 </div>
               </div>
             </div>
