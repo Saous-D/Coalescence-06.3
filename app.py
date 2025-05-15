@@ -129,6 +129,34 @@ def upload_image():
         return jsonify({'image_path': filepath, 'image_data': img_base64})
     except Exception as e:
         return jsonify({'error': str(e)})
+    
+@app.route('/heatmap', methods=['POST'])
+def generate_heatmap():
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file uploaded'}), 400
+
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'Empty filename'}), 400
+
+        filename = secure_filename(file.filename)
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(filepath)
+
+        color = request.form.get('color', 'viridis')
+
+        heatmap_buf = quantum_segmentation.return_heatmap(filepath, color=color)
+
+        img_bytes = heatmap_buf.getvalue()
+        img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+
+        return jsonify({'image_data': img_base64})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 
 def run_quantum_segmentation(image_path, image_height, image_width, water_penalty, no_water_penalty, sigma, mu, k):
     # Redirect stdout to a buffer
