@@ -515,8 +515,19 @@
 
 #fileName {
   font-family: 'Roboto', sans-serif;
+  padding: 0.5em 1em;
+  background-color: transparent;
+  color: #007BFF;
+  border: 2px solid #007BFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
   font-weight: 100;      /* Thin */
   font-size: 16px;       /* à ajuster selon vos besoins */
   line-height: 1.4;      /* pour un meilleur confort de lecture */
   color: #9c9d9f;
+}
+
+#fileName:hover {
+  background-color: rgba(0, 123, 255, 0.1);
 }
