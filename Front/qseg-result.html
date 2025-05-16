@@ -93,8 +93,10 @@
 <div class="canvas1">
   <canvas id="canvas" ></canvas>
   </div>
-  <a id="downloadHeatmapBtn" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
-            
+  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
+
+
+              <a href="{{ url_for('qseg_choose_image')}}">
               <div class="overlap-group-2">
                 <div style="
                 position: absolute;
@@ -110,6 +112,7 @@
                 <img class="mask-group-2" src="static/images/mask-group-2@2x.png" alt="Mask group" style="z-index: 1; margin-left: 10px;" />
                 <div class="change-original-image inter-bold-white-15px-2" style="z-index: 1;" >change original image</div>
               </div>
+            </a>
             </div>
             <img class="logoquantique" src="/static/images/logoquantique@2x.png" alt="logoquantique" />
             <div class="overlap-group1-2">
@@ -131,6 +134,8 @@
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
                 <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
+
+
               </div>
             </div>
           </div>
@@ -197,10 +202,9 @@ function base64ToBlob(base64, contentType) {
             ctx.drawImage(img, 0, 0);
           };
           img.src = processedImageData;
-          const downloadBtn = document.getElementById('downloadHeatmapBtn');
-          downloadBtn.href = processedImageData;
+          const downloadBtn = document.getElementById('fileName');
           downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
-
+          downloadBtn.href = processedImageData;
         } else {
           alert("Erreur : " + response.error);
         }
@@ -263,6 +267,7 @@ function base64ToBlob(base64, contentType) {
             }
 
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            document.getElementById('downloadBtn').textContent = `Download`;
             $("#downloadButton").attr("href", segmentedImg).show();
             const imgEl = document.querySelector('.image3-1');
             if (imgEl) {
@@ -283,5 +288,4 @@ function base64ToBlob(base64, contentType) {
     processImageFromLocalStorage();
     }
 </script>
-
 </html>
