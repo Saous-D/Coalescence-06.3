@@ -132,7 +132,7 @@
                   pointer-events: none;
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
-                <div class="download inter-bold-white-15px-2" style="z-index: 1;">Download</div>
+                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
               </div>
             </div>
           </div>
@@ -261,6 +261,7 @@ function base64ToBlob(base64, contentType) {
             }
 
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            $("#downloadButton").attr("href", segmentedImg).show();
             const imgEl = document.querySelector('.image3-1');
             if (imgEl) {
                 imgEl.src = segmentedImg;
