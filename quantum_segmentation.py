@@ -17,6 +17,10 @@ from dwave.system.composites import EmbeddingComposite
 import sys
 import time
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+
 import imageio
 from sklearn.datasets import load_digits
 from glob import glob

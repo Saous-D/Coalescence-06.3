@@ -93,10 +93,8 @@
 <div class="canvas1">
   <canvas id="canvas" ></canvas>
   </div>
-  <p id="fileName"></p>
-
-
-              
+  <a id="downloadHeatmapBtn" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
+            
               <div class="overlap-group-2">
                 <div style="
                 position: absolute;
@@ -171,7 +169,7 @@ function base64ToBlob(base64, contentType) {
     }
 
     // Mise à jour du nom du fichier dans la page
-    document.getElementById('fileName').textContent = `File: ${fileName}`;
+    // document.getElementById('fileName').textContent = `File: ${fileName}`;
 
     // Conversion base64 → Blob
     const blob = base64ToBlob(base64Data, 'image/tiff');
@@ -199,6 +197,10 @@ function base64ToBlob(base64, contentType) {
             ctx.drawImage(img, 0, 0);
           };
           img.src = processedImageData;
+          const downloadBtn = document.getElementById('downloadHeatmapBtn');
+          downloadBtn.href = processedImageData;
+          downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
+
         } else {
           alert("Erreur : " + response.error);
         }
@@ -278,7 +280,8 @@ function base64ToBlob(base64, contentType) {
   // Appel automatique au chargement de la page
     window.onload = function () {
     selectImageFromLocalStorage();
-    processImageFromLocalStorage();}
+    // processImageFromLocalStorage();
+    }
 </script>
 
 </html>
