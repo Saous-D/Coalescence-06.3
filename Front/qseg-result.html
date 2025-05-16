@@ -93,9 +93,7 @@
 <div class="canvas1">
   <canvas id="canvas" ></canvas>
   </div>
- <button id="fileName" type="button">
-  
-</button>
+  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
 
 
               <a href="{{ url_for('qseg_choose_image')}}">
@@ -135,7 +133,9 @@
                   pointer-events: none;
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
-                <div class="download inter-bold-white-15px-2" style="z-index: 1;">Download</div>
+                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
+
+
               </div>
             </div>
           </div>
@@ -202,6 +202,9 @@ function base64ToBlob(base64, contentType) {
             ctx.drawImage(img, 0, 0);
           };
           img.src = processedImageData;
+          const downloadBtn = document.getElementById('fileName');
+          downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
+          downloadBtn.href = processedImageData;
         } else {
           alert("Erreur : " + response.error);
         }
@@ -264,6 +267,8 @@ function base64ToBlob(base64, contentType) {
             }
 
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            document.getElementById('downloadBtn').textContent = `Download`;
+            $("#downloadButton").attr("href", segmentedImg).show();
             const imgEl = document.querySelector('.image3-1');
             if (imgEl) {
                 imgEl.src = segmentedImg;
@@ -280,7 +285,7 @@ function base64ToBlob(base64, contentType) {
   // Appel automatique au chargement de la page
     window.onload = function () {
     selectImageFromLocalStorage();
-    processImageFromLocalStorage();}
+    processImageFromLocalStorage();
+    }
 </script>
-
 </html>
