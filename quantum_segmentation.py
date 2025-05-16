@@ -190,10 +190,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 
+import imageio
+import numpy as np
+import matplotlib.pyplot as plt
+import io
+
 def return_heatmap(image_path, color="viridis"):
     """
     Generates a heatmap (NDWI) from a TIFF image and returns it as a PNG image in memory.
-
+    
     Parameters:
         image_path (str): Path to the input .tif file
         color (str): Matplotlib colormap to use (e.g. 'viridis', 'inferno', etc.)
@@ -216,7 +221,14 @@ def return_heatmap(image_path, color="viridis"):
     # interpolation='nearest' ensures sharp edges in pixelated data (no smoothing)
     cax = ax.imshow(NDWI, cmap=color, interpolation='nearest')  
     ax.axis('off')
-    fig.colorbar(cax)
+    # Create colorbar
+    cbar = fig.colorbar(cax)
+
+    # Replace numeric ticks with custom labels (Dry at bottom, Water at top)
+    cbar.set_ticks([NDWI.min(), NDWI.max()])
+    cbar.set_ticklabels(["Dry", "Water"])
+
+
     plt.tight_layout(pad=0)
 
     # Save figure to in-memory PNG
