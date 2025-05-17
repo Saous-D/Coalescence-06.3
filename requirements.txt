@@ -17,3 +17,5 @@ pybase64
 opencv-python
 pandas
 python-dotenv
+gunicorn 
+eventlet
