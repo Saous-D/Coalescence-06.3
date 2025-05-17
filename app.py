@@ -208,6 +208,11 @@ def process_image():
     img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
     return jsonify({'image_data': img_base64})
-
+#******************** Pour le deploiement 
+# if __name__ == "__main__":           # pour l'execution en locale
+#     socketio.run(app, debug=True)    # pour l'execution en locale
+#******************************************************************
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Port assigné par Render ou 5000 par défaut
+    socketio.run(app, host="0.0.0.0", port=port)
+#******************************************************************
