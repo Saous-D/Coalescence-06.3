@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
+    <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=1094, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="/static/css/qseg-result.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
+  </head>
+  <body style="margin: 0; background: #0e172b">
+    <input type="hidden" id="anPageName" name="page" value="qseg-result" />
+    <div class="container-center-horizontal">
+      <div class="qseg-result screen">
+        <div class="side">
+          <div class="overlap-group">
+            <div class="rectangle-10"></div>
+            <div class="side-bar">
+              <a href="{{ url_for('index')}}">
+              <img class="mask-group" src="/static/images/mask-group@2x.png" alt="Mask group" />
+            </a>
+              <a href="{{ url_for('qapps')}}">
+                <div class="group-42 group">
+                  <img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" />
+                  <div class="q-apps q inter-bold-white-18px">Q-Apps</div>
+                </div></a
+              >
+              <div class="flex-row flex">
+                <a href="{{ url_for('insurance')}}">
+                <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
+                <div class="by-industry inter-bold-white-18px">By industry</div>
+              </a>
+              </div>
+              <a href="{{ url_for('dashboard')}}">
+                <div class="group-41 group">
+                  <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+                  <div class="dashboard inter-bold-white-18px">Dashboard</div>
+                </div></a
+              >
+            </div>
+            <div class="text-1 jejumyeongjo-regular-normal-white-20px">&gt;</div>
+            <img class="rectangle-8" src="/static/images/rectangle-8.svg" alt="Rectangle 8" />
+            <div class="q-seg q inter-bold-spring-green-12px">Q-SCAN</div>
+            <div class="q-road q inter-normal-white-12px">Q-ROAD</div>
+            <div class="q-sched q inter-normal-white-12px">Q-SCHED</div>
+            <div class="q-pgm q inter-normal-white-12px">Q-PGM</div>
+            <div class="q-color q inter-normal-white-12px">Q-COLOR</div>
+            <div class="q-medoids q inter-normal-white-12px">Q-MEDOIDS</div>
+          </div>
+        </div>
+        <div class="flex-col flex">
+          <div class="flex-row-1 flex-row-3">
+            <img class="valide-1" src="/static/images/valide-1.png" alt="valide 1" />
+            <div class="flex-col-1 flex-col-3">
+              <header class="header">
+                <div class="overlap-group1">
+                  <div class="overlap-group-1">
+                    <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                    <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
+                  </div>
+                  <div class="flex-col-2 flex-col-3">
+                    <div class="flex-row-2 flex-row-3">
+                      <img class="mask-group-1" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                      <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
+                    </div>
+                    <div class="overlap-group2 inter-normal-white-12px">
+                      <div class="account">Account</div>
+                      <div class="help">Help</div>
+                    </div>
+                  </div>
+                </div>
+              </header>
+              <div class="overlap-group3">
+                <div class="image-q-processed valign-text-middle inter-bold-white-20px">IMAGE Q-PROCESSED</div>
+                <img class="line-7" src="/static/images/line-7.svg" alt="Line 7" />
+              </div>
+            </div>
+          </div>
+          <div class="results">
+            <div class="overlap-group2-1">
+              
+              <div class="overlap-group1-1">
+
+                <div class="original-image valign-text-middle inter-bold-white-20px">ORIGINAL IMAGE</div>
+              </div>
+<div class="canvas1">
+  <canvas id="canvas" ></canvas>
+  </div>
+  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
+
+
+              <a href="{{ url_for('qseg_choose_image')}}">
+              <div class="overlap-group-2">
+                <div style="
+                position: absolute;
+                inset: 1;
+                margin: auto;
+                z-index: 0;
+                border-radius: 999px;
+                background: linear-gradient(to left, #03FE9C, 40%, #3A64FA);
+                height: 40px;   
+                width: 230px;
+                pointer-events: none;
+              "></div>
+                <img class="mask-group-2" src="static/images/mask-group-2@2x.png" alt="Mask group" style="z-index: 1; margin-left: 10px;" />
+                <div class="change-original-image inter-bold-white-15px-2" style="z-index: 1;" >change original image</div>
+              </div>
+            </a>
+            </div>
+            <img class="logoquantique" src="/static/images/logoquantique@2x.png" alt="logoquantique" />
+            <div class="overlap-group1-2">
+              <div class="rectangle-69"></div>
+              <div class="rectangle-72"></div>
+              <div class="segmented-image valign-text-middle inter-bold-white-20px">SEGMENTED IMAGE</div>
+              <img class="image3-1" src="/static/images/image3-1@2x.png" alt="Image3 1" />
+              <div class="overlap-group-3">
+                 <div style="
+                  position: absolute;
+                  inset: 0;
+                  margin: auto;
+                  z-index: 0;
+                  border-radius: 999px;
+                  background: linear-gradient(to left, #03FE9C, 40%, #3A64FA);
+                  height: 40px;   
+                  width: 140px;
+                  pointer-events: none;
+                  "></div>
+                <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
+                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+<script type="text/javascript">
+function base64ToBlob(base64, contentType) {
+  // Supprimer l'en-tête si présent
+  const base64Data = base64.split(',').pop();  // enlève tout avant la virgule
+
+  const byteCharacters = atob(base64Data);
+  const byteArrays = [];
+
+  for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+    const slice = byteCharacters.slice(offset, offset + 512);
+    const byteNumbers = new Array(slice.length);
+    for (let i = 0; i < slice.length; i++) {
+      byteNumbers[i] = slice.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    byteArrays.push(byteArray);
+  }
+
+  return new Blob(byteArrays, { type: contentType });
+}
+
+  function selectImageFromLocalStorage() {
+    const base64Data = localStorage.getItem('uploadedTiff');
+    const fileName = localStorage.getItem('uploadedFileName') || 'image.tiff';
+
+    if (!base64Data) {
+      alert("Aucune image trouvée dans le localStorage.");
+      return;
+    }
+
+    // Mise à jour du nom du fichier dans la page
+    // document.getElementById('fileName').textContent = `File: ${fileName}`;
+
+    // Conversion base64 → Blob
+    const blob = base64ToBlob(base64Data, 'image/tiff');
+    const formData = new FormData();
+    formData.append('file', blob, fileName);
+
+    // Envoi au serveur
+    $.ajax({
+      url: '/heatmap',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+        if (response.image_data) {
+          const processedImageData = "data:image/png;base64," + response.image_data;
+
+          // Affichage dans le canvas (par exemple)
+          const canvas = document.getElementById('canvas');
+          const ctx = canvas.getContext('2d');
+          const img = new Image();
+          img.onload = function () {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0);
+          };
+          img.src = processedImageData;
+          const downloadBtn = document.getElementById('fileName');
+          downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
+          downloadBtn.href = processedImageData;
+        } else {
+          alert("Erreur : " + response.error);
+        }
+      },
+      error: function() {
+        alert("Erreur lors du traitement de l'image");
+      }
+    });
+  }
+
+
+  function processImageFromLocalStorage() {
+    const base64 = localStorage.getItem('uploadedTiff');
+    const fileName = localStorage.getItem('uploadedFileName');
+
+    if (!base64 || !fileName) {
+        alert("Aucun fichier trouvé dans le stockage local.");
+        return;
+    }
+
+    const contentTypeMatch = base64.match(/^data:(.*);base64,/);
+    const contentType = contentTypeMatch ? contentTypeMatch[1] : 'image/tiff';
+
+    const blob = base64ToBlob(base64, contentType);
+    const formData = new FormData();
+    formData.append('file', blob, fileName);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            alert("Erreur d'upload : " + data.error);
+            return;
+        }
+
+        const imagePath = data.image_path;
+
+        const processData = new FormData();
+        processData.append('image_path', imagePath);
+        processData.append('image_height', '512');
+        processData.append('image_width', '512');
+        processData.append('water_penalty', '0.75');
+        processData.append('no_water_penalty', '-0.75');
+        processData.append('sigma', '0.2');
+        processData.append('mu', '1');
+        processData.append('k', '2');
+
+        fetch('/process', {
+            method: 'POST',
+            body: processData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.error) {
+                alert("Erreur de traitement : " + result.error);
+                return;
+            }
+
+            const segmentedImg = 'data:image/png;base64,' + result.image_data;
+            document.getElementById('downloadBtn').textContent = `Download`;
+            $("#downloadButton").attr("href", segmentedImg).show();
+            const imgEl = document.querySelector('.image3-1');
+            if (imgEl) {
+                imgEl.src = segmentedImg;
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors du traitement :', error);
+        });
+    })
+    .catch(error => {
+        console.error('Erreur lors de l\'upload :', error);
+    });
+}
+  // Appel automatique au chargement de la page
+    window.onload = function () {
+    selectImageFromLocalStorage();
+    processImageFromLocalStorage();
+    }
+</script>
+</html>

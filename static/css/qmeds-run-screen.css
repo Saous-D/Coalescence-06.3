@@ -1,0 +1,387 @@
+/* screen - qmeds-run-screen */
+
+.qmeds-run-screen {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  display: flex;
+  gap: 75px;
+  min-width: 1094px;
+}
+
+.qmeds-run-screen .side {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  display: flex;
+  height: 1920px;
+  justify-content: flex-end;
+  min-width: 213px;
+  padding: 6px 3.4px;
+}
+
+.qmeds-run-screen .overlap-group3 {
+  height: 447px;
+  position: relative;
+  width: 200px;
+}
+
+.qmeds-run-screen .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 200px;
+  left: 4px;
+  position: absolute;
+  top: 118px;
+  width: 191px;
+}
+
+.qmeds-run-screen .side-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  min-height: 447px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+.qmeds-run-screen .mask-group {
+  height: 72px;
+  margin-left: 1.0px;
+  width: 199px;
+}
+
+.qmeds-run-screen .group-34 {
+  align-items: center;
+  gap: 60px;
+  height: 24px;
+  margin-left: 3.42px;
+  margin-top: 54px;
+  min-width: 175px;
+}
+
+.qmeds-run-screen .app-2 {
+  height: 21px;
+  margin-top: 1.0px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.qmeds-run-screen .q-apps {
+  min-height: 24px;
+  width: 92px;
+}
+
+.qmeds-run-screen .flex-row {
+  gap: 39px;
+  height: 25px;
+  margin-left: 1.24px;
+  margin-top: 189px;
+  min-width: 173px;
+}
+
+.qmeds-run-screen .usine-2 {
+  height: 20px;
+  margin-top: 1px;
+  object-fit: cover;
+  width: 20px;
+}
+
+.qmeds-run-screen .by-industry {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 114px;
+}
+
+.qmeds-run-screen .group-33 {
+  align-items: flex-start;
+  gap: 42px;
+  height: 25px;
+  margin-left: 3.9px;
+  margin-top: 36px;
+  min-width: 175px;
+}
+
+.qmeds-run-screen .rapport-danalyse-2 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qmeds-run-screen .dashboard {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 108px;
+}
+
+.qmeds-run-screen .text-43 {
+ left: 15px;
+  position: absolute;
+  top: 280px;
+  transform: rotate(-90deg);
+  width: 19px;
+}
+
+.qmeds-run-screen .rectangle-8 {
+  height: 29px;
+  left: 1px;
+  position: absolute;
+  top: 155px;
+  width: 197px;
+}
+
+.qmeds-run-screen .q-seg {
+  left: 119px;
+  position: absolute;
+  top: 182px;
+  width: 68px;
+}
+
+.qmeds-run-screen .q-road {
+  left: 133px;
+  position: absolute;
+  top: 208px;
+  width: 53px;
+}
+
+.qmeds-run-screen .q-sched {
+  left: 77px;
+  position: absolute;
+  top: 235px;
+  width: 110px;
+}
+
+.qmeds-run-screen .q-pgm {
+  left: 123px;
+  position: absolute;
+  top: 261px;
+  width: 64px;
+}
+
+.qmeds-run-screen .q-color {
+  left: 106px;
+  position: absolute;
+  top: 287px;
+  width: 80px;
+}
+
+.qmeds-run-screen .q-medoids {
+  left: 91px;
+  position: absolute;
+  top: 159px;
+  width: 96px;
+}
+
+.qmeds-run-screen .flex-col {
+  flex-direction: column;
+  gap: 54px;
+  margin-top: 16px;
+  min-height: 535px;
+  width: 806px;
+}
+
+.qmeds-run-screen .header {
+  align-items: flex-start;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  height: 80px;
+  justify-content: flex-start;
+  min-width: 806px;
+  width: auto;
+}
+
+.qmeds-run-screen .overlap-group {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  display: flex;
+  gap: 231px;
+  height: 88px;
+  justify-content: flex-end;
+  margin-left: -75px;
+  margin-top: -16px;
+  min-width: 881px;
+  padding: 16px 9px;
+}
+
+.qmeds-run-screen .overlap-group2 {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 332px;
+}
+
+.qmeds-run-screen .flex-col-1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+}
+
+.qmeds-run-screen .flex-row-1 {
+  align-items: flex-end;
+  display: flex;
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.qmeds-run-screen .mask-group-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.qmeds-run-screen .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qmeds-run-screen .overlap-group1 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.qmeds-run-screen .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qmeds-run-screen .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qmeds-run-screen .running {
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+  min-width: 767px;
+}
+
+.qmeds-run-screen .overlap-group4 {
+  height: 401px;
+  margin-top: -0.14px;
+  position: relative;
+  width: 767px;
+}
+
+.qmeds-run-screen .q-medoids-is-running {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(90deg, rgba(51, 94, 231, 1) 0%, rgba(6, 255, 157, 1) 100%);
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  height: 36px;
+  left: 251px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  text-fill-color: transparent;
+  top: 25px;
+  width: 279px;
+}
+
+.qmeds-run-screen .mask-group-2 {
+  height: 85px;
+  left: 339px;
+  position: absolute;
+  top: 143px;
+  width: 90px;
+}
+
+.qmeds-run-screen .mask-group-3 {
+  height: 68px;
+  left: 44px;
+  position: absolute;
+  top: 144px;
+  width: 68px;
+}
+
+.qmeds-run-screen .text-44 {
+  left: 191px;
+  text-align: justify;
+  top: 160px;
+  white-space: nowrap;
+}
+
+.qmeds-run-screen .text-45 {
+  left: 475px;
+  text-align: justify;
+  top: 160px;
+  white-space: nowrap;
+}
+
+.qmeds-run-screen .overlap-group-1 {
+  align-items: flex-start;
+  border-radius: 21.5px;
+  display: flex;
+  height: 43px;
+  min-width: 138px;
+  padding: 9px 14px;
+}
+
+.qmeds-run-screen .vector {
+  height: 401px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 767px;
+}
+
+.qmeds-run-screen .mask-group-4 {
+  height: 72px;
+  left: 642px;
+  position: absolute;
+  top: 144px;
+  width: 72px;
+}
+
+.qmeds-run-screen .flex {
+  align-items: flex-start;
+  display: flex;
+}
+
+.qmeds-run-screen .group {
+  cursor: pointer;
+  display: flex;
+}
+
+.qmeds-run-screen .q {
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: right;
+}
+
+.qmeds-run-screen .text {
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+}

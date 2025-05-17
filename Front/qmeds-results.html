@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=1094, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="/static/css/qmeds-results.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
+  </head>
+  <body style="margin: 0; background: #0e172b">
+    <input type="hidden" id="anPageName" name="page" value="qmeds-results" />
+    <div class="container-center-horizontal">
+      <div class="qmeds-results screen">
+        <div class="side">
+          <div class="overlap-group3">
+            <div class="rectangle-10"></div>
+            <div class="side-bar">
+              <a href="{{ url_for('index')}}">
+              <img class="mask-group" src="/static/images/mask-group@2x.png" alt="Mask group" />
+            </a>
+              <a href="{{ url_for('qapps')}}">
+                <div class="group-36 group">
+                  <img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" />
+                  <div class="q-apps q inter-bold-white-18px">Q-Apps</div>
+                </div></a
+              >
+              <div class="flex-row">
+                <a href="{{ url_for('insurance')}}">
+                <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
+                <div class="by-industry inter-bold-white-18px">By industry</div>
+              </a>
+              </div>
+              <a href="{{ url_for('dashboard')}}">
+                <div class="group-35 group">
+                  <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+                  <div class="dashboard inter-bold-white-18px">Dashboard</div>
+                </div></a
+              >
+            </div>
+            <div class="text-33 text jejumyeongjo-regular-normal-white-20px">&gt;</div>
+            <img class="rectangle-8" src="/static/images/rectangle-8-11.svg" alt="Rectangle 8" />
+            <div class="q-seg q inter-normal-white-12px">Q-SCAN</div>
+            <div class="q-road q inter-normal-white-12px">Q-ROAD</div>
+            <div class="q-sched q inter-normal-white-12px">Q-SCHED</div>
+            <div class="q-pgm q inter-normal-white-12px">Q-PGM</div>
+            <div class="q-color q inter-normal-white-12px">Q-COLOR</div>
+            <div class="q-medoids q inter-bold-spring-green-12px">Q-MEDOIDS</div>
+          </div>
+        </div>
+        <div class="flex-col">
+          <header class="header">
+            <div class="overlap-group">
+              <div class="overlap-group1">
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
+              </div>
+              <div class="flex-col-1">
+                <div class="flex-row-1">
+                  <img class="mask-group-1" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
+                </div>
+                <div class="overlap-group2 inter-normal-white-12px">
+                  <div class="account">Account</div>
+                  <div class="help">Help</div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="dataprocessed">
+            <img class="valide-1" src="/static/images/valide-1.png" alt="valide 1" />
+            <div class="your-dataset-is-processed valign-text-middle inter-bold-white-20px">
+              YOUR DATASET IS PROCESSED
+            </div>
+          </div>
+          <div class="results inter-bold-white-15px-2">
+            <img class="mask-group-2" src="/static/images/mask-group-95@2x.png" alt="Mask group" />
+            <div class="text-34 text">.<br />.<br />.</div>
+            <img class="mask-group-3" src="/static/images/mask-group-94@2x.png" alt="Mask group" />
+            <div class="text-35 text">.<br />.<br />.</div>
+            <img class="mask-group-4" src="/static/images/mask-group-96@2x.png" alt="Mask group" />
+            <div class="overlap-group4" style="position: relative; display: flex; align-items: center; gap: 10px;">
+  <!-- Pillule en fond -->
+  <div style="
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    z-index: 0;
+    border-radius: 999px;
+    background: linear-gradient(to left, #03FE9C, 40%, #3A64FA);
+    height: 40px;   
+    width: 140px;
+    pointer-events: none;
+  "></div>
+
+  <!-- Contenu au-dessus -->
+  <img class="mask-group-5" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;" />
+  <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

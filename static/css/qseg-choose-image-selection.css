@@ -1,0 +1,589 @@
+/* screen - qseg-choose-image-selection */
+
+.qseg-choose-image-selection {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  display: flex;
+  gap: 39px;
+  min-width: 1094px;
+}
+
+.qseg-choose-image-selection .side {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  display: flex;
+  height: 1920px;
+  justify-content: flex-end;
+  min-width: 213px;
+  padding: 6px 3.4px;
+}
+
+.qseg-choose-image-selection .overlap-group2 {
+  height: 447px;
+  position: relative;
+  width: 200px;
+}
+
+.qseg-choose-image-selection .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 200px;
+  left: 4px;
+  position: absolute;
+  top: 118px;
+  width: 191px;
+}
+
+.qseg-choose-image-selection .side-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  min-height: 447px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+.qseg-choose-image-selection .mask-group {
+  height: 72px;
+  margin-left: 1.0px;
+  width: 199px;
+}
+
+.qseg-choose-image-selection .flex-row {
+  align-items: flex-end;
+  display: flex;
+  gap: 60px;
+  height: 24px;
+  margin-left: 1.42px;
+  margin-top: 53px;
+  min-width: 173px;
+}
+
+.qseg-choose-image-selection .app-2 {
+  cursor: pointer;
+  height: 21px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.qseg-choose-image-selection .q-apps {
+  cursor: pointer;
+  min-height: 24px;
+  width: 92px;
+}
+
+.qseg-choose-image-selection .flex-row-1 {
+  align-items: flex-start;
+  display: flex;
+  gap: 39px;
+  height: 25px;
+  margin-left: 1.24px;
+  margin-top: 190px;
+  min-width: 173px;
+}
+
+.qseg-choose-image-selection .usine-2 {
+  height: 20px;
+  margin-top: 1px;
+  object-fit: cover;
+  width: 20px;
+}
+
+.qseg-choose-image-selection .by-industry {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 114px;
+}
+
+.qseg-choose-image-selection .group-45 {
+  gap: 42px;
+  height: 25px;
+  margin-left: 3.9px;
+  margin-top: 36px;
+  min-width: 175px;
+}
+
+.qseg-choose-image-selection .rapport-danalyse-2 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-choose-image-selection .dashboard {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 108px;
+}
+
+.qseg-choose-image-selection .text-22 {
+  left: 18px;
+  position: absolute;
+  top: 288px;
+  transform: rotate(-90deg);
+  white-space: nowrap;
+  width: 8px;
+}
+
+.qseg-choose-image-selection .rectangle-8 {
+  height: 29px;
+  left: 1px;
+  position: absolute;
+  top: 179px;
+  width: 197px;
+}
+
+.qseg-choose-image-selection .q-seg {
+  left: 119px;
+  position: absolute;
+  top: 182px;
+  width: 68px;
+}
+
+.qseg-choose-image-selection .q-road {
+  left: 133px;
+  position: absolute;
+  top: 208px;
+  width: 53px;
+}
+
+.qseg-choose-image-selection .q-sched {
+  left: 77px;
+  position: absolute;
+  top: 235px;
+  width: 110px;
+}
+
+.qseg-choose-image-selection .q-pgm {
+  left: 123px;
+  position: absolute;
+  top: 261px;
+  width: 64px;
+}
+
+.qseg-choose-image-selection .q-color {
+  left: 106px;
+  position: absolute;
+  top: 287px;
+  width: 80px;
+}
+
+.qseg-choose-image-selection .q-medoids {
+  left: 91px;
+  position: absolute;
+  top: 159px;
+  width: 96px;
+}
+
+.qseg-choose-image-selection .flex-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  min-height: 1160px;
+  width: 842px;
+}
+
+.qseg-choose-image-selection .header {
+  align-items: flex-start;
+  align-self: flex-end;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  height: 80px;
+  justify-content: flex-start;
+  min-width: 806px;
+  width: auto;
+}
+
+.qseg-choose-image-selection .overlap-group3 {
+  align-items: flex-start;
+  background-color: var(--mirage);
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  display: flex;
+  gap: 231px;
+  height: 88px;
+  justify-content: flex-end;
+  margin-left: -75px;
+  margin-top: -16px;
+  min-width: 881px;
+  padding: 16px 9px;
+}
+
+.qseg-choose-image-selection .overlap-group {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 332px;
+}
+
+.qseg-choose-image-selection .flex-col-1 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+}
+
+.qseg-choose-image-selection .flex-row-2 {
+  align-items: flex-end;
+  display: flex;
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.qseg-choose-image-selection .mask-group-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.qseg-choose-image-selection .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-choose-image-selection .overlap-group1 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.qseg-choose-image-selection .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-choose-image-selection .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-choose-image-selection .flex-row-3 {
+  align-items: flex-end;
+  display: flex;
+  gap: 29px;
+  margin-left: 46px;
+  margin-top: 24px;
+  min-width: 307px;
+}
+
+.qseg-choose-image-selection .mask-group-2 {
+  height: 30px;
+  width: 30px;
+}
+
+.qseg-choose-image-selection .upload-your-image {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 1px;
+  min-height: 24px;
+  text-align: justify;
+  white-space: nowrap;
+  width: 248px;
+}
+
+.qseg-choose-image-selection .overlap-group6 {
+  align-self: center;
+  height: 788px;
+  margin-right: 47.0px;
+  margin-top: 65px;
+  position: relative;
+  width: 713px;
+}
+
+.qseg-choose-image-selection .vector {
+  height: 270px;
+  left: 64px;
+  position: absolute;
+  top: 0;
+  width: 579px;
+}
+
+.qseg-choose-image-selection .drag-and-drop-your-i {
+  left: 175px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 13px;
+  width: 344px;
+}
+
+.qseg-choose-image-selection .cloud {
+  height: 44px;
+  left: 318px;
+  position: absolute;
+  top: 101px;
+  width: 47px;
+}
+
+.qseg-choose-image-selection .overlap-group4 {
+  align-items: flex-end;
+  background-image: url(../img/vector-78.svg);
+  background-size: 100% 100%;
+  display: flex;
+  height: 42px;
+  justify-content: flex-end;
+  left: 273px;
+  min-width: 134px;
+  padding: 5.8px 12.8px;
+  position: absolute;
+  top: 175px;
+}
+
+.qseg-choose-image-selection .select-image {
+  color: var(--blue);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  width: 99px;
+}
+
+.qseg-choose-image-selection .pop-ups {
+  align-items: flex-start;
+  display: flex;
+  height: 565px;
+  left: 0;
+  min-width: 713px;
+  position: absolute;
+  top: 223px;
+}
+
+.qseg-choose-image-selection .overlap-group5 {
+  height: 565px;
+  position: relative;
+  width: 713px;
+}
+
+.qseg-choose-image-selection .rectangle-69 {
+  background-color: var(--ebony-clay);
+  border-radius: 21px;
+  box-shadow: 0px 0px 21.4px 1px #00000040;
+  height: 556px;
+  left: 0;
+  position: absolute;
+  top: 9px;
+  width: 713px;
+}
+
+.qseg-choose-image-selection .polygon-1 {
+  height: 10px;
+  left: 324px;
+  position: absolute;
+  top: 0;
+  width: 23px;
+}
+
+.qseg-choose-image-selection .ghana_141271_s2-hand-1 {
+  height: 120px;
+  left: 28px;
+  object-fit: cover;
+  position: absolute;
+  top: 255px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .india_399883_s2-hand-1 {
+  height: 120px;
+  left: 206px;
+  object-fit: cover;
+  position: absolute;
+  top: 255px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .india_631692_s2-hand-1 {
+  height: 120px;
+  left: 384px;
+  object-fit: cover;
+  position: absolute;
+  top: 255px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .india_900498_s2-hand-1 {
+  height: 120px;
+  left: 384px;
+  object-fit: cover;
+  position: absolute;
+  top: 445px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .india_1018327_s2-hand-1 {
+  height: 120px;
+  left: 28px;
+  object-fit: cover;
+  position: absolute;
+  top: 445px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .paraguay_280900_s2-hand-1 {
+  height: 120px;
+  left: 562px;
+  object-fit: cover;
+  position: absolute;
+  top: 255px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .paraguay_651904_s2-hand-1 {
+  height: 120px;
+  left: 206px;
+  object-fit: cover;
+  position: absolute;
+  top: 445px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .paraguay_790830_s2-hand-1 {
+  left: 28px;
+}
+
+.qseg-choose-image-selection .spain_5650136_s2-hand-1 {
+  height: 121px;
+  left: 562px;
+  object-fit: cover;
+  position: absolute;
+  top: 445px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .paraguay_790830_s2-hand-2 {
+  left: 562px;
+}
+
+.qseg-choose-image-selection .sri-lanka_534068_s2-hand-1 {
+  height: 120px;
+  left: 384px;
+  object-fit: cover;
+  position: absolute;
+  top: 635px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .sri-lanka_713926_s2-hand-1 {
+  height: 120px;
+  left: 206px;
+  object-fit: cover;
+  position: absolute;
+  top: 635px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .buttons {
+  align-items: flex-start;
+  display: flex;
+  gap: 306px;
+  height: 53px;
+  margin-top: 120px;
+  min-width: 823px;
+  padding: 0 110px;
+}
+
+.qseg-choose-image-selection .overlap-group1-1 {
+  height: 46px;
+  position: relative;
+  width: 138px;
+}
+
+.qseg-choose-image-selection .settings {
+  left: 41px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 8px;
+}
+
+.qseg-choose-image-selection .text-21 {
+  left: 9px;
+  position: absolute;
+  text-align: justify;
+  top: 3px;
+  width: 17px;
+}
+
+.qseg-choose-image-selection .group-31 {
+  min-width: 142px;
+}
+
+.qseg-choose-image-selection .overlap-group-1 {
+  align-items: flex-start;
+  border-radius: 21.5px;
+  display: flex;
+  gap: 30px;
+  height: 43px;
+  justify-content: flex-end;
+  min-width: 138px;
+  padding: 5px 9px;
+}
+
+.qseg-choose-image-selection .run {
+  align-self: center;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 4.0px;
+  min-height: 21px;
+  min-width: 28px;
+  text-align: justify;
+}
+
+.qseg-choose-image-selection .text-20 {
+  min-height: 30px;
+  min-width: 17px;
+  text-align: justify;
+  white-space: nowrap;
+}
+
+.qseg-choose-image-selection .group {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+}
+
+.qseg-choose-image-selection .paraguay_790830_s2-hand {
+  height: 120px;
+  object-fit: cover;
+  position: absolute;
+  top: 635px;
+  width: 120px;
+}
+
+.qseg-choose-image-selection .q {
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: right;
+}
+
+.qseg-choose-image-selection .text {
+  letter-spacing: 0;
+  line-height: normal;
+}

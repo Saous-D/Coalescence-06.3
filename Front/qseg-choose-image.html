@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
+    <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
+    <meta name="viewport" content="width=1094, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="/static/css/qseg-choose-image.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
+  </head>
+  <body style="margin: 0; background: #0e172b">
+    <input type="hidden" id="anPageName" name="page" value="qseg-choose-image" />
+    <div class="container-center-horizontal">
+      <div class="qseg-choose-image screen">
+        <div class="side">
+          <div class="overlap-group2">
+            <div class="rectangle-10"></div>
+            <div class="side-bar"><a href="{{ url_for('index')}}">
+              <img class="mask-group" src="/static/images/mask-group@2x.png" alt="Mask group" />
+            </a>
+              <a href="{{ url_for('qapps')}}">
+                <div class="group-46 group">
+                  <img class="app-2" src="/static/images/app-2-1@2x.png" alt="app 2" />
+                  <div class="q-apps q inter-bold-white-18px">Q-Apps</div>
+                </div></a
+              >
+              <div class="flex-row flex">
+                <a href="{{ url_for('insurance')}}">
+                <img class="usine-2" src="/static/images/usine-2-1@2x.png" alt="usine 2" />
+                <div class="by-industry inter-bold-white-18px">By industry</div>
+              </a>
+              </div>
+              <a href="{{ url_for('dashboard')}}">
+                <div class="group-47 group">
+                  <img class="rapport-danalyse-2" src="/static/images/rapport-danalyse-2-1@2x.png" alt="rapport-danalyse 2" />
+                  <div class="dashboard inter-bold-white-18px">Dashboard</div>
+                </div></a
+              >
+            </div>
+            <div class="text-39 text jejumyeongjo-regular-normal-white-20px">&gt;</div>
+            <img class="rectangle-8" src="/static/images/rectangle-8-15.svg" alt="Rectangle 8" />
+            <div class="q-seg q inter-bold-spring-green-12px">Q-SCAN</div>
+            <div class="q-road q inter-normal-white-12px">Q-ROAD</div>
+            <div class="q-sched q inter-normal-white-12px">Q-SCHED</div>
+            <div class="q-pgm q inter-normal-white-12px">Q-PGM</div>
+            <div class="q-color q inter-normal-white-12px">Q-COLOR</div>
+            <div class="q-medoids q inter-normal-white-12px">Q-MEDOIDS</div>
+          </div>
+        </div>
+        <div class="flex-col flex">
+          <header class="header">
+            <div class="overlap-group3">
+              <div class="overlap-group">
+                <img class="loupe-arrondie-1" src="/static/images/loupe-arrondie-1@2x.png" alt="loupe-arrondie 1" />
+                <div class="find-q-apps-or-industry inter-normal-pumice-12px">Find Q-apps or industry</div>
+              </div>
+              <div class="flex-col-1 flex-col-3">
+                <div class="flex-row-1">
+                  <img class="mask-group-1" src="/static/images/mask-group-1@2x.png" alt="Mask group" />
+                  <img class="question-1" src="/static/images/question-1@2x.png" alt="question 1" />
+                </div>
+                <div class="overlap-group1 inter-normal-white-12px">
+                  <div class="account">Account</div>
+                  <div class="help">Help</div>
+                </div>
+              </div>
+            </div>
+          </header>
+          <div class="upload">
+            <img class="mask-group-2" src="/static/images/mask-group-58@2x.png" alt="Mask group" />
+            <div class="flex-col-2 flex-col-3">
+              <div class="upload-your-image inter-bold-white-20px">UPLOAD YOUR IMAGE</div>
+                <label for="file-upload" class="upload-container">
+                  <p class="drag-and-drop-your-i inter-normal-white-20px">DRAG AND DROP YOUR IMAGE OR SELECT FROM FILES</p>
+                  <p class="drag-and-drop-your-i inter-normal-white-20px">Accepted files : .tif</p>
+                  <img src="/static/images/cloud-1@2x.png" alt="Upload Icon">
+                </label>
+                <input id="file-upload" type="file" name="tifFile" accept=".tif" required>
+
+                <div id="file-info"></div>
+                <div id="error-message"></div>
+            </div>
+          </div>
+          <div class="buttons">
+            <div class="overlap-group1-2">
+              <div class="rectangle-57"></div>
+              <div class="settings inter-semi-bold-black-17px">settings</div>
+              <div class="text-38 text inter-semi-bold-black-25px">&lt;</div>
+            </div>
+            <div class="overlap-group-2 overlap-group-3">
+              <div class="run-button">
+  <div class="rectangle-58"></div>
+<div class="button-content">
+    <a href="{{ url_for('qseg_result') }}">
+    <div class="run inter-semi-bold-black-17px">run</div>
+    <div class="text-37 text inter-semi-bold-black-25px">&gt;</div>
+  </a>
+
+  </div>
+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+ const fileInput = document.getElementById('file-upload');
+    const fileInfo = document.getElementById('file-info');
+    const errorMessage = document.getElementById('error-message');
+    const form = document.getElementById('upload-form');
+ 
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      fileInfo.textContent = '';
+      errorMessage.textContent = '';
+ 
+      if (file) {
+        if (file.name.toLowerCase().endsWith('.tif')) {
+          fileInfo.textContent = `Selected file: ${file.name}`;
+ 
+          const reader = new FileReader();
+          reader.onload = function () {
+            localStorage.setItem('uploadedTiff', reader.result); 
+            localStorage.setItem('uploadedFileName', file.name);
+          };
+          reader.readAsDataURL(file);
+ 
+        } else {
+          errorMessage.textContent = 'Please upload a valid .tif file.';
+          fileInput.value = ''; // Clear the invalid file
+        }
+      }
+ 
+    });
+ 
+    form.addEventListener('submit', (e) => {
+      if (!fileInput.files[0]) {
+        e.preventDefault();
+        errorMessage.textContent = 'You must upload a .tif file before submitting.';
+      }
+    });
+  </script>
+
+  </body>
+</html>
