@@ -91,8 +91,15 @@
   border-radius: 17px;
   height: 237px;
   position: relative;
+  transition: all 0.2s ease;
   width: 237px;
 }
+
+.qseg-settings .overlap-group3:hover {
+  transform: translate(0, -5px);
+box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
 
 .qseg-settings .rectangle-49 {
   background-color: var(--pickled-bluewood);
@@ -107,10 +114,7 @@
   width: 237px;
 }
 
-.qseg-settings .rectangle-49:hover {
-  transform: translate(0, -5px);
-box-shadow: 0px 0px 9px 4px #00ff9e40;
-}
+
 
 .qseg-settings .rectangle-53 {
   background: linear-gradient(180deg, rgba(58, 103, 249, 0.1) 0%, rgba(4, 250, 158, 0.1) 100%);
