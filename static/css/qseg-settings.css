@@ -109,7 +109,7 @@
 
 .qseg-settings .rectangle-49:hover {
   transform: translate(0, -5px);
-box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .rectangle-53 {
@@ -176,13 +176,20 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   align-items: flex-start;
   background-color: var(--pickled-bluewood);
   border-radius: 17px;
-  box-shadow: 0px 0px 9px 4px #00ff9e40;
+  /*box-shadow: 0px 0px 9px 4px #00ff9e40;*/
+  box-shadow: 0px 4px 21.6px -3px #0000005e;
   display: flex;
   flex-direction: column;
   margin-left: 41px;
   min-height: 237px;
+  transition: all 0.2s ease;
   padding: 13px 22px;
   width: 237px;
+}
+
+.qseg-settings .overlap-group4:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .overlap-group5 {
@@ -230,8 +237,14 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   flex-direction: column;
   margin-left: 39px;
   min-height: 237px;
+  transition: all 0.2s ease;
   padding: 13px 0;
   width: 237px;
+}
+
+.qseg-settings .overlap-group2:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .overlap-group6 {
