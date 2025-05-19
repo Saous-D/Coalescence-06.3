@@ -87,7 +87,7 @@
   min-width: 791px;
 }
 
-.qseg-settings .overlap-group3 {
+/*.qseg-settings .overlap-group3 {
   border-radius: 17px;
   height: 237px;
   position: relative;
@@ -98,6 +98,23 @@
 .qseg-settings .overlap-group3:hover {
   transform: translate(0, -5px);
 box-shadow: 0px 0px 9px 4px #00ff9e40;
+} */
+
+/* État normal */
+.qseg-settings .overlap-group3 {
+  border-radius: 17px;
+  height: 237px;
+  position: relative;
+  transition: all 0.2s ease;
+  width: 237px;
+  cursor: pointer; /* bien indiquer que c’est cliquable */
+}
+
+/* Survol */
+.qseg-settings .overlap-group3:hover,
+.qseg-settings .overlap-group3.active {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 
