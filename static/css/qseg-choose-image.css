@@ -357,7 +357,10 @@ header.header {
   display: flex;
   flex-direction: column;
   align-items: center;          /* centre horizontalement les enfants */
-  margin: 32px auto 0 auto;
+  margin: 12px auto 0 auto;
+  margin-left: -60px;
+  position: absolute;
+  left: 25%;
 }
 
 .qseg-choose-image .mask-group-2 {

@@ -116,6 +116,8 @@
   margin-top: 16px;
   min-height: 484px;
   width: 853px;
+  position: absolute;
+  left: 25%;
 }
 
 .qapps .header {

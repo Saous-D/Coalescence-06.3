@@ -184,6 +184,8 @@
   margin-top: 16px;
   min-height: 841px;
   width: 858px;
+  position: absolute;
+  left: 25%;
 }
 
 .qseg-result .flex-row-1 {

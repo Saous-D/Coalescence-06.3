@@ -8,6 +8,15 @@
   min-width: 1094px;
 }
 
+.landing-page .contenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
 .landing-page .side {
   align-items: flex-start;
   background-color: var(--alabaster);
@@ -135,10 +144,17 @@
 }
 
 .landing-page .flex-col-1 {
-  align-items: flex-start;
-  margin-top: 16px;
-  min-height: 1705px;
-  width: 865px;
+  grid-area: main;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 58vh;
+  min-height: unset;
+  width: 100vh;
+  position: absolute;
+  left: 25%;
 }
 
 .landing-page .header {
@@ -292,7 +308,7 @@
   display: flex;
   gap: 9px;
   height: 371px;
-  margin-right: 18.98px;
+
   margin-top: 64px;
   min-width: 826px;
 }
@@ -741,7 +757,7 @@ align-items: flex-start;
   gap: 20px;
   margin-top: 33px;
   min-height: 801px;
-  width: 832px;
+  width: auto;
 }
 
 .landing-page .our-q-apps-are-usabl {

@@ -9,8 +9,9 @@
 
 .qmeds-details .overlap-group9 {
   height: 1920px;
-  position: relative;
+  position: absolute;
   width: 1094px;
+  
 }
 
 .qmeds-details .overlap-group8 {
@@ -138,6 +139,7 @@
   margin-left: 67px;
   min-height: 412px;
   width: 153px;
+
 }
 
 .qmeds-details .quantum-computer-wil {

@@ -190,6 +190,8 @@
   margin-top: 15px;
   min-height: 790px;
   width: 860px;
+  position: absolute;
+  left: 25%;
 }
 
 .insurance .header {
@@ -481,6 +483,7 @@
   flex-direction: column;
   min-height: 120px;
   width: 99px;
+
 }
 
 .insurance .q-medoids {
