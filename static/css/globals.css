@@ -10,6 +10,10 @@
   src: url("../fonts/JejuMyeongjo-Regular.ttf") format("truetype");
 }
 
+:root {
+  --side-width: 213px;   /* largeur fixe ou variable (ex : 15vw) */
+  --header-height: 80px;
+}
 
 .screen a {
   display: contents;
@@ -17,11 +21,14 @@
 }
 
 .container-center-horizontal {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  pointer-events: none;
-  width: 100%;
+  display: grid;
+  grid-template-columns: var(--side-width) 1fr;
+  grid-template-rows: var(--header-height) auto;
+  grid-template-areas:
+    "side header"
+    "side main";
+  width: 90vw;
+  height: 100vh;
 }
 
 .container-center-horizontal > * {
