@@ -185,7 +185,7 @@
   min-height: 841px;
   width: 858px;
   position: absolute;
-  left: 25%;
+  left: 20%;
 }
 
 .qseg-result .flex-row-1 {
@@ -427,6 +427,19 @@
   width: 345px;
 }
 
+.qseg-result .overlap-group999 {
+  align-items: center;
+  background: linear-gradient(180deg, rgba(55, 97, 249, 0.2) 0%, rgba(0, 255, 158, 0.2) 100%);
+  border-radius: 12px;
+  box-shadow: 0px 4px 27px -4px #00000040;
+  display: flex;
+  flex-direction: column;
+  gap: 51px;
+  min-height: 633px;
+  width: 345px;
+  position: relative;
+}
+
 .qseg-result .rectangle-72 {
   background-color: #5e647933;
   border-radius: 12px;
@@ -484,6 +497,8 @@
   min-width: 74px;
   text-align: justify;
   white-space: nowrap;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .qseg-result .flex {
