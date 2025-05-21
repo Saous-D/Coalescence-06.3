@@ -3,7 +3,7 @@ simplefilter(action='ignore', category=FutureWarning)
 # Importing functions from the modules in the qseg package
 from qseg.graph_utils import super_Global_Hamiltonian, image_to_grid_graph, draw, draw_graph_cut_edges, image_to_grid_graph_diag,image_to_grid_graph_plus, image_to_grid_graph_FC,image_to_grid_graph_oneFC, image_to_grid_graph_patches,image_to_grid_graph_patches_2D, Global_Hamiltonian
 from qseg.dwave_utils import dwave_solver, annealer_solver, hybrid_solver,hybrid_solver_Global_Hamiltonian, annealer_solver_patches, hybrid_annealer_solver_patches
-from qseg.utils import decode_binary_string
+from qseg.utils import decode_binary_string, ndwi, ndvi
 
 # Additional necessary imports
 import numpy as np
@@ -29,6 +29,7 @@ from dwave.system.samplers import LeapHybridSampler
 from rasterio.plot import reshape_as_raster, reshape_as_image
 from dotenv import load_dotenv
 import os
+import io
 
 # Charger le fichier .env
 load_dotenv()
@@ -185,15 +186,6 @@ def perform_kmeans(img, K=2, attempts=10):
     return result_image,label, center
 
 
-import imageio
-import numpy as np
-import matplotlib.pyplot as plt
-import io
-
-import imageio
-import numpy as np
-import matplotlib.pyplot as plt
-import io
 
 def return_heatmap(image_path, color="viridis"):
     """
@@ -239,3 +231,130 @@ def return_heatmap(image_path, color="viridis"):
 
     return buf
  
+
+def heatmap(image_path, type, color="jet_r"):
+    """
+    Generates a heatmap from a TIFF image and returns it as a PNG image in memory.
+
+    Parameters:
+        image_path (str): Path to the input .tif file
+        (Optional) color (str): Matplotlib colormap to use (e.g. 'viridis', 'inferno', etc.)
+
+    Returns:
+        io.BytesIO: PNG image buffer containing the heatmap
+    """
+
+    if type == "water":
+        index = ndwi(image_path)
+    elif type == "vegetation":
+        index = ndvi(image_path)
+    else:
+        raise ValueError("Invalid type. Use 'water' or 'vegetation'.")
+    # Plot NDWI heatmap
+    fig, ax = plt.subplots()
+    # interpolation='nearest' ensures sharp edges in pixelated data (no smoothing)
+    cax = ax.imshow(index, cmap=color, interpolation='nearest')  
+    ax.axis('off')
+    # Create colorbar
+    cbar = fig.colorbar(cax)
+
+    # Replace numeric ticks with custom labels (Dry at bottom, Water at top)
+    cbar.set_ticks([index.min(), index.max()])
+    cbar.set_ticklabels(["No " + type, type])
+    plt.title(f"{type} heatmap")
+
+    # Save figure to in-memory PNG
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.1)
+    plt.close(fig)
+    buf.seek(0)
+    return buf
+
+
+def quantum_scan(image_path, type):
+    """
+    Perform quantum segmentation on the input image using D-Wave's quantum annealer.
+
+    Parameters:
+        image_path (str): Path to the input .tif file
+        type (str): Type of segmentation ('water' or 'vegetation')
+    Returns:
+        np.ndarray: Segmented image
+    """
+
+    if type == "water":
+        index = ndwi(image_path)
+    elif type == "vegetation":
+        index = ndvi(image_path)
+    else:
+        raise ValueError("Invalid type. Use 'water' or 'vegetation'.")
+    
+    """ performing clustering ; number of clusters = number of nodes in the hypergraph """
+    result_image, label, centers = perform_kmeans(index,K = 16)
+
+    """ Initialize sampler and embedding """
+    dwave_sampler = DWaveSampler(token = private_token, solver={'topology__type': 'pegasus'})
+    sampler = EmbeddingComposite(dwave_sampler)
+
+    clustered_image = result_image.flatten()
+    clusters = list(centers.squeeze(1))
+
+    linear,quadratic = super_Global_Hamiltonian(index, clustered_image, clusters , global_highest_value = np.max(clusters), global_lowest_value = np.min(clusters) , sigma=0.2, mu=2)
+    sample_set,  response_time = dwave_solver(dwave_sampler, sampler, linear, quadratic, runs=2000)
+    samples_dataframe = sample_set.to_pandas_dataframe() # samples into a dataframe
+    #segmentation
+    solution_binary_string = samples_dataframe.iloc[0][:-3]
+
+    full_size_label_image = create_full_size_label_image(label.flatten(), solution_binary_string , index.shape)
+
+    return full_size_label_image
+
+from matplotlib.colors import ListedColormap
+import matplotlib.patches as mpatches
+
+
+
+def overlay_masks(water_mask, vegetation_mask):
+    """
+    Overlay two binary masks (water and vegetation) on a single image.
+    
+    Parameters:
+        water_mask (np.ndarray): Binary mask for water
+        vegetation_mask (np.ndarray): Binary mask for vegetation
+
+    Returns:
+        png image: PNG image buffer containing the overlay
+    """
+    # Combine the masks
+    combined_mask = water_mask + 2 * vegetation_mask
+
+    # Create a color map
+    colors = ["#653700", "blue", "green", "yellow"]
+    cmap = ListedColormap(colors)
+
+    # Display the combined mask
+    plt.imshow(combined_mask, cmap=cmap, vmin=0, vmax=3)
+    plt.axis('off')
+    plt.title("Overlap of Water and Vegetation Segmentation")
+
+    # Create legend patches
+    legend_patches = [
+        mpatches.Patch(color=colors[0], label='No Water & No Vegetation'),
+        mpatches.Patch(color=colors[1], label='Mask Water'),
+        mpatches.Patch(color=colors[2], label='Mask Vegetation'),
+        mpatches.Patch(color=colors[3], label='Water & Vegetation Overlap')
+    ]
+
+    # Display the legend
+    plt.legend(handles=legend_patches, 
+               loc='center left', 
+               bbox_to_anchor=(1, 0.5),  # -> décalage horizontal à droite
+               frameon=True)
+    
+    # Save figure to in-memory PNG
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0.1)
+    plt.close()
+    buf.seek(0)
+    return buf
+

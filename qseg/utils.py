@@ -1,5 +1,6 @@
 import numpy as np
 import cv2
+import imageio
  
  
 def decode_binary_string(x, height, width):
@@ -130,3 +131,50 @@ def create_full_size_label_image(label, superpixel_labels, img_shape):
             full_size_label_image[y, x] = cluster_to_superpixel_label[cluster_index]
  
     return full_size_label_image
+
+
+def ndwi(image_path):
+    """
+    Generates a matrix (NDWI) from a TIFF image.
+    This function computes the Normalized Difference Water Index (NDWI) using the green and SWIR bands of the image.
+    
+    Parameters:
+        image_path (str): Path to the input .tif file
+
+    Returns:
+        np.ndarray: NDWI matrix        
+    """
+    # Load the image (assumed to be multi-band)
+    image = imageio.imread(image_path)
+
+    # Extract green and SWIR bands (adjust indices as needed)
+    green = image[2, :, :]
+    swir = image[11, :, :]
+
+    # Compute NDWI (Normalized Difference Water Index)
+    NDWI = (green - swir) / (green + swir + 1e-6) # Avoid division by zero
+
+    return NDWI
+
+def ndvi(image_path):
+    """
+    Generates a matrix (NDVI) from a TIFF image.
+    This function computes the Normalized Difference Vegetation Index (NDVI) using the red and NIR bands of the image.
+    
+    Parameters:
+        image_path (str): Path to the input .tif file
+
+    Returns:
+        np.ndarray: NDVI matrix
+    """
+    # Load the image (assumed to be multi-band)
+    image = imageio.imread(image_path)
+
+    # Extract green and SWIR bands (adjust indices as needed)
+    red = image[3, :, :]
+    nir = image[7, :, :]
+
+    # Compute NDVI (Normalized Difference Vegetation Index)
+    NDVI = (nir - red) / (nir + red + 1e-6) # Avoid division by zero
+
+    return NDVI
