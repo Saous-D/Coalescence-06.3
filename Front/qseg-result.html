@@ -143,7 +143,7 @@
               <div class="rectangle-69"></div>
               <div class="rectangle-72"></div>
               <div class="segmented-image valign-text-middle inter-bold-white-20px">SEGMENTED IMAGE</div>
-              <img class="image3-1" src="/static/images/image3-1@2x.png" alt="Image3 1" />
+              <img class="image3-2" src="/static/images/image3-1@2x.png" alt="Image3 1" />
               <div class="overlap-group-3">
                  <div style="
                   position: absolute;
@@ -291,11 +291,20 @@ function base64ToBlob(base64, contentType) {
                 alert("Erreur de traitement : " + result.error);
                 return;
             }
+            print("qseg_result : here!")
+
+            const segmentedwater = 'data:image/png;base64,' + result.image_water;
+            document.getElementById('downloadBtn').textContent = `Download`;
+            $("#downloadButton").attr("href", segmentedwater).show();
+            const imgwater = document.querySelector('.image3-1');
+            if (imgwater) {
+                imgwater.src = segmentedwater;
+            }
 
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
             document.getElementById('downloadBtn').textContent = `Download`;
             $("#downloadButton").attr("href", segmentedImg).show();
-            const imgEl = document.querySelector('.image3-1');
+            const imgEl = document.querySelector('.image3-2');
             if (imgEl) {
                 imgEl.src = segmentedImg;
             }

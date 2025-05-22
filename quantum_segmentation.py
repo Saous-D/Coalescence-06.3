@@ -339,10 +339,10 @@ def overlay_masks(water_mask, vegetation_mask):
 
     # Create legend patches
     legend_patches = [
-        mpatches.Patch(color=colors[0], label='No Water & No Vegetation'),
-        mpatches.Patch(color=colors[1], label='Mask Water'),
-        mpatches.Patch(color=colors[2], label='Mask Vegetation'),
-        mpatches.Patch(color=colors[3], label='Water & Vegetation Overlap')
+        mpatches.Patch(color=colors[0], label='No Water &\nNo Vegetation'),
+        mpatches.Patch(color=colors[1], label='Mask\nWater'),
+        mpatches.Patch(color=colors[2], label='Mask\nVegetation'),
+        mpatches.Patch(color=colors[3], label='Water &\nVegetation\nOverlap')
     ]
 
     # Display the legend

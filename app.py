@@ -197,9 +197,14 @@ def process_image():
     mu = int(request.form['mu'])
     k = int(request.form['k'])
     print("app.py : water_penalty = " +str(water_penalty))
-    matrix = run_quantum_segmentation(
-        image_path, image_height, image_width, water_penalty,
-        no_water_penalty, sigma, mu, k)
+    matrix = quantum_segmentation.quantum_scan(image_path, "water")
+
+    print("app.py : water done ")
+
+    matrix2 = quantum_segmentation.overlay_masks(matrix, quantum_segmentation.quantum_scan(image_path, "vegetation"))
+
+    print("app.py : seg done ")
+
 
     buf = io.BytesIO()
     plt.imsave(buf, matrix, format='png', cmap='viridis')
@@ -207,7 +212,10 @@ def process_image():
     img_bytes = buf.getvalue()
     img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
-    return jsonify({'image_data': img_base64})
+
+    img_base642 = base64.b64encode(matrix2.read()).decode('utf-8')
+
+    return jsonify({'image_water': img_base64, 'image_data': img_base642})
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
