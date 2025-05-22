@@ -144,7 +144,7 @@ def generate_heatmap():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
 
-        color = request.form.get('color', 'viridis')
+        color = request.form.get('color', 'viridis_r')
 
         heatmap_buf = quantum_segmentation.return_heatmap(filepath, color=color)
 
@@ -207,7 +207,7 @@ def process_image():
 
 
     buf = io.BytesIO()
-    plt.imsave(buf, matrix, format='png', cmap='viridis')
+    plt.imsave(buf, matrix, format='png', cmap='viridis_r')
     buf.seek(0)
     img_bytes = buf.getvalue()
     img_base64 = base64.b64encode(img_bytes).decode('utf-8')

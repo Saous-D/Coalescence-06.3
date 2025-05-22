@@ -187,7 +187,7 @@ def perform_kmeans(img, K=2, attempts=10):
 
 
 
-def return_heatmap(image_path, color="viridis"):
+def return_heatmap(image_path, color="jet"):
     """
     Generates a heatmap (NDWI) from a TIFF image and returns it as a PNG image in memory.
     
@@ -357,4 +357,3 @@ def overlay_masks(water_mask, vegetation_mask):
     plt.close()
     buf.seek(0)
     return buf
-

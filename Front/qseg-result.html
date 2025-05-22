@@ -133,7 +133,7 @@
                   pointer-events: none;
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 10;"/>
-                <button id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 100;" href="#" download="processed_image.png">Download</button>
+                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 100;" href="#" download="processed_water.png">Download</a>
 
 
               </div>
@@ -157,13 +157,9 @@
                   pointer-events: none;
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
-                <button id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</button>
-
-
+                <a id="downloadBtn2" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -198,9 +194,6 @@ function base64ToBlob(base64, contentType) {
       alert("Aucune image trouvée dans le localStorage.");
       return;
     }
-
-    // Mise à jour du nom du fichier dans la page
-    // document.getElementById('fileName').textContent = `File: ${fileName}`;
 
     // Conversion base64 → Blob
     const blob = base64ToBlob(base64Data, 'image/tiff');
@@ -294,20 +287,32 @@ function base64ToBlob(base64, contentType) {
             print("qseg_result : here!")
 
             const segmentedwater = 'data:image/png;base64,' + result.image_water;
-            document.getElementById('downloadBtn').textContent = `Download`;
-            $("#downloadButton").attr("href", segmentedwater).show();
+            // document.getElementById('downloadBtn').textContent = `Download`;
+            // $("#downloadBtn").attr("href", segmentedwater).show();
             const imgwater = document.querySelector('.image3-1');
             if (imgwater) {
                 imgwater.src = segmentedwater;
             }
+            const downloadBtn = $("#downloadBtn");
+
+            downloadBtn.attr("href", segmentedwater);
+            downloadBtn.attr("download", "processed_image.png");
+            downloadBtn.text("Download");
+            downloadBtn.show();
 
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
-            document.getElementById('downloadBtn').textContent = `Download`;
-            $("#downloadButton").attr("href", segmentedImg).show();
+            // document.getElementById('downloadBtn2').textContent = `Download`;
+            // $("#downloadBtn2").attr("href", segmentedImg).show();
             const imgEl = document.querySelector('.image3-2');
             if (imgEl) {
                 imgEl.src = segmentedImg;
             }
+            const downloadBtn2 = $("#downloadBtn2");
+
+            downloadBtn2.attr("href", segmentedImg);
+            downloadBtn2.attr("download", "processed_image.png");
+            downloadBtn2.text("Download");
+            downloadBtn2.show();
         })
         .catch(error => {
             console.error('Erreur lors du traitement :', error);
