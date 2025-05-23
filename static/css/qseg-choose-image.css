@@ -498,6 +498,7 @@ header.header {
 }
 
 .qseg-choose-image .settings {
+  color: white;
   left: 41px;
   letter-spacing: 0;
   line-height: normal;
@@ -508,6 +509,7 @@ header.header {
 
 .qseg-choose-image .text-38 {
   left: 9px;
+  color: white;
   position: absolute;
   text-align: justify;
   top: 3px;
@@ -524,6 +526,7 @@ header.header {
 }
 
 .qseg-choose-image .run {
+  color: white;
   align-self: center;
   letter-spacing: 0;
   line-height: normal;
@@ -534,6 +537,7 @@ header.header {
 }
 
 .qseg-choose-image .text-37 {
+  color: white;
   min-height: 30px;
   min-width: 17px;
   text-align: justify;

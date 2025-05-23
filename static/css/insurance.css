@@ -489,7 +489,7 @@
 .insurance .q-medoids {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 57%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   min-height: 14px;
   text-fill-color: transparent;
@@ -517,7 +517,7 @@
 .insurance .q-sched {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 47%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-left: -100px;
   margin-right: 9.02px;
@@ -530,7 +530,7 @@
 .insurance .q-pgm {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 40%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-left: 111px;
   min-height: 14px;
@@ -542,7 +542,7 @@
 .insurance .q-color {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 54%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-bottom: 1px;
   margin-left: 144px;
@@ -605,7 +605,7 @@
 .insurance .q-seg {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 60%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-left: 2px;
   min-height: 14px;
@@ -654,7 +654,7 @@
 .insurance .q-road {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 63%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   left: 520px;
   position: absolute;
@@ -736,7 +736,7 @@
 .insurance .q-pack {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 52%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   left: 102px;
   position: absolute;

@@ -115,6 +115,7 @@
   gap: 115px;
   min-height: 512px;
   width: 180px;
+
 }
 
 .qmeds-details .upload-your-data {
@@ -139,6 +140,7 @@
   margin-left: 67px;
   min-height: 412px;
   width: 153px;
+
 
 }
 
@@ -584,6 +586,7 @@
   position: absolute;
   top: 124px;
 }
+
 
 .qmeds-details .mask-group-7 {
   height: 126px;

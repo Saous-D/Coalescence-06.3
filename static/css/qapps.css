@@ -406,7 +406,7 @@
 .qapps .q-medoids {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 57%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   min-height: 14px;
   text-fill-color: transparent;
@@ -434,7 +434,7 @@
 .qapps .q-sched {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 47%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-right: 8.02px;
   min-height: 14px;
@@ -446,7 +446,7 @@
 .qapps .q-pgm {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 40%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-left: 109px;
   min-height: 14px;
@@ -458,7 +458,7 @@
 .qapps .q-color {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 54%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   margin-left: 146px;
   min-height: 14px;
@@ -520,7 +520,7 @@
 .qapps .q-seg {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 60%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   min-height: 14px;
   text-fill-color: transparent;
@@ -568,7 +568,7 @@
 .qapps .q-road {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 63%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   left: 516px;
   position: absolute;
@@ -650,7 +650,7 @@
 .qapps .q-pack {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
-  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 52%, rgba(0, 255, 158, 1) 100%);
+  background: linear-gradient(90deg, rgba(55, 101, 255, 1) 100%, rgba(0, 255, 158, 1) 100%);
   background-clip: text;
   left: 99px;
   position: absolute;

@@ -388,6 +388,7 @@ box-shadow: 0px 0px 9px 4px #00ff9e40;
 
 .qseg-settings .select {
   align-self: center;
+  color: white;
   letter-spacing: 0;
   line-height: normal;
   margin-bottom: 0.0px;
@@ -399,6 +400,7 @@ box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .text-31 {
+  color: white;
   min-height: 30px;
   min-width: 17px;
   margin-top: 2.0px;
