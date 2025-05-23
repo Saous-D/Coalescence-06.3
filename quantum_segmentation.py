@@ -187,7 +187,7 @@ def perform_kmeans(img, K=2, attempts=10):
 
 
 
-def return_heatmap(image_path, color="jet"):
+def return_heatmap(image_path, color="winter"):
     """
     Generates a heatmap (NDWI) from a TIFF image and returns it as a PNG image in memory.
     
@@ -232,7 +232,7 @@ def return_heatmap(image_path, color="jet"):
     return buf
  
 
-def heatmap(image_path, type, color="jet_r"):
+def heatmap(image_path, type, color="winter_r"):
     """
     Generates a heatmap from a TIFF image and returns it as a PNG image in memory.
 
