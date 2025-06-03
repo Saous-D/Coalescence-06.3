@@ -84,6 +84,13 @@ def sign_in():
 def qseg_result():
     return render_template('qseg-result.html')
 
+@app.route('/qsegchoose')
+def qsegchoose():
+    return render_template('qsegchoose.html')
+
+@app.route('/qsegAI-choose-image')
+def qsegAI_choose_image():
+    return render_template('qsegAI-choose-image.html')
 
 @app.route('/extract_rgb', methods=['POST'])
 def extract_rgb():
