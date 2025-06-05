@@ -29,16 +29,17 @@
   background-color: var(--ebony-clay);
 }
 
-/* 3. Le header centré dans la zone header */
 .qseg-settings .header {
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: center;
   height: var(--header-height);
   background-color: transparent;
   margin-top: 8px;
   box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  position: relative;
+  /* AJOUTEZ : */
+  justify-content: center; /* Centre le contenu dans la zone header */
 }
 
 
@@ -610,16 +611,14 @@ box-shadow: 0px 0px 9px 4px #00ff9e40;
 
 .qseg-settings .overlap-group8 {
   align-items: flex-start;
-  background-color: var(--mirage);
-
+  
   display: flex;
-  gap: 231px;
   height: 88px;
-  justify-content: flex-end;
-  margin-left: -75px;
-  margin-top: -16px;
-  min-width: 881px;
-  padding: 16px 9px;
+  /* REMPLACEZ toutes ces propriétés par : */
+  justify-content: space-between;
+  padding: 16px 20px; /* Ajustez le padding selon vos besoins */
+  width: 100%;
+  /* SUPPRIMEZ : margin-left, min-width, position, left, transform */
 }
 
 .qseg-settings .overlap-group-1 {
@@ -631,6 +630,11 @@ box-shadow: 0px 0px 9px 4px #00ff9e40;
   margin-top: 4.0px;
   position: relative;
   width: 332px;
+  /* AJOUTEZ pour le centrer par rapport à la fenêtre : */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Cela centre la barre de recherche par rapport à toute la fenêtre */
 }
 
 .qseg-settings .flex-col {
@@ -640,6 +644,7 @@ box-shadow: 0px 0px 9px 4px #00ff9e40;
   gap: 7px;
   min-height: 54px;
   width: 175px;
+  margin-left: auto; /* Ceci pousse l'élément vers la droite */
 }
 
 .qseg-settings .flex-row-1 {

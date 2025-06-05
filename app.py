@@ -25,7 +25,7 @@ def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/enter-code')
-def enter():
+def enter_code():
     return render_template('enter-code.html')
 
 @app.route('/insurance-detail.html')
@@ -95,6 +95,10 @@ def qsegwet_settings():
 @app.route('/sign-in')
 def sign_in():
     return render_template('sign-in.html')
+
+@app.route('/sign-up')
+def sign_up():
+    return render_template('sign-up.html')
 
 @app.route('/qseg-result')
 def qseg_result():

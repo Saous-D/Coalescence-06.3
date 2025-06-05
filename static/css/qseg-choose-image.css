@@ -244,6 +244,7 @@ h2 {
   justify-content: flex-start;
   min-width: 806px;
   width: auto;
+  margin-top: 8px;
   z-index: 900;
 }
 
@@ -260,7 +261,7 @@ h2 {
   min-width: 0;
   box-sizing: border-box;
   position: relative;
-  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  
   z-index: 910;
 }
 
@@ -285,6 +286,7 @@ header.header {
   height: 36px;
   margin-top: 4.0px;
   position: relative;
+  margin-left: 213px;
   width: 332px;
 }
 
@@ -293,6 +295,7 @@ header.header {
   gap: 7px;
   min-height: 54px;
   width: 175px;
+   margin-left: auto;
 }
 
 .qseg-choose-image .flex-row-1 {
@@ -558,8 +561,8 @@ header.header {
 
 .qseg-choose-image .flex-col-1.flex-col-3 {
   position: absolute;
-  top: 50%;
-  right: 32px;                  /* colle à droite, ajuste la valeur si tu veux plus ou moins d’espace */
+  top: 49%;
+  right: 20px;                  /* colle à droite, ajuste la valeur si tu veux plus ou moins d’espace */
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
