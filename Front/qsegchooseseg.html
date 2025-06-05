@@ -18,7 +18,7 @@
       <div class="qseg-settings screen">
         <div class="overlap-group9">
 
-             <a href="{{ url_for('qsegchooseseg')}}" class="align-self-flex-end">
+             <a href="{{ url_for('qseg_settings')}}" class="align-self-flex-end">
           <div class="settings">
 
             
@@ -27,18 +27,30 @@
               <div class="seg-container">
                 <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
                 <p class="you-can-use-q-seg-wi">
-                  <span class="choose-a-setting">IMAGE </span><span class="choose-a-setting1">SEGMENTATION</span>
+                  <span class="choose-a-setting">FLOODED </span><span class="choose-a-setting1">AREAS</span>
                 </p>
               </div>
                 
             </div>
 </a>
- <a href="{{ url_for('qsegAI_choose_image')}}" class="align-self-flex-end">           
+ <a href="{{ url_for('qsegfire_settings')}}" class="align-self-flex-end">           
 <div class="overlap-group111" style="margin-top: 60px;">
   <div class="seg-container" style="margin-left: 20px;">
   <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
   <p class="you-can-use-q-seg-wi">
-  <span class="choose-a-setting1">AI ALTERED</span><span class="choose-a-setting"> IMAGE DETECTION</span>
+  <span class="choose-a-setting1">FIRE</span><span class="choose-a-setting">DETECTION</span>
+</p>
+</div>
+</div>
+</a>
+
+</a>
+ <a href="{{ url_for('qsegwet_settings')}}" class="align-self-flex-end">           
+<div class="overlap-group111" style="margin-top: 60px;">
+  <div class="seg-container" style="margin-left: 20px;">
+  <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
+  <p class="you-can-use-q-seg-wi">
+  <span class="choose-a-setting1">WET</span><span class="choose-a-setting">DETECTION</span>
 </p>
 </div>
 </div>

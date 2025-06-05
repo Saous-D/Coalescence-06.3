@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
     <meta name="og:type" content="website" />
     <meta name="twitter:card" content="photo" />
-    <link rel="stylesheet" type="text/css" href="/static/css/qsegchoose.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/qseg-settings.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/styleguide.css" />
     <link rel="stylesheet" type="text/css" href="/static/css/globals.css" />
   </head>
@@ -17,34 +17,77 @@
     <div class="container-center-horizontal">
       <div class="qseg-settings screen">
         <div class="overlap-group9">
-
-             <a href="{{ url_for('qsegchooseseg')}}" class="align-self-flex-end">
           <div class="settings">
-
-            
             <div class="overlap-group1">
-    
+              <div class="choose-a-setting">CHOOSE A SETTING</div>
               <div class="seg-container">
                 <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
                 <p class="you-can-use-q-seg-wi">
-                  <span class="choose-a-setting">IMAGE </span><span class="choose-a-setting1">SEGMENTATION</span>
+                  <span class="inter-normal-white-15px">You can use Q-SCAN with</span
+                  ><span class="inter-bold-white-15px-2">&nbsp;</span
+                  ><span class="inter-bold-spring-green-15px">different settings</span
+                  ><span class="inter-normal-white-15px">
+                    depending of outcome you are looking for, if you want to minimize the false positives, or the false
+                    negatives.</span
+                  >
                 </p>
               </div>
-                
+              <div class="overlap-group-container">
+                <div class="overlap-group3">
+                  <div class="rectangle-49"></div>
+                  <div class="rectangle-53"></div>
+                  <div class="trusted inter-bold-spring-green-15px">TRUSTED</div>
+                  <p class="a-setting-where-q-se inter-normal-white-15px">
+                    <span class="inter-normal-white-15px">A setting where Q-scan will minimize the </span
+                    ><span class="span-1">false positives.</span>
+                  </p>
+                  <div class="group-26"></div>
+                </div>
+                <div class="overlap-group4">
+                  <div class="overlap-group5">
+                    <div class="rectangle-63">
+                    <div class="mask-group"></div>
+                    </div>
+                  </div>
+                  <div class="balanced inter-bold-spring-green-15px">BALANCED</div>
+                  <p class="a-perfect-balance-be inter-normal-white-15px">
+                    A perfect balance between trusted and exhaustive.
+                  </p>
+                </div>
+                <div class="overlap-group2">
+                  <div class="rectangle-63">
+                  <div class="overlap-group6">
+                    
+                    <img class="bouclier-1" src="/static/images/bouclier-1@2x.png" alt="bouclier 1" />
+                  </div>
+                  </div>
+                  <div class="exhaustive inter-bold-spring-green-15px">EXHAUSTIVE</div>
+                  <p class="a-setting-where-q-se-1 inter-normal-white-15px">
+                    <span class="inter-normal-white-15px">A setting where Q-scan will minimize the </span
+                    ><span class="inter-bold-white-15px-2">f</span><span class="span-1">alse negatives.</span>
+                  </p>
+                </div>
+              </div>
+              <a href="{{ url_for('qsegfire_choose_image')}}" class="align-self-flex-end">
+                <div class="group-29">
+                  <div class="overlap-group">
+                     <div style="
+                  position: absolute;
+                  z-index: 0;
+                  border-radius: 999px;
+                  background: linear-gradient(to left, #03FE9C, 40%, #3A64FA);
+                  height: 40px;   
+                  width: 130px;
+                  pointer-events: none;
+                  "></div>
+                    <div class="select inter-semi-bold-black-17px" style="z-index: 1;" >
+                    select</div>
+                    <div class="text-31 text inter-semi-bold-black-25px" style="z-index: 1;">&gt;</div>
+                  </div>
+                </div></a
+              >
             </div>
-</a>
- <a href="{{ url_for('qsegAI_choose_image')}}" class="align-self-flex-end">           
-<div class="overlap-group111" style="margin-top: 60px;">
-  <div class="seg-container" style="margin-left: 20px;">
-  <img class="qseg-1" src="/static/images/qseg-1.png" alt="Qseg 1" />
-  <p class="you-can-use-q-seg-wi">
-  <span class="choose-a-setting1">AI ALTERED</span><span class="choose-a-setting"> IMAGE DETECTION</span>
-</p>
-</div>
-</div>
-</a>
           </div>
-
           <div class="side">
             <div class="overlap-group7">
               <div class="rectangle-10"></div>

@@ -64,6 +64,14 @@ def qseg_choose_image_selection():
 def qseg_choose_image():
     return render_template('qseg-choose-image.html')
 
+@app.route('/qsegfire-choose-image')
+def qsegfire_choose_image():
+    return render_template('qsegfire-choose-image.html')
+
+@app.route('/qsegwet-choose-image')
+def qsegwet_choose_image():
+    return render_template('qsegwet-choose-image.html')
+
 @app.route('/qseg-details')
 def qseg_details():
     return render_template('qseg-details.html')
@@ -76,6 +84,14 @@ def qseg_runing_screen():
 def qseg_settings():
     return render_template('qseg-settings.html')
 
+@app.route('/qsegfire-settings')
+def qsegfire_settings():
+    return render_template('qsegfire-settings.html')
+
+@app.route('/qsegwet-settings')
+def qsegwet_settings():
+    return render_template('qsegwet-settings.html')
+
 @app.route('/sign-in')
 def sign_in():
     return render_template('sign-in.html')
@@ -84,9 +100,21 @@ def sign_in():
 def qseg_result():
     return render_template('qseg-result.html')
 
+@app.route('/qsegfire-result')
+def qsegfire_result():
+    return render_template('qsegfire-result.html')
+
+@app.route('/qsegwet-result')
+def qsegwet_result():
+    return render_template('qsegwet-result.html')
+
 @app.route('/qsegchoose')
 def qsegchoose():
     return render_template('qsegchoose.html')
+
+@app.route('/qsegchooseseg')
+def qsegchooseseg():
+    return render_template('qsegchooseseg.html')
 
 @app.route('/qsegAI-choose-image')
 def qsegAI_choose_image():
