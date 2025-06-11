@@ -18,3 +18,4 @@ opencv-python
 pandas
 python-dotenv
 gunicorn
+eventlet
