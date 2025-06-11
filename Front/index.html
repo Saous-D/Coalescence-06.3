@@ -15,6 +15,7 @@
   <body style="margin: 0; background: #0e172b">
     <input type="hidden" id="anPageName" name="page" value="landing-page" />
     <div class="container-center-horizontal">
+      <div class="contenu">
       <div class="landing-page screen">
         <div class="side">
           <div class="overlap-group17">
@@ -122,6 +123,8 @@
                 </div>
                 <div class="group-4 group-1 inter-bold-white-15px">
                   <div class="flex-col-2 flex-col-6">
+
+                    <a href="{{ url_for('qmeds_details')}}" class="align-self-flex-end">
                     <div class="overlap-group3">
                       <img class="mask-group" src="/static/images/mask-group-4@2x.png" alt="Mask group" />
                       <div class="flex-col flex">
@@ -136,16 +139,18 @@
                             ><span class="inter-bold-catskill-white-10px"> without limits</span>
                           </span>
                         </p>
-                        <a href="{{ url_for('qmeds_details')}} class="align-self-flex-end">
-                          <div class="discover"><div class="select inter-bold-blue-9px">Select</div></div></a
-                        >
+                        
+                          <div class="discover"><div class="select inter-bold-blue-9px">Select</div></div>
+        
                       </div>
                     </div>
-                    <div class="q-sched q">Q-SCHED</div>
+                    </a>
                   </div>
+                  <div class="q-sched q">Q-SCHED</div>
                   <div class="q-pgm q">Q-PGM</div>
                   <div class="q-color q">Q-COLOR</div>
                 </div>
+                <a href="{{ url_for('qseg_details')}}" class="align-self-flex-end">
                 <div class="overlap-group4">
                   <div class="flex-row-4">
                     <img class="mask-group-6" src="/static/images/mask-group-5@2x.png" alt="Mask group" />
@@ -156,11 +161,8 @@
                       ><span class="inter-normal-catskill-white-10px">, just efficient and flexible analysis</span>
                     </p>
                   </div>
-                  <div class="overlap-group-2">
-                    <div class="discover-it inter-bold-spring-green-9px">Discover it</div>
-                    <img class="flche" src="/static/images/fl-che@2x.png" alt="flche" />
-                  </div>
-                </div>
+                                 </div>
+               
                 <div class="overlap-group5">
                   <img class="mask-group" src="/static/images/mask-group-6@2x.png" alt="Mask group" />
                   <div class="flex-col flex">
@@ -173,11 +175,11 @@
                         ><span class="inter-bold-catskill-white-10px">instantly<br />no training</span>
                       </span>
                     </div>
-                    <a href="{{ url_for('qseg_details')}}" class="align-self-flex-end">
-                      <div class="discover-1"><div class="select inter-bold-blue-9px">Select</div></div></a
-                    >
+                   
+                      <div class="discover-1"><div class="select inter-bold-blue-9px">Select</div></div>
                   </div>
                 </div>
+            </a>
                 <div class="overlap-group7">
                   <img class="mask-group" src="/static/images/mask-group-7@2x.png" alt="Mask group" />
                   <div class="flex-col-3 flex-col-6">
@@ -199,7 +201,7 @@
                   <div class="overlap-group-3">
                     <img class="square" src="/static/images/square@2x.png" alt="square" />
                     <div class="overlap-group1-2">
-                      <div class="q-pacq valign-text-middle q inter-bold-catskill-white-4-5px">Q-PACQ</div>
+                      <div class="q-pacq valign-text-middle q inter-bold-catskill-white-4-5px">Q-PACK</div>
                       <div class="packaging-optimization valign-text-middle inter-normal-catskill-white-4-5px">
                         Packaging optimization
                       </div>
@@ -329,6 +331,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

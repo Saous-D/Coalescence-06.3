@@ -93,7 +93,7 @@
 <div class="canvas1">
   <canvas id="canvas" ></canvas>
   </div>
-  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
+  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="map.png">Download map</a>
 
 
               <a href="{{ url_for('qseg_choose_image')}}">
@@ -110,7 +110,7 @@
                 pointer-events: none;
               "></div>
                 <img class="mask-group-2" src="static/images/mask-group-2@2x.png" alt="Mask group" style="z-index: 1; margin-left: 10px;" />
-                <div class="change-original-image inter-bold-white-15px-2" style="z-index: 1;" >change original image</div>
+                <div class="change-original-image inter-bold-white-15px-2" style="z-index: 900;" >change original image</div>
               </div>
             </a>
             </div>
@@ -118,8 +118,32 @@
             <div class="overlap-group1-2">
               <div class="rectangle-69"></div>
               <div class="rectangle-72"></div>
-              <div class="segmented-image valign-text-middle inter-bold-white-20px">SEGMENTED IMAGE</div>
+              <div class="segmented-image valign-text-middle inter-bold-white-20px">WATER SEGMENTATION</div>
               <img class="image3-1" src="/static/images/image3-1@2x.png" alt="Image3 1" />
+              <div class="overlap-group-3">
+                 <div style="
+                  position: absolute;
+                  inset: 0;
+                  margin: auto;
+                  z-index: 1;
+                  border-radius: 999px;
+                  background: linear-gradient(to left, #03FE9C, 40%, #3A64FA);
+                  height: 40px;   
+                  width: 140px;
+                  pointer-events: none;
+                  "></div>
+                <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 10;"/>
+                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 100;display: none;" href="#" download="processed_water.png">Download</a>
+
+
+              </div>
+            </div>
+
+            <div class="overlap-group999">
+              <div class="rectangle-69"></div>
+              <div class="rectangle-72"></div>
+              <div class="segmented-image valign-text-middle inter-bold-white-20px">GLOBAL SEGMENTATION</div>
+              <img class="image3-2" src="/static/images/image3-1@2x.png" alt="Image3 1" />
               <div class="overlap-group-3">
                  <div style="
                   position: absolute;
@@ -133,9 +157,7 @@
                   pointer-events: none;
                   "></div>
                 <img class="mask-group-3" src="/static/images/mask-group-3@2x.png" alt="Mask group" style="z-index: 1;"/>
-                <a id="downloadBtn" class="download inter-bold-white-15px-2" style="z-index: 1;" href="#" download="processed_image.png">Download</a>
-
-
+                <a id="downloadBtn2" class="download inter-bold-white-15px-2" style="z-index: 1; display: none;" href="#" download="processed_image.png">Download</a>
               </div>
             </div>
           </div>
@@ -173,9 +195,6 @@ function base64ToBlob(base64, contentType) {
       return;
     }
 
-    // Mise à jour du nom du fichier dans la page
-    // document.getElementById('fileName').textContent = `File: ${fileName}`;
-
     // Conversion base64 → Blob
     const blob = base64ToBlob(base64Data, 'image/tiff');
     const formData = new FormData();
@@ -183,7 +202,7 @@ function base64ToBlob(base64, contentType) {
 
     // Envoi au serveur
     $.ajax({
-      url: '/heatmap',
+      url: '/upload',
       type: 'POST',
       data: formData,
       processData: false,
@@ -262,23 +281,42 @@ function base64ToBlob(base64, contentType) {
         .then(response => response.json())
         .then(result => {
             if (result.error) {
+                localStorage.removeItem('uploadedTiff');
+                localStorage.removeItem('uploadedFileName');
                 alert("Erreur de traitement : " + result.error);
                 return;
             }
 
+            const segmentedwater = 'data:image/png;base64,' + result.image_water;
+            // document.getElementById('downloadBtn').textContent = `Download`;
+            // $("#downloadBtn").attr("href", segmentedwater).show();
+            const imgwater = document.querySelector('.image3-1');
+            if (imgwater) {
+                imgwater.src = segmentedwater;
+                const downloadBtn = document.getElementById('downloadBtn');
+                downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
+                downloadBtn.href = segmentedwater;
+            }
             const segmentedImg = 'data:image/png;base64,' + result.image_data;
-            document.getElementById('downloadBtn').textContent = `Download`;
-            $("#downloadButton").attr("href", segmentedImg).show();
-            const imgEl = document.querySelector('.image3-1');
+            const imgEl = document.querySelector('.image3-2');
             if (imgEl) {
                 imgEl.src = segmentedImg;
+                const downloadBtn2 = document.getElementById('downloadBtn2');
+                downloadBtn2.style.display = 'inline-block'; // rendre le bouton visible
+                downloadBtn2.href = segmentedImg;
             }
+            localStorage.removeItem('uploadedTiff');
+            localStorage.removeItem('uploadedFileName');
         })
         .catch(error => {
+            localStorage.removeItem('uploadedTiff');
+            localStorage.removeItem('uploadedFileName');
             console.error('Erreur lors du traitement :', error);
         });
     })
     .catch(error => {
+        localStorage.removeItem('uploadedTiff');
+        localStorage.removeItem('uploadedFileName');
         console.error('Erreur lors de l\'upload :', error);
     });
 }

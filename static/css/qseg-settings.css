@@ -1,28 +1,92 @@
 /* screen - qseg-settings */
 
-.qseg-settings {
-  align-items: flex-start;
-  background-color: var(--mirage);
-  display: flex;
-  min-width: 1094px;
+:root {
+  --side-width: 213px;   /* largeur fixe ou variable (ex : 15vw) */
+  --header-height: 80px;
 }
 
+/* 1. On transforme overlap-group9 en grille 2×2 */
 .qseg-settings .overlap-group9 {
-  height: 1920px;
-  position: relative;
-  width: 1094px;
+  display: grid;
+  grid-template-columns: var(--side-width) 1fr;
+  grid-template-rows: var(--header-height) auto;
+  grid-template-areas:
+    "side header"
+    "side main";
+  width: 100vw;
+  height: 100vh;
 }
 
-.qseg-settings .settings {
-  align-items: flex-start;
+/* 2. La sidebar fixe à gauche */
+.qseg-settings .side {
+  grid-area: side;
+  position: sticky;   /* ou fixed si vous voulez qu’elle reste toujours visible */
+  top: 0;
+  left: 0;
+  height: 100%;
+  
+  padding: 8px;
+  background-color: var(--ebony-clay);
+}
+
+.qseg-settings .header {
+  grid-area: header;
   display: flex;
-  height: 1084px;
-  justify-content: flex-end;
-  left: 199px;
-  min-width: 874px;
-  padding: 44px 0.3px;
+  align-items: center;
+  height: var(--header-height);
+  background-color: transparent;
+  margin-top: 8px;
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+  position: relative;
+  /* AJOUTEZ : */
+  justify-content: center; /* Centre le contenu dans la zone header */
+}
+
+
+
+/* 4. Le contenu principal sous le header à droite de la sidebar */
+.qseg-settings .settings {
+  /* on le place sous le header, à droite de la sidebar */
   position: absolute;
-  top: 96px;
+  top: var(--header-height);
+  left: var(--side-width);
+  right: 0;
+  bottom: 0;
+
+  /* on passe en flex pour centrer ses enfants */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* centre horizontalement */
+  /*overflow-y: auto;       /* scroll si besoin */
+  padding: 44px 0.3px;
+}
+
+.qseg-settings .settings > * {
+  width: 100%;
+  max-width: var(--main-max-width);
+  margin: 0 auto;   /* centre dans la zone .settings */
+}
+
+/* 5. Adapter les media queries pour tablettes et mobiles */
+@media (max-width: 1024px) {
+  :root { --side-width: 80px; }
+}
+
+@media (max-width: 768px) {
+  .qseg-settings .overlap-group9 {
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) auto auto;
+    grid-template-areas:
+      "header"
+      "side"
+      "main";
+  }
+  .qseg-settings .side,
+  .qseg-settings .settings {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .qseg-settings .overlap-group1 {
@@ -87,12 +151,36 @@
   min-width: 791px;
 }
 
+/*.qseg-settings .overlap-group3 {
+  border-radius: 17px;
+  height: 237px;
+  position: relative;
+  transition: all 0.2s ease;
+  width: 237px;
+}
+
+.qseg-settings .overlap-group3:hover {
+  transform: translate(0, -5px);
+box-shadow: 0px 0px 9px 4px #00ff9e40;
+} */
+
+/* État normal */
 .qseg-settings .overlap-group3 {
   border-radius: 17px;
   height: 237px;
   position: relative;
+  transition: all 0.2s ease;
   width: 237px;
+  cursor: pointer; /* bien indiquer que c’est cliquable */
 }
+
+/* Survol */
+.qseg-settings .overlap-group3:hover,
+.qseg-settings .overlap-group3.active {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
 
 .qseg-settings .rectangle-49 {
   background-color: var(--pickled-bluewood);
@@ -107,10 +195,7 @@
   width: 237px;
 }
 
-.qseg-settings .rectangle-49:hover {
-  transform: translate(0, -5px);
-box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
-}
+
 
 .qseg-settings .rectangle-53 {
   background: linear-gradient(180deg, rgba(58, 103, 249, 0.1) 0%, rgba(4, 250, 158, 0.1) 100%);
@@ -176,13 +261,20 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   align-items: flex-start;
   background-color: var(--pickled-bluewood);
   border-radius: 17px;
-  box-shadow: 0px 0px 9px 4px #00ff9e40;
+  /*box-shadow: 0px 0px 9px 4px #00ff9e40;*/
+  box-shadow: 0px 4px 21.6px -3px #0000005e;
   display: flex;
   flex-direction: column;
   margin-left: 41px;
   min-height: 237px;
+  transition: all 0.2s ease;
   padding: 13px 22px;
   width: 237px;
+}
+
+.qseg-settings .overlap-group4:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .overlap-group5 {
@@ -230,8 +322,14 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   flex-direction: column;
   margin-left: 39px;
   min-height: 237px;
+  transition: all 0.2s ease;
   padding: 13px 0;
   width: 237px;
+}
+
+.qseg-settings .overlap-group2:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
 }
 
 .qseg-settings .overlap-group6 {
@@ -292,6 +390,7 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
 
 .qseg-settings .select {
   align-self: center;
+  color: white;
   letter-spacing: 0;
   line-height: normal;
   margin-bottom: 0.0px;
@@ -303,24 +402,12 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
 }
 
 .qseg-settings .text-31 {
+  color: white;
   min-height: 30px;
   min-width: 17px;
   margin-top: 2.0px;
   margin-right: 8.0px;
   text-align: justify;
-}
-
-.qseg-settings .side {
-  align-items: flex-start;
-  background-color: var(--ebony-clay);
-  display: flex;
-  height: 1920px;
-  justify-content: flex-end;
-  left: 0;
-  min-width: 213px;
-  padding: 6px 3.4px;
-  position: absolute;
-  top: 0;
 }
 
 .qseg-settings .overlap-group7 {
@@ -487,32 +574,17 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   width: 96px;
 }
 
-.qseg-settings .header {
-  align-items: flex-start;
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  height: 80px;
-  justify-content: flex-start;
-  left: 288px;
-  min-width: 806px;
-  position: absolute;
-  top: 16px;
-  width: auto;
-}
+
 
 .qseg-settings .overlap-group8 {
   align-items: flex-start;
-  background-color: var(--mirage);
-  box-shadow: inset 0px -21px 6.7px -21px #00000040;
   display: flex;
-  gap: 231px;
   height: 88px;
-  justify-content: flex-end;
-  margin-left: -75px;
-  margin-top: -16px;
-  min-width: 881px;
-  padding: 16px 9px;
+  /* REMPLACEZ toutes ces propriétés par : */
+  justify-content: space-between;
+  padding: 16px 20px; /* Ajustez le padding selon vos besoins */
+  width: 100%;
+  /* SUPPRIMEZ : margin-left, min-width, position, left, transform */
 }
 
 .qseg-settings .overlap-group-1 {
@@ -524,6 +596,11 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   margin-top: 4.0px;
   position: relative;
   width: 332px;
+  /* AJOUTEZ pour le centrer par rapport à la fenêtre : */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Cela centre la barre de recherche par rapport à toute la fenêtre */
 }
 
 .qseg-settings .flex-col {
@@ -533,6 +610,7 @@ box-shadow: 0px 12px 5px -8px rgba(0,0,0,0.2);
   gap: 7px;
   min-height: 54px;
   width: 175px;
+  margin-left: auto; /* Ceci pousse l'élément vers la droite */
 }
 
 .qseg-settings .flex-row-1 {

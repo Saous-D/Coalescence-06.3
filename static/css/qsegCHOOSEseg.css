@@ -1,0 +1,710 @@
+/* screen - qseg-settings */
+
+:root {
+  --side-width: 213px;   /* largeur fixe ou variable (ex : 15vw) */
+  --header-height: 80px;
+}
+
+* {
+  box-sizing: border-box; /* Important pour les calculs de largeur */
+}
+
+/* Correction 1: Empêcher le défilement horizontal sur le body */
+body {
+  overflow-x: hidden;
+}
+
+/* 1. On transforme overlap-group9 en grille 2×2 */
+.qseg-settings .overlap-group9 {
+  display: grid;
+  grid-template-columns: var(--side-width) 1fr;
+  grid-template-rows: var(--header-height) auto;
+  grid-template-areas:
+    "side header"
+    "side main";
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 2. La sidebar fixe à gauche */
+.qseg-settings .side {
+  grid-area: side;
+  position: sticky;   /* ou fixed si vous voulez qu’elle reste toujours visible */
+  top: 0;
+  left: 0;
+  height: 900px;
+  
+  padding: 8px;
+  background-color: var(--ebony-clay);
+}
+
+/* 3. Le header centré dans la zone header */
+.qseg-settings .header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--header-height);
+  background-color: transparent;
+  margin-top: 8px;
+  box-shadow: inset 0px -21px 6.7px -21px #00000040;
+}
+
+
+/* 4. Le contenu principal sous le header à droite de la sidebar */
+.qseg-settings .settings {
+  /* on le place sous le header, à droite de la sidebar */
+  position: absolute;
+  top: var(--header-height);
+  left: var(--side-width);
+  right: 0;
+  bottom: 0;
+
+  /* on passe en flex pour centrer ses enfants */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* centre horizontalement */
+  /*overflow-y: auto;       /* scroll si besoin */
+  padding: 44px 0.3px;
+}
+
+.qseg-settings .settings > * {
+  width: 100%;
+  max-width: var(--main-max-width);
+  margin: 0 auto;   /* centre dans la zone .settings */
+}
+
+/* 5. Adapter les media queries pour tablettes et mobiles */
+@media (max-width: 1024px) {
+  :root { --side-width: 80px; }
+}
+
+@media (max-width: 768px) {
+  .qseg-settings .overlap-group9 {
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-height) auto auto;
+    grid-template-areas:
+      "header"
+      "side"
+      "main";
+  }
+  .qseg-settings .side,
+  .qseg-settings .settings {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.qseg-settings .overlap-group1 {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  border-radius: 8px;
+  box-shadow: 0px 0px 20.3px 2px #00000040;
+  display: flex;
+  flex-direction: column;
+  min-height: 204px;
+  padding: 27px 23px;
+  width: 844px;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.qseg-settings .overlap-group111 {
+  align-items: flex-start;
+  background-color: var(--ebony-clay);
+  border-radius: 8px;
+  box-shadow: 0px 0px 20.3px 2px #00000040;
+  display: flex;
+  flex-direction: column;
+  min-height: 204px;
+  padding: 7px 3px;
+  width: 844px;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.qseg-settings .choose-a-setting {
+  color: #e0e0e0;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 3px;
+  min-height: 23px;
+  text-align: justify;
+  white-space: nowrap;
+  width: 219px;
+}
+.qseg-settings .choose-a-setting1 {
+  color: #02FF9E;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxxl);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 3px;
+  min-height: 23px;
+  text-align: justify;
+  white-space: nowrap;
+  width: 219px;
+}
+
+.qseg-settings .seg-container {
+  align-items: center;
+  display: flex;
+  gap: 55px;
+  margin-left: 1px;
+
+}
+
+.qseg-settings .qseg-1 {
+  height: 136px;
+  object-fit: cover;
+  width: 139px;
+}
+
+.qseg-settings .you-can-use-q-seg-wi {
+  color: transparent;
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  width: 536px;
+}
+
+.qseg-settings .overlap-group-container {
+  align-items: flex-start;
+  align-self: center;
+  display: flex;
+  margin-right: 1.0px;
+  margin-top: 49px;
+ 
+}
+
+/*.qseg-settings .overlap-group3 {
+  border-radius: 17px;
+  height: 237px;
+  position: relative;
+  transition: all 0.2s ease;
+  width: 237px;
+}
+
+.qseg-settings .overlap-group3:hover {
+  transform: translate(0, -5px);
+box-shadow: 0px 0px 9px 4px #00ff9e40;
+} */
+
+/* État normal */
+.qseg-settings .overlap-group3 {
+  border-radius: 17px;
+  height: 237px;
+  position: relative;
+  transition: all 0.2s ease;
+  width: 237px;
+  cursor: pointer; /* bien indiquer que c’est cliquable */
+}
+
+/* Survol */
+.qseg-settings .overlap-group1:hover,
+.qseg-settings .overlap-group1.active {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
+/* Survol */
+.qseg-settings .overlap-group111:hover,
+.qseg-settings .overlap-group111.active {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
+
+.qseg-settings .rectangle-49 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 17px;
+  box-shadow: 0px 4px 21.6px -3px #0000005e;
+  cursor: pointer;
+  height: 237px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.2s ease;
+  width: 237px;
+}
+
+
+
+.qseg-settings .rectangle-53 {
+  background: linear-gradient(180deg, rgba(58, 103, 249, 0.1) 0%, rgba(4, 250, 158, 0.1) 100%);
+  border-radius: 6px;
+  height: 65px;
+  left: 78px;
+  position: absolute;
+  top: 13px;
+  width: 68px;
+}
+
+.qseg-settings .rectangle-63 {
+  display: flex;                /* active Flexbox */
+  justify-content: center;      /* centre horizontalement */
+  align-items: center; 
+  background: linear-gradient(180deg, rgba(58, 103, 249, 0.1) 0%, rgba(4, 250, 158, 0.1) 100%);
+  border-radius: 6px;
+  height: 65px;
+  left: 78px;
+  top: 13px;
+  width: 68px;
+}
+
+.qseg-settings .trusted {
+  left: 21px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: justify;
+  top: 104px;
+  white-space: nowrap;
+  width: 116px;
+}
+
+.qseg-settings .a-setting-where-q-se {
+  left: 21px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 134px;
+  width: 181px;
+}
+
+.qseg-settings .span-1 {
+  color: var(--white);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.qseg-settings .group-26 {
+  background-image: url(/static/images/mask-group-99@2x.png);
+  background-size: 100% 100%;
+  height: 39px;
+  left: 92px;
+  position: absolute;
+  top: 26px;
+  width: 39px;
+}
+
+.qseg-settings .overlap-group4 {
+  align-items: flex-start;
+  background-color: var(--pickled-bluewood);
+  border-radius: 17px;
+  /*box-shadow: 0px 0px 9px 4px #00ff9e40;*/
+  box-shadow: 0px 4px 21.6px -3px #0000005e;
+  display: flex;
+  flex-direction: column;
+  margin-left: 41px;
+  min-height: 237px;
+  transition: all 0.2s ease;
+  padding: 13px 22px;
+  width: 237px;
+}
+
+.qseg-settings .overlap-group4:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
+.qseg-settings .overlap-group5 {
+  align-items: center;
+  align-self: center;
+  border-radius: 6px;
+  display: flex;
+  height: 65px;
+  margin-right: 1.0px;
+  min-width: 68px;
+  padding: 0 10px;
+}
+
+.qseg-settings .mask-group {
+  background-image: url(/static/images/mask-group-98@2x.png);
+  background-size: 100% 100%;
+  height: 47px;
+  width: 47px;
+}
+
+.qseg-settings .balanced {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 26px;
+  min-height: 18px;
+  text-align: justify;
+  white-space: nowrap;
+  width: 116px;
+}
+
+.qseg-settings .a-perfect-balance-be {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  min-height: 61px;
+  width: 156px;
+}
+
+.qseg-settings .overlap-group2 {
+  align-items: center;
+  background-color: var(--pickled-bluewood);
+  border-radius: 17px;
+  box-shadow: 0px 4px 21.1px -3px #0000005e;
+  display: flex;
+  flex-direction: column;
+  margin-left: 39px;
+  min-height: 237px;
+  transition: all 0.2s ease;
+  padding: 13px 0;
+  width: 237px;
+}
+
+.qseg-settings .overlap-group2:hover {
+  transform: translate(0, -5px);
+  box-shadow: 0px 0px 9px 4px #00ff9e40;
+}
+
+.qseg-settings .overlap-group6 {
+  align-items: flex-end;
+  border-radius: 6px;
+  display: flex;
+  height: 65px;
+  margin-left: 3.0px;
+  min-width: 68px;
+  padding: 17px 19px;
+}
+
+.qseg-settings .bouclier-1 {
+  height: 30px;
+  object-fit: cover;
+  width: 30px;
+}
+
+.qseg-settings .exhaustive {
+  align-self: flex-start;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 25px;
+  margin-top: 26px;
+  min-height: 18px;
+  text-align: justify;
+  white-space: nowrap;
+  width: 116px;
+}
+
+.qseg-settings .a-setting-where-q-se-1 {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 12px;
+  min-height: 61px;
+  width: 187px;
+}
+
+.qseg-settings .group-29 {
+  align-items: flex-start;
+  align-self: flex-end;
+  cursor: pointer;
+  display: flex;
+  margin-top: 82px;
+  min-width: 135px;
+}
+
+.qseg-settings .overlap-group {
+  align-items: flex-start;
+  border-radius: 21.5px;
+  display: flex;
+  gap: 18px;
+  height: 36px;
+  justify-content: flex-end;
+  min-width: 131px;
+  padding: 1px 9px;
+}
+
+.qseg-settings .select {
+  align-self: center;
+  color: white;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 0.0px;
+  margin-top: 2.0px;
+  margin-right: 2.0px;
+  min-height: 21px;
+  min-width: 51px;
+  text-align: justify;
+}
+
+.qseg-settings .text-31 {
+  color: white;
+  min-height: 30px;
+  min-width: 17px;
+  margin-top: 2.0px;
+  margin-right: 8.0px;
+  text-align: justify;
+}
+
+.qseg-settings .overlap-group7 {
+  height: 447px;
+  position: relative;
+  width: 200px;
+}
+
+.qseg-settings .rectangle-10 {
+  background-color: var(--pickled-bluewood);
+  border-radius: 6px;
+  height: 200px;
+  left: 4px;
+  position: absolute;
+  top: 118px;
+  width: 191px;
+}
+
+.qseg-settings .side-bar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  min-height: 447px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+
+.qseg-settings .mask-group-1 {
+  height: 72px;
+  margin-left: 1.0px;
+  width: 199px;
+}
+
+.qseg-settings .group-48 {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 60px;
+  height: 24px;
+  margin-left: 3.42px;
+  margin-top: 54px;
+  min-width: 175px;
+}
+
+.qseg-settings .app-2 {
+  height: 21px;
+  margin-top: 1.0px;
+  object-fit: cover;
+  width: 21px;
+}
+
+.qseg-settings .q-apps {
+  min-height: 24px;
+  width: 92px;
+}
+
+.qseg-settings .flex-row {
+  align-items: flex-start;
+  display: flex;
+  gap: 39px;
+  height: 25px;
+  margin-left: 1.24px;
+  margin-top: 189px;
+  min-width: 173px;
+}
+
+.qseg-settings .usine-2 {
+  height: 20px;
+  margin-top: 1px;
+  object-fit: cover;
+  width: 20px;
+}
+
+.qseg-settings .by-industry {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 114px;
+}
+
+.qseg-settings .group-49 {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+  gap: 42px;
+  height: 25px;
+  margin-left: 3.9px;
+  margin-top: 36px;
+  min-width: 175px;
+}
+
+.qseg-settings .rapport-danalyse-2 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-settings .dashboard {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 25px;
+  text-align: right;
+  width: 108px;
+}
+
+.qseg-settings .text-32 {
+  left: 20px;
+  position: absolute;
+  top: 284px;
+  transform: rotate(-90deg);
+  width: 10px;
+}
+
+.qseg-settings .rectangle-8 {
+  height: 29px;
+  left: 1px;
+  position: absolute;
+  top: 179px;
+  width: 197px;
+}
+
+.qseg-settings .q-seg {
+  left: 119px;
+  position: absolute;
+  top: 182px;
+  width: 68px;
+}
+
+.qseg-settings .q-road {
+  left: 133px;
+  position: absolute;
+  top: 208px;
+  width: 53px;
+}
+
+.qseg-settings .q-sched {
+  left: 77px;
+  position: absolute;
+  top: 235px;
+  width: 110px;
+}
+
+.qseg-settings .q-pgm {
+  left: 123px;
+  position: absolute;
+  top: 261px;
+  width: 64px;
+}
+
+.qseg-settings .q-color {
+  left: 106px;
+  position: absolute;
+  top: 287px;
+  width: 80px;
+}
+
+.qseg-settings .q-medoids {
+  left: 91px;
+  position: absolute;
+  top: 159px;
+  width: 96px;
+}
+
+
+
+.qseg-settings .overlap-group8 {
+  align-items: flex-start;
+  display: flex;
+  height: 88px;
+  /* REMPLACEZ toutes ces propriétés par : */
+  justify-content: space-between;
+  padding: 16px 20px; /* Ajustez le padding selon vos besoins */
+  width: 100%;
+  /* SUPPRIMEZ : margin-left, min-width, position, left, transform */
+}
+
+.qseg-settings .overlap-group-1 {
+  align-self: center;
+  border: 1px solid;
+  border-color: var(--white);
+  border-radius: 4px;
+  height: 36px;
+  margin-top: 4.0px;
+  position: relative;
+  width: 332px;
+  /* AJOUTEZ pour le centrer par rapport à la fenêtre : */
+  left: 50%;
+  transform: translateX(-50%);
+  /* Cela centre la barre de recherche par rapport à toute la fenêtre */
+}
+
+.qseg-settings .flex-col {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-height: 54px;
+  width: 175px;
+  margin-left: auto; /* Ceci pousse l'élément vers la droite */
+}
+
+.qseg-settings .flex-row-1 {
+  align-items: flex-end;
+  display: flex;
+  gap: 61px;
+  margin-left: 1.0px;
+  min-width: 104px;
+}
+
+.qseg-settings .mask-group-2 {
+  height: 20px;
+  width: 20px;
+}
+
+.qseg-settings .question-1 {
+  height: 23px;
+  object-fit: cover;
+  width: 23px;
+}
+
+.qseg-settings .overlap-group1-1 {
+  height: 24px;
+  position: relative;
+  width: 175px;
+}
+
+.qseg-settings .account {
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-settings .help {
+  left: 83px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 92px;
+}
+
+.qseg-settings .q {
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: right;
+}
+
+.qseg-settings .text {
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}

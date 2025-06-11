@@ -71,6 +71,7 @@
               </div>
             </div>
           </header>
+          <div class="contenu">
           <div class="upload">
             <img class="mask-group-2" src="/static/images/mask-group-58@2x.png" alt="Mask group" />
             <div class="flex-col-2 flex-col-3">
@@ -86,24 +87,34 @@
                 <div id="error-message"></div>
             </div>
           </div>
+
+
+<!--<button class="download bold-white-15px">ACCESS TO TIFF BANK</button>-->
+      
           <div class="buttons">
+            <a href="{{ url_for('qseg_settings')}}">
             <div class="overlap-group1-2">
               <div class="rectangle-57"></div>
               <div class="settings inter-semi-bold-black-17px">settings</div>
               <div class="text-38 text inter-semi-bold-black-25px">&lt;</div>
             </div>
+          </a>
+            <a href="{{ url_for('qseg_result') }}">
             <div class="overlap-group-2 overlap-group-3">
               <div class="run-button">
   <div class="rectangle-58"></div>
+
 <div class="button-content">
-    <a href="{{ url_for('qseg_result') }}">
+    
     <div class="run inter-semi-bold-black-17px">run</div>
     <div class="text-37 text inter-semi-bold-black-25px">&gt;</div>
-  </a>
+
 
   </div>
 </div>
           </div>
+          </a>
+        </div>
         </div>
       </div>
     </div>

@@ -25,7 +25,7 @@ def dashboard():
     return render_template('dashboard.html')
 
 @app.route('/enter-code')
-def enter():
+def enter_code():
     return render_template('enter-code.html')
 
 @app.route('/insurance-detail.html')
@@ -64,6 +64,14 @@ def qseg_choose_image_selection():
 def qseg_choose_image():
     return render_template('qseg-choose-image.html')
 
+@app.route('/qsegfire-choose-image')
+def qsegfire_choose_image():
+    return render_template('qsegfire-choose-image.html')
+
+@app.route('/qsegwet-choose-image')
+def qsegwet_choose_image():
+    return render_template('qsegwet-choose-image.html')
+
 @app.route('/qseg-details')
 def qseg_details():
     return render_template('qseg-details.html')
@@ -76,14 +84,45 @@ def qseg_runing_screen():
 def qseg_settings():
     return render_template('qseg-settings.html')
 
+@app.route('/qsegfire-settings')
+def qsegfire_settings():
+    return render_template('qsegfire-settings.html')
+
+@app.route('/qsegwet-settings')
+def qsegwet_settings():
+    return render_template('qsegwet-settings.html')
+
 @app.route('/sign-in')
 def sign_in():
     return render_template('sign-in.html')
+
+@app.route('/sign-up')
+def sign_up():
+    return render_template('sign-up.html')
 
 @app.route('/qseg-result')
 def qseg_result():
     return render_template('qseg-result.html')
 
+@app.route('/qsegfire-result')
+def qsegfire_result():
+    return render_template('qsegfire-result.html')
+
+@app.route('/qsegwet-result')
+def qsegwet_result():
+    return render_template('qsegwet-result.html')
+
+@app.route('/qsegchoose')
+def qsegchoose():
+    return render_template('qsegchoose.html')
+
+@app.route('/qsegchooseseg')
+def qsegchooseseg():
+    return render_template('qsegchooseseg.html')
+
+@app.route('/qsegAI-choose-image')
+def qsegAI_choose_image():
+    return render_template('qsegAI-choose-image.html')
 
 @app.route('/extract_rgb', methods=['POST'])
 def extract_rgb():
@@ -144,7 +183,7 @@ def generate_heatmap():
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
 
-        color = request.form.get('color', 'viridis')
+        color = request.form.get('color', 'winter_r')
 
         heatmap_buf = quantum_segmentation.return_heatmap(filepath, color=color)
 
@@ -197,22 +236,27 @@ def process_image():
     mu = int(request.form['mu'])
     k = int(request.form['k'])
     print("app.py : water_penalty = " +str(water_penalty))
-    matrix = run_quantum_segmentation(
-        image_path, image_height, image_width, water_penalty,
-        no_water_penalty, sigma, mu, k)
+    matrix = quantum_segmentation.quantum_scan(image_path, "water")
+
+    print("app.py : water done ")
+
+    matrix2 = quantum_segmentation.overlay_masks(matrix, quantum_segmentation.quantum_scan(image_path, "vegetation"))
+
+    print("app.py : seg done ")
+
 
     buf = io.BytesIO()
-    plt.imsave(buf, matrix, format='png', cmap='viridis')
+    plt.imsave(buf, matrix, format='png', cmap='winter_r')
     buf.seek(0)
     img_bytes = buf.getvalue()
     img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
-    return jsonify({'image_data': img_base64})
-#******************** Pour le deploiement 
-# if __name__ == "__main__":           # pour l'execution en locale
-#     socketio.run(app, debug=True)    # pour l'execution en locale
+
+    img_base642 = base64.b64encode(matrix2.read()).decode('utf-8')
+
+    return jsonify({'image_water': img_base64, 'image_data': img_base642})
+
 #******************************************************************
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))  # Port assigné par Render ou 5000 par défaut
     socketio.run(app, host="0.0.0.0", port=port)
-#******************************************************************

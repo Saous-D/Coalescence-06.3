@@ -5,7 +5,7 @@
   background-color: var(--mirage);
   display: flex;
   gap: 72px;
-  min-width: 1094px;
+  
 }
 
 .qseg-details .side {
@@ -16,7 +16,10 @@
   justify-content: flex-end;
   min-width: 213px;
   padding: 6px 3.4px;
+   z-index: 1000;           /* au-dessus du reste */
 }
+
+
 
 .qseg-details .overlap-group2 {
   height: 447px;
@@ -179,19 +182,23 @@
   margin-top: 16px;
   min-height: 1390px;
   width: 809px;
+  position: absolute;
+  left: 25%;
 }
 
 .qseg-details .header {
-  align-items: flex-start;
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  flex-shrink: 1;
-  height: 80px;
-  justify-content: flex-start;
-  margin-left: 3.0px;
-  min-width: 806px;
-  width: auto;
+  position: fixed;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  z-index: 10;
+  
+}
+.flex-col.flex > *:not(header) {
+  max-width: 809px;                         /* largeur de ton contenu */
+  margin: var(--header-height) auto 10px;       /* top = hauteur du header, auto = centrage */
 }
 
 .qseg-details .overlap-group3 {
@@ -208,6 +215,12 @@
   padding: 16px 9px;
 }
 
+.qseg-details .overlap-group3 {
+  position: relative;
+  /* tu peux conserver justify-content:flex-end pour le bouton Compte/Aide */
+  justify-content: flex-end;
+}
+
 .qseg-details .overlap-group1 {
   align-self: center;
   border: 1px solid;
@@ -219,11 +232,21 @@
   width: 332px;
 }
 
+.qseg-details .overlap-group1 {
+  position: absolute;        /* on la sort du flux flex */
+  top: 20px;                  /* conserve ta marge verticale */
+  left: 50%;                 
+  transform: translateX(-50%); 
+ 
+  width: 332px;              /* garde ta largeur fixe */
+}
+
 .qseg-details .flex-col-1 {
   align-items: center;
   gap: 7px;
   min-height: 54px;
   width: 175px;
+  
 }
 
 .qseg-details .flex-row-1 {
@@ -272,6 +295,7 @@
 }
 
 .qseg-details .intro {
+  position: relative;
   align-items: flex-start;
   align-self: center;
   display: flex;
@@ -279,6 +303,7 @@
   height: 196px;
   margin-left: 9.0px;
   margin-top: 29px;
+  top: 20px;
   min-width: 734px;
 }
 
@@ -323,7 +348,6 @@
 
 .qseg-details .buttonsi {
   align-items: flex-start;
-
   cursor: pointer;
   display: flex;
   margin-right: 23px;
@@ -490,7 +514,7 @@
   height: 1px;
   left: 0;
   position: absolute;
-  top: 503px;
+  margin-top: 550px;
   width: 724px;
 }
 
@@ -734,3 +758,5 @@
   line-height: normal;
   white-space: nowrap;
 }
+
+

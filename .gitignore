@@ -3,16 +3,3 @@ venv/
 qseg/__pycache__/
 qseg/.ipynb_checkpoints/
 qseg/brouillon.*
-# Ignorer l'environnement virtuel
-.venv/
-
-# Ignorer les fichiers de configuration IDE
-.vscode/
-
-# Ignorer les fichiers Python compilés
-__pycache__/
-*.pyc
-
-# Ignorer les fichiers générés
-*.log
-*.sqlite3
