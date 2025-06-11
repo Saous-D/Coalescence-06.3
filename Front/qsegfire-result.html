@@ -93,7 +93,7 @@
 <div class="canvas1">
   <canvas id="canvas" ></canvas>
   </div>
-  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="heatmap_result.png">Download Heatmap</a>
+  <a id="fileName" class="download inter-bold-white-15px-2" style="display: none;" download="map.png">Download Heatmap</a>
 
 
               <a href="{{ url_for('qsegfire_choose_image')}}">
@@ -202,7 +202,7 @@ function base64ToBlob(base64, contentType) {
 
     // Envoi au serveur
     $.ajax({
-      url: '/heatmap',
+      url: '/upload',
       type: 'POST',
       data: formData,
       processData: false,
