@@ -8,6 +8,27 @@
   min-width: 1094px;
 }
 
+.qseg-choose-image .download {
+ 
+  padding: 0.5em 1em;
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #007BFF;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 100;      /* Thin */
+  font-size: 16px;       /* à ajuster selon vos besoins */
+  line-height: 1.4;      /* pour un meilleur confort de lecture */
+  display: flex;               /* Flexbox */
+  flex-direction: column;     /* Stack image and text vertically */
+  align-items: center;        /* Horizontal centering */
+  justify-content: center;    /* Vertical centering */
+  width: 50%;
+  margin-left: 110px;
+
+}
+
 .qseg-choose-image .side {
   align-items: flex-start;
   background-color: var(--ebony-clay);
@@ -388,6 +409,17 @@ header.header {
   text-align: justify;
   white-space: nowrap;
   width: 248px;
+  z-index: 200;
+}
+
+.qseg-choose-image .upload-your-image2 {
+  margin-left: 0.14px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: justify;
+  white-space: nowrap;
+  margin-bottom: 50px;
+   width: 248px;
   z-index: 200;
 }
 
