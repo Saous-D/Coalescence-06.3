@@ -256,5 +256,7 @@ def process_image():
 
     return jsonify({'image_water': img_base64, 'image_data': img_base642})
 
+#******************************************************************
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Port assigné par Render ou 5000 par défaut
+    socketio.run(app, host="0.0.0.0", port=port)
