@@ -124,6 +124,13 @@ def qsegchooseseg():
 def qsegAI_choose_image():
     return render_template('qsegAI-choose-image.html')
 
+
+@app.route('/qsegai-result')
+def qsegai_result():
+    return render_template('qsegai-result.html')
+
+
+
 @app.route('/extract_rgb', methods=['POST'])
 def extract_rgb():
     image_path = request.form['image_path']
