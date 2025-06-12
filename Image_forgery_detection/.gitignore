@@ -1,5 +1,6 @@
 *.docx
 *.env
+*.ipynb
 /Images-à-tester_RonanNT/
 /Proofs/
 /ela_pyqt_venv/
