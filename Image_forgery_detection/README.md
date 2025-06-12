@@ -25,7 +25,8 @@ Detects the authenticity of an image using Error Level Analysis and Convolutiona
 	* ```tensorflow```
 	
 It is desirable to create a virtual environment in the local machine before installing the listed python packages.
-In order to do this, in the chosen folder, one should type ```python -m venv <pyenvName>```, followed by ```source <pyenvName>/bin/activate```, where ```<pyenvName>``` is the name of the python virtual environment chosen by the user.	
+In order to do this, in the chosen folder, one should type ```python -m venv <pyenvName>```, followed by ```source <pyenvName>/bin/activate```, where ```<pyenvName>``` is the name of the python virtual environment chosen by the user.
+
 3. Clone this repository to your local machine.
 4. Run the ```ui.py``` file, using the command ```python ui.py```.
 5. Browse an image from your local machine and test it, by clicking on the "Test" button.
@@ -39,7 +40,7 @@ In order to do this, in the chosen folder, one should type ```python -m venv <py
 ## Contributors
 <a href="https://github.com/0xsp/image-forgery-detection/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=0xsp/image-forgery-detection" />
-  <img src="https://github.com/TBG-QbitSoft/Coalescence/network/dependencies" />
+  <img src="https://github.com/TBG-QbitSoft/Coalescence/network/dependencies"/>
 </a>
 
 ## License
