@@ -76,12 +76,12 @@
             <img class="mask-group-2" src="/static/images/mask-group-58@2x.png" alt="Mask group" />
             <div class="flex-col-2 flex-col-3">
               <div class="upload-your-image inter-bold-white-20px">UPLOAD YOUR IMAGE</div>
-                <label for="file-upload" class="upload-container">
+                <label id="upload-container" for="file-upload" class="upload-container">
                   <p class="drag-and-drop-your-i inter-normal-white-20px">DRAG AND DROP YOUR IMAGE OR SELECT FROM FILES</p>
-                  <p class="drag-and-drop-your-i inter-normal-white-20px">Accepted files : .tif</p>
+                  <p class="drag-and-drop-your-i inter-normal-white-20px">Accepted files : .jpg</p>
                   <img src="/static/images/cloud-1@2x.png" alt="Upload Icon">
                 </label>
-                <input id="file-upload" type="file" name="tifFile" accept=".tif" required>
+                <input id="file-upload" type="file" name="tifFile" accept=".jpg" required>
 
                 <div id="file-info"></div>
                 <div id="error-message"></div>
@@ -116,41 +116,44 @@
       </div>
     </div>
     <script>
- const fileInput = document.getElementById('file-upload');
-    const fileInfo = document.getElementById('file-info');
-    const errorMessage = document.getElementById('error-message');
-    const form = document.getElementById('upload-form');
- 
-    fileInput.addEventListener('change', () => {
-      const file = fileInput.files[0];
-      fileInfo.textContent = '';
-      errorMessage.textContent = '';
- 
-      if (file) {
-        if (file.name.toLowerCase().endsWith('.tif')) {
-          fileInfo.textContent = `Selected file: ${file.name}`;
- 
-          const reader = new FileReader();
-          reader.onload = function () {
-            localStorage.setItem('uploadedTiff', reader.result); 
-            localStorage.setItem('uploadedFileName', file.name);
-          };
-          reader.readAsDataURL(file);
- 
-        } else {
-          errorMessage.textContent = 'Please upload a valid .tif file.';
-          fileInput.value = ''; // Clear the invalid file
-        }
-      }
- 
-    });
- 
-    form.addEventListener('submit', (e) => {
-      if (!fileInput.files[0]) {
-        e.preventDefault();
-        errorMessage.textContent = 'You must upload a .tif file before submitting.';
-      }
-    });
+const fileInput        = document.getElementById('file-upload');
+const uploadContainer  = document.getElementById('upload-container');
+const errorMessage     = document.getElementById('error-message');
+
+fileInput.addEventListener('change', () => {
+  const file = fileInput.files[0];
+  errorMessage.textContent = '';
+
+  if (!file) return;
+
+  if (!file.name.toLowerCase().endsWith('.jpg')) {
+    errorMessage.textContent = 'Please upload un fichier .jpg valide.';
+    fileInput.value = '';
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    // stocker si besoin
+    localStorage.setItem('uploadedTiff', e.target.result);
+    localStorage.setItem('uploadedFileName', file.name);
+
+    // remplacer le contenu du container par l'image
+    uploadContainer.innerHTML = `
+      <img 
+        src="${e.target.result}" 
+        alt="Preview" 
+        style="
+          display: block;
+          width: 180px;
+          height: auto;
+          border-radius: 10px;
+        "
+      />
+    `;
+  };
+  reader.readAsDataURL(file);
+});
   </script>
 
   </body>
