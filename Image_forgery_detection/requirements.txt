@@ -1,0 +1,12 @@
+dwave-ocean-sdk
+keras
+matplotlib
+numpy
+pillow
+PyQt5
+PyQt5-tools
+seaborn
+scikit-learn
+scipy
+tensorflow
+tqdm

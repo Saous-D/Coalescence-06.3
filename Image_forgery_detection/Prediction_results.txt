@@ -1,0 +1,41 @@
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Hyundai_Ioniq_AI_Lime-generated_modf2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	96.94
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Ford_Transit_IV_Modf1.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	64.46
+
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/OffreEmploi_IngénieurCalculQuantique_QbitSoft_modf_page-0001.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	99.97
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Kbis_06-08-2024_pag1.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	99.79
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Kbis_16-08-2024_pag1.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	99.79
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Kbis_06-08-2024_pag2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	100.00
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Kbis_16-08-2024_pag2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	100.00
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/QBITSOFT - Kbis à jour 06.08.24 1_page-0001.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	97.40
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/QBITSOFT - Kbis à jour 06.08.24 1_page-0002.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	100.00
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/KBis_06-08-2024_QS_modf1_pag1.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	99.79
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/KBis_06-08-2024_QS_modf1_pag2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	100.00
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/1993_Citroen_ZX_Volcane_TD_(9758856532)_modf3.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	64.89
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Hyundai_Ioniq_AI_Lime-generated_modf2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	96.94
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Honda_S2000_1998.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	53.99
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Peugeot_306_Cabriolet_RolandGarros_1999.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	56.62
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Peugeot_306_Cabriolet_RolandGarros_1999_cropped.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	59.22
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Ford_Transit_IV_Modf1.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	64.46
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Ford_Transit_IV.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	61.92
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Peugeot_406_Coupé_1997_DeepFake_3.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	99.15
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/ToyotaAurisSW.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	69.93
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Toyota_Auris_II_Modf.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	66.68
+('/mnt/c/Users/FilippoStellin/OneDrive - QbitSoft/Bureau/Image_forgery_detection/Images_essai/Hyundai_Ioniq_AI_Lime-generated_modf2.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Falsifiée	96.94
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_5.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	68.14
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_7.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	60.05
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_8.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	99.32
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_9.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	62.68
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_10.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	70.09
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_16.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	54.15
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_17.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	66.91
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_18.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	79.44
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_24.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	57.05
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_29.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	70.09
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250608_113220.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	71.35
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250606_150424.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	64.66
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250605_211107.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	71.03
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250530_113714.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	58.36
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250530_110828.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	57.65
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250606_150424.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	64.66
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/20250430_165241.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	75.66
+('/mnt/c/Users/filip/OneDrive/Desktop/Image_forgery_detection/Images_essai/Car_Accident_Image_9.jpg', '*.png, *.xmp *.jpg *.jpeg')	255.0	Authentique	62.68
