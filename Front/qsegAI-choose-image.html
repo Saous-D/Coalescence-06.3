@@ -135,7 +135,7 @@ fileInput.addEventListener('change', () => {
   const reader = new FileReader();
   reader.onload = function(e) {
     // stocker si besoin
-    localStorage.setItem('uploadedTiff', e.target.result);
+    localStorage.setItem('uploadedImage', e.target.result);
     localStorage.setItem('uploadedFileName', file.name);
 
     // remplacer le contenu du container par l'image

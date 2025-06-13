@@ -1,7 +1,7 @@
 import numpy as np
 import os
 from keras.models import load_model
-from ela import convert_to_ela_image
+from Image_forgery_detection.ela import convert_to_ela_image
 from scipy import stats
 from dwave.system import LeapHybridSampler
 from dwave.system import DWaveSampler, EmbeddingComposite

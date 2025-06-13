@@ -170,164 +170,126 @@
     </div>
   </body>
 <script type="text/javascript">
-function base64ToBlob(base64, contentType) {
-  // Supprimer l'en-tête si présent
-  const base64Data = base64.split(',').pop();  // enlève tout avant la virgule
 
-  const byteCharacters = atob(base64Data);
-  const byteArrays = [];
 
-  for (let offset = 0; offset < byteCharacters.length; offset += 512) {
-    const slice = byteCharacters.slice(offset, offset + 512);
-    const byteNumbers = new Array(slice.length);
-    for (let i = 0; i < slice.length; i++) {
-      byteNumbers[i] = slice.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    byteArrays.push(byteArray);
+function displayUploadedImageInCanvas() {
+  const base64Data = localStorage.getItem('uploadedImage');
+  if (!base64Data) {
+    alert("Aucune image trouvée dans le localStorage.");
+    return;
   }
 
-  return new Blob(byteArrays, { type: contentType });
+  const img = new Image();
+  img.onload = function () {
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    ctx.drawImage(img, 0, 0);
+  };
+  img.src = base64Data;
 }
 
-  function selectImageFromLocalStorage() {
-    const base64Data = localStorage.getItem('uploadedTiff');
-    const fileName = localStorage.getItem('uploadedFileName') || 'image.tiff';
 
-    if (!base64Data) {
-      alert("Aucune image trouvée dans le localStorage.");
-      return;
-    }
+function convert_to_ela() {
+  const base64Data = localStorage.getItem('uploadedImage');
+  const fileName = localStorage.getItem('uploadedFileName') || 'image.jpg';
 
-    // Conversion base64 → Blob
-    const blob = base64ToBlob(base64Data, 'image/tiff');
-    const formData = new FormData();
-    formData.append('file', blob, fileName);
+  if (!base64Data) {
+    alert("Aucune image trouvée dans le localStorage.");
+    return;
+  }
+  const cleanedBase64 = base64Data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
 
-    // Envoi au serveur
-    $.ajax({
-      url: '/upload',
-      type: 'POST',
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(response) {
-        if (response.image_data) {
-          const processedImageData = "data:image/png;base64," + response.image_data;
+  $.ajax({
+    url: '/convert_to_ela_image',
+    type: 'POST',
+    contentType: 'application/json',
+    data: JSON.stringify({ image_base64: cleanedBase64 }),
+    success: function(response) {
+      if (response.image_data) {
+        const processedImageData = "data:image/png;base64," + response.image_data;
+        const imgwater = document.querySelector('.image3-1');
+        if (imgwater) imgwater.src = processedImageData;
 
-          // Affichage dans le canvas (par exemple)
-          const canvas = document.getElementById('canvas');
-          const ctx = canvas.getContext('2d');
-          const img = new Image();
-          img.onload = function () {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img, 0, 0);
-          };
-          img.src = processedImageData;
-          const downloadBtn = document.getElementById('fileName');
-          downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
+        const downloadBtn = document.getElementById('downloadBtn');
+        if (downloadBtn) {
+          downloadBtn.style.display = 'inline-block';
           downloadBtn.href = processedImageData;
-        } else {
-          alert("Erreur : " + response.error);
+          downloadBtn.download = fileName.replace(/\.[^/.]+$/, "") + "_ELA.png"; // nom de fichier pour téléchargement
         }
-      },
-      error: function() {
-        alert("Erreur lors du traitement de l'image");
+      } else {
+        alert("Erreur : " + response.error);
       }
-    });
+    },
+    error: function() {
+      alert("Erreur lors du traitement de l'image");
+    }
+  });
+}
+
+
+
+function analyzeELA() {
+  const fileName = localStorage.getItem("uploadedFileName");
+
+  if (!fileName) {
+    alert("Nom du fichier introuvable.");
+    return;
   }
 
+  // On suppose que convert_to_ela a déjà stocké l’image ELA dans une balise image .image3-2
+  const elaImgElement = document.querySelector('.image3-2');
 
-  function processImageFromLocalStorage() {
-    const base64 = localStorage.getItem('uploadedTiff');
-    const fileName = localStorage.getItem('uploadedFileName');
+  if (!elaImgElement || !elaImgElement.src.startsWith('data:image/png;base64,')) {
+    alert("Aucune image ELA trouvée. Veuillez d'abord convertir l'image.");
+    return;
+  }
 
-    if (!base64 || !fileName) {
-        alert("Aucun fichier trouvé dans le stockage local.");
-        return;
+  const elaBase64 = elaImgElement.src.replace('data:image/png;base64,', '');
+
+  // Appel au backend
+  fetch('/analyze_ela', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      file_name: fileName,
+      image_data: elaBase64
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Analyse ELA reçue :", data);
+
+    if (data.success) {
+      // Exemple de traitement : affichage texte ou mise à jour d’un graphique
+      const resultContainer = document.getElementById('ela-analysis-result');
+      if (resultContainer) {
+        resultContainer.innerHTML = `
+          <p><strong>Analyse terminée.</strong></p>
+          <p>Pixels analysés : ${data.pixel_count}</p>
+          <p>Informations supplémentaires : ${data.details || 'Aucune'}</p>
+        `;
+      }
+    } else {
+      alert("Erreur côté serveur : " + data.error);
     }
-
-    const contentTypeMatch = base64.match(/^data:(.*);base64,/);
-    const contentType = contentTypeMatch ? contentTypeMatch[1] : 'image/tiff';
-
-    const blob = base64ToBlob(base64, contentType);
-    const formData = new FormData();
-    formData.append('file', blob, fileName);
-
-    fetch('/upload', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.error) {
-            alert("Erreur d'upload : " + data.error);
-            return;
-        }
-
-        const imagePath = data.image_path;
-
-        const processData = new FormData();
-        processData.append('image_path', imagePath);
-        processData.append('image_height', '512');
-        processData.append('image_width', '512');
-        processData.append('water_penalty', '0.75');
-        processData.append('no_water_penalty', '-0.75');
-        processData.append('sigma', '0.2');
-        processData.append('mu', '1');
-        processData.append('k', '2');
-
-        fetch('/process', {
-            method: 'POST',
-            body: processData
-        })
-        .then(response => response.json())
-        .then(result => {
-            if (result.error) {
-                localStorage.removeItem('uploadedTiff');
-                localStorage.removeItem('uploadedFileName');
-                alert("Erreur de traitement : " + result.error);
-                return;
-            }
-
-            const segmentedwater = 'data:image/png;base64,' + result.image_water;
-            // document.getElementById('downloadBtn').textContent = `Download`;
-            // $("#downloadBtn").attr("href", segmentedwater).show();
-            const imgwater = document.querySelector('.image3-1');
-            if (imgwater) {
-                imgwater.src = segmentedwater;
-                const downloadBtn = document.getElementById('downloadBtn');
-                downloadBtn.style.display = 'inline-block'; // rendre le bouton visible
-                downloadBtn.href = segmentedwater;
-            }
-            const segmentedImg = 'data:image/png;base64,' + result.image_data;
-            const imgEl = document.querySelector('.image3-2');
-            if (imgEl) {
-                imgEl.src = segmentedImg;
-                const downloadBtn2 = document.getElementById('downloadBtn2');
-                downloadBtn2.style.display = 'inline-block'; // rendre le bouton visible
-                downloadBtn2.href = segmentedImg;
-            }
-            localStorage.removeItem('uploadedTiff');
-            localStorage.removeItem('uploadedFileName');
-        })
-        .catch(error => {
-            localStorage.removeItem('uploadedTiff');
-            localStorage.removeItem('uploadedFileName');
-            console.error('Erreur lors du traitement :', error);
-        });
-    })
-    .catch(error => {
-        localStorage.removeItem('uploadedTiff');
-        localStorage.removeItem('uploadedFileName');
-        console.error('Erreur lors de l\'upload :', error);
-    });
+  })
+  .catch(err => {
+    console.error("Erreur analyse ELA :", err);
+    alert("Erreur lors de l’analyse : " + err.message);
+  });
 }
+
+
+
   // Appel automatique au chargement de la page
     window.onload = function () {
-    selectImageFromLocalStorage();
-    processImageFromLocalStorage();
+      displayUploadedImageInCanvas(); 
+      convert_to_ela();
+      analyzeELA();
     }
 </script>
 </html>

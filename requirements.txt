@@ -7,7 +7,6 @@ networkx
 qiskit_optimization
 dimod
 dwave-system
-TIME-python
 scikit-learn
 glob2
 rasterio
@@ -19,3 +18,12 @@ pandas
 python-dotenv
 gunicorn
 eventlet
+dwave-ocean-sdk
+keras
+pillow
+seaborn
+scipy
+tensorflow
+tqdm
+PyQt5
+PyQt5-tools

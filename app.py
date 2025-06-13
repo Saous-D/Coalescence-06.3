@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 from werkzeug.utils import secure_filename
 import os
 import sys
+from PIL import Image
+from Image_forgery_detection.ela import convert_to_ela_image, convert_to_bn_image
+from Image_forgery_detection.prediction import predict_result, find_forged_region
 
 app = Flask(__name__, template_folder='Front')
 socketio = SocketIO(app, async_mode='threading')
@@ -136,7 +139,6 @@ def extract_rgb():
     image_path = request.form['image_path']
     if not image_path:
         return jsonify({'error': 'No image path provided'})
-
     try:
         # Appliquer la fonction extract_rgb_bands() sur l'image
         processed_matrix = quantum_segmentation.extract_rgb_bands(image_path)
@@ -262,6 +264,86 @@ def process_image():
     img_base642 = base64.b64encode(matrix2.read()).decode('utf-8')
 
     return jsonify({'image_water': img_base64, 'image_data': img_base642})
+
+
+
+
+#*************AI_Detection*************
+@app.route('/convert_to_ela_image', methods=['POST'])
+def conv_to_ela():
+    try:
+        data = request.get_json()
+
+        if not data or 'image_base64' not in data:
+            return jsonify({'error': 'Aucune image reçue.'}), 400
+
+        image_base64 = data['image_base64']
+        # Si la donnée est préfixée par data:..., on la découpe
+        image_data = image_base64.split(',')[1] if ',' in image_base64 else image_base64
+
+        # Décoder l'image depuis base64
+        image_bytes = io.BytesIO(base64.b64decode(image_data))
+        image = Image.open(image_bytes).convert("RGB")
+
+        # Sauvegarder temporairement pour traitement
+        temp_path = 'uploaded_image.jpg'
+        image.save(temp_path, "JPEG")
+
+        # Appliquer ELA (supposons que cette fonction est déjà définie quelque part)
+        _, ela_image = convert_to_ela_image(temp_path, quality=95)
+
+        # Convertir l'image ELA en base64
+        buffered = io.BytesIO()
+        ela_image.save(buffered, format="PNG")
+        encoded_ela = base64.b64encode(buffered.getvalue()).decode()
+
+        return jsonify({'image_data': encoded_ela})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+
+
+@app.route('/analyze_ela', methods=['POST'])
+def analyze_ela_image():
+    try:
+        # 1. Récupération de l'image envoyée en base64 (par exemple)
+        data = request.get_json()
+        image_base64 = data.get('image_base64')
+        if not image_base64:
+            return jsonify({'error': 'Aucune image transmise.'}), 400
+
+        # 2. Décodage base64 vers image
+        header, encoded = image_base64.split(',', 1)
+        image_data = base64.b64decode(encoded)
+        image = Image.open(io.BytesIO(image_data)).convert("RGB")
+
+        # 3. Sauvegarde temporaire de l’image
+        temp_image_path = 'temp_uploaded_image.png'
+        image.save(temp_image_path)
+
+        # 4. Prédiction avec ELA
+        n_pix_h, n_pix_v = image.height, image.width
+        test_image, test_image_d, scale, prediction, confidence = predict_result(temp_image_path, n_pix_h, n_pix_v)
+
+        # 5. Conversion en N&B
+        bn_image = convert_to_bn_image(test_image_d, n_pix_h, n_pix_v)
+
+        # 6. Encodage du résultat en base64 pour l’affichage dans le frontend
+        buffered = io.BytesIO()
+        bn_image.save(buffered, format="PNG")
+        bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
+
+        return jsonify({
+            'prediction': prediction,
+            'confidence': confidence,
+            'bw_image': f"data:image/png;base64,{bn_image_base64}"
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 
 #******************************************************************
 if __name__ == "__main__":

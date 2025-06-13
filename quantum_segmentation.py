@@ -125,7 +125,7 @@ def super_segmentation(image_path, image_height, image_width,
         sample_set, response_time = dwave_solver(dwave_sampler, sampler,linear, quadratic, runs=2000)
         samples_dataframe = sample_set.to_pandas_dataframe() # samples into a dataframe
         if callback:
-            callback("segmentation") 
+            callback("segmentation")
         #segmentation
         solution_binary_string = samples_dataframe.iloc[0][:-3]
         full_size_label_image = create_full_size_label_image(label.flatten(), solution_binary_string, img.shape)
@@ -184,7 +184,6 @@ def perform_kmeans(img, K=2, attempts=10):
     # Reshape the result back to the original image shape
     result_image = res.reshape((img.shape))
     return result_image,label, center
-
 
 
 def return_heatmap(image_path, color="winter"):

@@ -27,7 +27,7 @@ IF EXIST %VENV_NAME% (
     echo L'environnement virtuel existe déjà.
 ) ELSE (
     echo Création de l'environnement virtuel...
-    python -m venv %VENV_NAME%
+    py -3.9 -m venv %VENV_NAME%
     IF %ERRORLEVEL% NEQ 0 (
         echo Échec de la création de l'environnement virtuel.
         exit /b 1
@@ -42,7 +42,7 @@ IF NOT EXIST %VENV_NAME%\Scripts\activate.bat (
 
 REM Lancez une nouvelle fenêtre de commande avec l'environnement virtuel activé, installez les dépendances et lancez app.py
 echo Activation de l'environnement virtuel, installation des dépendances et lancement de app.py...
-start cmd /k "%VENV_NAME%\Scripts\activate.bat && pip install -r requirements.txt && python app.py"
+start cmd /k "%VENV_NAME%\Scripts\activate.bat && python -m pip install --upgrade pip setuptools wheel && pip install -r requirements.txt && python app.py"
 
 REM Fin du script principal
 exit /b 0
