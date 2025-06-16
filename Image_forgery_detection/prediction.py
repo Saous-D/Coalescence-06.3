@@ -12,7 +12,7 @@ import time
 #preparation of the ELA image and image pre-processing
 def prepare_image(fname, n_pix_h, n_pix_v):
     image_size = (n_pix_h, n_pix_v)
-    scale, ela_img=convert_to_ela_image(fname[0], 95) #90
+    scale, ela_img=convert_to_ela_image(fname, 95) #90
     ela_image=np.array(ela_img.resize(image_size)).flatten()/scale #255.0
     return(scale, ela_image)
     # return ela_image as a numpy array
@@ -20,12 +20,16 @@ def prepare_image(fname, n_pix_h, n_pix_v):
 
 #supervised image classification based on ELA image and a training set contained in the file "trained_model.h5"
 def predict_result(fname, n_pix_h, n_pix_v):
-    model = load_model("trained_model.h5")  # load the trained model
+    model = load_model("Image_forgery_detection/trained_model.h5")  # load the trained model
     class_names = ["Forged", "Authentic"]  # classification outputs
+
+    n_pix_h, n_pix_v = 128, 128
+
     scale, test_image = prepare_image(fname,n_pix_h,n_pix_v)
     print("Tableau de l'image convertie en ELA:",test_image)
-    folder_name=str(fname).split("'")[1].split("Images_essai")[0]+"Images_infos/"
-    file_name=str(fname).split("/Images_essai/")[1].split(".")[0]+'_ela_pixels.txt'
+    folder_name = os.path.join(os.path.dirname(fname), "Images_infos")
+    os.makedirs(folder_name, exist_ok=True)
+    file_name = os.path.splitext(os.path.basename(fname))[0] + '_ela_pixels.txt'
     print("Fichier contenant l'intensité ELA des pixels :",file_name)
     with open(folder_name+file_name, 'w') as f:
      

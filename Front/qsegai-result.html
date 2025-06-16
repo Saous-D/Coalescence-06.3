@@ -172,99 +172,91 @@
 <script type="text/javascript">
 
 
-function displayUploadedImageInCanvas() {
-  const base64Data = localStorage.getItem('uploadedImage');
-  if (!base64Data) {
-    alert("Aucune image trouvée dans le localStorage.");
-    return;
-  }
-
-  const img = new Image();
-  img.onload = function () {
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    ctx.drawImage(img, 0, 0);
-  };
-  img.src = base64Data;
-}
-
-
-function convert_to_ela() {
-  const base64Data = localStorage.getItem('uploadedImage');
-  const fileName = localStorage.getItem('uploadedFileName') || 'image.jpg';
-
-  if (!base64Data) {
-    alert("Aucune image trouvée dans le localStorage.");
-    return;
-  }
-  const cleanedBase64 = base64Data.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
-
-  $.ajax({
-    url: '/convert_to_ela_image',
-    type: 'POST',
-    contentType: 'application/json',
-    data: JSON.stringify({ image_base64: cleanedBase64 }),
-    success: function(response) {
-      if (response.image_data) {
-        const processedImageData = "data:image/png;base64," + response.image_data;
-        const imgwater = document.querySelector('.image3-1');
-        if (imgwater) imgwater.src = processedImageData;
-
-        const downloadBtn = document.getElementById('downloadBtn');
-        if (downloadBtn) {
-          downloadBtn.style.display = 'inline-block';
-          downloadBtn.href = processedImageData;
-          downloadBtn.download = fileName.replace(/\.[^/.]+$/, "") + "_ELA.png"; // nom de fichier pour téléchargement
-        }
-      } else {
-        alert("Erreur : " + response.error);
-      }
-    },
-    error: function() {
-      alert("Erreur lors du traitement de l'image");
+  function displayUploadedImageInCanvas() {
+    const base64Data = localStorage.getItem('uploadedImage');
+    if (!base64Data) {
+      alert("Aucune image trouvée dans le localStorage.");
+      return;
     }
-  });
-}
 
+    const img = new Image();
+    img.onload = function () {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
 
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-function analyzeELA() {
-  const fileName = localStorage.getItem("uploadedFileName");
-
-  if (!fileName) {
-    alert("Nom du fichier introuvable.");
-    return;
+      ctx.drawImage(img, 0, 0);
+    };
+    img.src = base64Data;
   }
 
-  // On suppose que convert_to_ela a déjà stocké l’image ELA dans une balise image .image3-2
-  const elaImgElement = document.querySelector('.image3-2');
 
-  if (!elaImgElement || !elaImgElement.src.startsWith('data:image/png;base64,')) {
-    alert("Aucune image ELA trouvée. Veuillez d'abord convertir l'image.");
-    return;
+  function convert_to_ela() {
+    const base64Data = localStorage.getItem('uploadedImage');
+    const fileName = localStorage.getItem('uploadedFileName') || 'image.jpg';
+
+    if (!base64Data) {
+      alert("Aucune image trouvée dans le localStorage.");
+      return;
+    }
+    const cleanedBase64 = base64Data;//.replace(/^data:image\/(png|jpeg|jpg);base64,/, '');
+
+    $.ajax({
+      url: '/convert_to_ela_image',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify({ image_base64: cleanedBase64 }),
+      success: function(response) {
+        if (response.image_data) {
+          const processedImageData = "data:image/png;base64," + response.image_data;
+          const imgwater = document.querySelector('.image3-1');
+          if (imgwater) imgwater.src = processedImageData;
+          localStorage.setItem('uploadedImage', processedImageData);
+
+          const downloadBtn = document.getElementById('downloadBtn');
+          if (downloadBtn) {
+            downloadBtn.style.display = 'inline-block';
+            downloadBtn.href = processedImageData;
+            downloadBtn.download = fileName.replace(/\.[^/.]+$/, "") + "_ELA.png"; // nom de fichier pour téléchargement
+          }
+        } else {
+          alert("Erreur : " + response.error);
+        }
+      },
+      error: function() {
+        alert("Erreur lors du traitement de l'image");
+      }
+    });
   }
 
-  const elaBase64 = elaImgElement.src.replace('data:image/png;base64,', '');
 
-  // Appel au backend
-  fetch('/analyze_ela', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      file_name: fileName,
-      image_data: elaBase64
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
+
+  function analyzeELA() {
+    const fileName = localStorage.getItem("uploadedFileName");
+
+    if (!fileName) {
+      alert("Nom du fichier introuvable.");
+      return;
+    }
+
+    // On suppose que convert_to_ela a déjà stocké l’image ELA dans une balise image .image3-1
+    const elaImgElement = localStorage.getItem("uploadedImage");
+
+// Appel au backend avec jQuery AJAX
+$.ajax({
+  url: '/analyze_ela',
+  method: 'POST',
+  contentType: 'application/json',
+  data: JSON.stringify({
+    file_name: fileName,
+    image_base64: elaImgElement
+  }),
+  success: function(data) {
     console.log("Analyse ELA reçue :", data);
 
     if (data.success) {
-      // Exemple de traitement : affichage texte ou mise à jour d’un graphique
       const resultContainer = document.getElementById('ela-analysis-result');
       if (resultContainer) {
         resultContainer.innerHTML = `
@@ -276,20 +268,20 @@ function analyzeELA() {
     } else {
       alert("Erreur côté serveur : " + data.error);
     }
-  })
-  .catch(err => {
-    console.error("Erreur analyse ELA :", err);
-    alert("Erreur lors de l’analyse : " + err.message);
-  });
-}
+  },
+  error: function(xhr, status, error) {
+    console.error("Erreur analyse ELA :", error);
+    alert("Erreur lors de l’analyse : " + error);
+  }
+});
 
+  }
 
-
-  // Appel automatique au chargement de la page
-    window.onload = function () {
-      displayUploadedImageInCanvas(); 
-      convert_to_ela();
-      analyzeELA();
-    }
+    // Appel automatique au chargement de la page
+      window.onload = function () {
+        displayUploadedImageInCanvas(); 
+        convert_to_ela();
+        analyzeELA();
+      }
 </script>
 </html>

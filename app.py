@@ -276,21 +276,26 @@ def conv_to_ela():
 
         if not data or 'image_base64' not in data:
             return jsonify({'error': 'Aucune image reçue.'}), 400
+        
+        print("test1")
 
         image_base64 = data['image_base64']
-        # Si la donnée est préfixée par data:..., on la découpe
+        # # Si la donnée est préfixée par data:..., on la découpe
         image_data = image_base64.split(',')[1] if ',' in image_base64 else image_base64
 
-        # Décoder l'image depuis base64
+        # # Décoder l'image depuis base64
         image_bytes = io.BytesIO(base64.b64decode(image_data))
         image = Image.open(image_bytes).convert("RGB")
 
-        # Sauvegarder temporairement pour traitement
+        # # Sauvegarder temporairement pour traitement
         temp_path = 'uploaded_image.jpg'
         image.save(temp_path, "JPEG")
+        print("on envoie l'image à ela")
 
         # Appliquer ELA (supposons que cette fonction est déjà définie quelque part)
         _, ela_image = convert_to_ela_image(temp_path, quality=95)
+
+        print("on récupère le résultat")
 
         # Convertir l'image ELA en base64
         buffered = io.BytesIO()
@@ -339,8 +344,11 @@ def analyze_ela_image():
             'confidence': confidence,
             'bw_image': f"data:image/png;base64,{bn_image_base64}"
         })
-
     except Exception as e:
+        
+        import traceback
+        traceback.print_exc()  # <-- Ceci affichera l’erreur dans la console
+        return jsonify({'error': str(e)}), 500
         return jsonify({'error': str(e)}), 500
 
 
