@@ -3,3 +3,11 @@ venv/
 qseg/__pycache__/
 qseg/.ipynb_checkpoints/
 qseg/brouillon.*
+*.docx
+*.env
+*.ipynb
+/Images-à-tester_RonanNT/
+/Proofs/
+/ela_pyqt_venv/
+/__pycache__/
+LICENSE
