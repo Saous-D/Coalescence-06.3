@@ -23,7 +23,8 @@ keras
 pillow
 seaborn
 scipy
-tensorflow==2.11.0
+# tensorflow==2.11.0
+tensorflow
 tqdm
 PyQt5
 PyQt5-tools

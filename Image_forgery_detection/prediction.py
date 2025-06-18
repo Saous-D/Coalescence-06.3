@@ -57,9 +57,9 @@ def predict_result(fname, n_pix_h, n_pix_v):
 
     #prediction = class_names[y_pred_class]
     if class_names[y_pred_class]=="Authentic":
-        prediction="Authentique"
+        prediction="Authentic"
     else:
-        prediction="Falsifiée"
+        prediction="Forged"
     if y_pred <= 0.5:
         confidence = f"{(1-(y_pred[0][0])) * 100:0.2f}"
     else:
