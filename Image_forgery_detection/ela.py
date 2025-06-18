@@ -41,12 +41,10 @@ def convert_to_ela_image(path_or_bytes, quality):
     else:
         scale = 255.0 / max_difference
 
-    # Améliorer luminosité, contraste et netteté
-    ela_image = ImageEnhance.Brightness(ela_image).enhance(scale)
-    ela_image = ImageEnhance.Contrast(ela_image).enhance(1.5)
-    ela_image = ImageEnhance.Sharpness(ela_image).enhance(2.0)
 
-    return 255.0, ela_image
+    ela_image = ImageEnhance.Sharpness(ela_image).enhance(scale)
+
+    return 255, ela_image
 
 
 #from PIL import Image
@@ -68,7 +66,6 @@ def convert_to_bn_image(image_array, n_pix_h, n_pix_v):
         segm_image = segm_image.reshape((n_pix_h, n_pix_v))
     except ValueError:
         # Si le reshape échoue, on tente de reconstruire une image carrée
-        print("[⚠️] Dimensions incompatibles, reshape carré automatique.")
         size = int(np.sqrt(segm_image.shape[0]))
         segm_image = segm_image[:size*size].reshape((size, size))
 
@@ -77,7 +74,7 @@ def convert_to_bn_image(image_array, n_pix_h, n_pix_v):
 
     return img
 
-    
+
 
 
 if __name__ == "__main__":

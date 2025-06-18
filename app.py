@@ -5,6 +5,7 @@ import base64
 import quantum_segmentation
 import matplotlib.pyplot as plt
 from werkzeug.utils import secure_filename
+from PIL import Image, ImageChops, ImageEnhance
 import os
 import sys
 from PIL import Image
@@ -293,16 +294,21 @@ def conv_to_ela():
         print("on envoie l'image à ela")
 
         # Appliquer ELA (supposons que cette fonction est déjà définie quelque part)
-        _, ela_image = convert_to_ela_image(temp_path, quality=95)
+        scale, ela_image = convert_to_ela_image(temp_path, quality=95)
 
-        print("on récupère le résultat")
 
+        show_image = ImageEnhance.Brightness(ela_image).enhance(40)
+        show_image = ImageEnhance.Contrast(show_image).enhance(1.5)
+        show_image = ImageEnhance.Sharpness(show_image).enhance(2.0)
         # Convertir l'image ELA en base64
         buffered = io.BytesIO()
         ela_image.save(buffered, format="PNG")
         encoded_ela = base64.b64encode(buffered.getvalue()).decode()
+        buffered = io.BytesIO()
+        show_image.save(buffered, format="PNG")
+        encoded_show = base64.b64encode(buffered.getvalue()).decode()
 
-        return jsonify({'image_data': encoded_ela})
+        return jsonify({'image_data': encoded_ela, 'show_image': encoded_show})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -328,11 +334,13 @@ def analyze_ela_image():
         image.save(temp_image_path)
 
         # 4. Prédiction avec ELA
-        n_pix_h, n_pix_v = image.height, image.width
+        n_pix_h, n_pix_v = 128,128
         test_image, test_image_d, scale, prediction, confidence = predict_result(temp_image_path, n_pix_h, n_pix_v)
 
-        # 5. Conversion en N&B
-        bn_image = convert_to_bn_image(test_image_d, n_pix_h, n_pix_v)
+        if prediction=="Falsifiée":
+            segm_image=find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
+            # 5. Conversion en N&B
+            bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
 
         # 6. Encodage du résultat en base64 pour l’affichage dans le frontend
         buffered = io.BytesIO()
@@ -340,8 +348,11 @@ def analyze_ela_image():
         bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
 
         return jsonify({
-            'prediction': prediction,
-            'confidence': confidence,
+            'success': True,
+            'pixel_count': len(test_image_d.flatten()),
+            'prediction':prediction,
+            'confidence':confidence,
+            'details': f"Prédiction : {prediction} (confiance : {float(confidence):.2f})",
             'bw_image': f"data:image/png;base64,{bn_image_base64}"
         })
     except Exception as e:

@@ -143,7 +143,7 @@
               <div class="rectangle-69"></div>
               <div class="rectangle-72"></div>
               <div class="segmented-image valign-text-middle inter-bold-white-20px">ALTERED PIXELS</div>
-              <img class="image3-2" src="/static/images/image3-1@2x.png" alt="Image3 1" />
+              <img class="image3-2" src="/static/images/image3-1@2x.png" alt="Image3 2" />
               <div class="overlap-group-3">
                  <div style="
                   position: absolute;
@@ -162,8 +162,8 @@
             </div>
           </div>
 
-<div class="image-q-processed2 valign-text-middle inter-bold-white-20px">IMAGE AUTHENTICITY:</div>
-<div class="image-q-processed2 valign-text-middle inter-bold-white-20px">AUTHENTICITY RATE:</div>
+<div id="authenticity" class="image-q-processed2 valign-text-middle inter-bold-white-20px">IMAGE AUTHENTICITY:</div>
+<div id="rate" class="image-q-processed2 valign-text-middle inter-bold-white-20px">AUTHENTICITY RATE:</div>
 
         </div>
       </div>
@@ -218,7 +218,7 @@
           const downloadBtn = document.getElementById('downloadBtn');
           if (downloadBtn) {
             downloadBtn.style.display = 'inline-block';
-            downloadBtn.href = processedImageData;
+            downloadBtn.href = "data:image/png;base64,"+response.show_image;
             downloadBtn.download = fileName.replace(/\.[^/.]+$/, "") + "_ELA.png"; // nom de fichier pour téléchargement
           }
         } else {
@@ -254,20 +254,25 @@ $.ajax({
     image_base64: elaImgElement
   }),
   success: function(data) {
-    console.log("Analyse ELA reçue :", data);
+    
+ 
+  console.log("Analyse ELA reçue :", data);
 
-    if (data.success) {
-      const resultContainer = document.getElementById('ela-analysis-result');
-      if (resultContainer) {
-        resultContainer.innerHTML = `
-          <p><strong>Analyse terminée.</strong></p>
-          <p>Pixels analysés : ${data.pixel_count}</p>
-          <p>Informations supplémentaires : ${data.details || 'Aucune'}</p>
-        `;
+      const segmentedImg = data.bw_image;
+      const img_bw = document.querySelector('.image3-2');
+      
+      if (img_bw) img_bw.src = segmentedImg;
+
+      const downloadBtn2 = document.getElementById('downloadBtn2');
+      if (downloadBtn2) {
+        downloadBtn2.style.display = 'inline-block';
+        downloadBtn2.href = segmentedImg;
+        downloadBtn2.download = fileName.replace(/\.[^/.]+$/, "") + "_bw.png"; // nom de fichier pour téléchargement
       }
-    } else {
-      alert("Erreur côté serveur : " + data.error);
-    }
+
+      document.getElementById("authenticity").innerHTML += data.prediction;
+      document.getElementById("rate").innerHTML += data.confidence;
+
   },
   error: function(xhr, status, error) {
     console.error("Erreur analyse ELA :", error);

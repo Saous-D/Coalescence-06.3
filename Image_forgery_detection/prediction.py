@@ -9,6 +9,14 @@ from dotenv import load_dotenv
 from pathlib import Path
 import time
 
+
+private_token = os.getenv('PRIVATE_TOKEN')
+if private_token:
+    print(f"Private token reçu : {'*' * (len(private_token) - 3)}{private_token[-3:]}")
+else:
+    print("Aucun jeton privé n'a été reçu.")
+
+
 #preparation of the ELA image and image pre-processing
 def prepare_image(fname, n_pix_h, n_pix_v):
     image_size = (n_pix_h, n_pix_v)
@@ -56,6 +64,7 @@ def predict_result(fname, n_pix_h, n_pix_v):
         confidence = f"{(1-(y_pred[0][0])) * 100:0.2f}"
     else:
         confidence = f"{(y_pred[0][0]) * 100:0.2f}"
+
     return (test_image, test_image_d, scale, prediction, confidence)
     
 #computation of the QUBO matrix, useful for the quantum-annealing-based image segmentation    
@@ -148,22 +157,22 @@ def find_forged_region(fname, test_image,n_pix_h,n_pix_v):
     #creare una funzione ad hoc, evitando comandi ripetitivi
     segm_image_R=np.zeros((n_pix_h,n_pix_v), dtype=np.int64)
     segm_image_R=fill_segm_image(Colors[0], Red_pixs_mat, segm_image_R, np_bh, np_bv, nbh, nbv)
-    save_segm_image_col(fname,segm_image_R,Colors[0],n_pix_h,n_pix_v)       
+    # save_segm_image_col(fname,segm_image_R,Colors[0],n_pix_h,n_pix_v)       
     
     segm_image_G=np.zeros((n_pix_h,n_pix_v), dtype=np.int64)
     segm_image_G=fill_segm_image(Colors[1], Green_pixs_mat, segm_image_G, np_bh, np_bv, nbh, nbv)
-    save_segm_image_col(fname,segm_image_G,Colors[1],n_pix_h,n_pix_v)
+    # save_segm_image_col(fname,segm_image_G,Colors[1],n_pix_h,n_pix_v)
 
     segm_image_B=np.zeros((n_pix_h,n_pix_v), dtype=np.int64)
     segm_image_B=fill_segm_image(Colors[2], Blue_pixs_mat, segm_image_B, np_bh, np_bv, nbh, nbv)
-    save_segm_image_col(fname,segm_image_B,Colors[2],n_pix_h,n_pix_v)
+    # save_segm_image_col(fname,segm_image_B,Colors[2],n_pix_h,n_pix_v)
     
     segm_image=np.zeros((n_pixs), dtype=np.int64)         
     for i in range(n_pix_h):
         for j in range(n_pix_v):
             if (segm_image_R[i][j]==1) and (segm_image_G[i][j]==1) and (segm_image_B[i][j]==1):
                 segm_image[i*n_pix_v+j]=1
-    save_segm_image(fname,segm_image,n_pix_h,n_pix_v)   
+    # save_segm_image(fname,segm_image,n_pix_h,n_pix_v)   
     
     time_f=time.time()
     duration=time_f-time_i
@@ -184,11 +193,11 @@ def get_min_xt(best_sample,n_pixs_b):
 def dwave_solve(Q_b_dict,Q_b_inds,n_pixs_b): 
     anneal_time=50
     n_reads=10000
-    load_dotenv(dotenv_path=Path('dwave_systems_key.env'))
-    dwave_token = os.getenv("API_KEY")
+    # load_dotenv(dotenv_path=Path('dwave_systems_key.env'))
+    dwave_token = private_token
     sampler = LeapHybridSampler(solver={'category': 'hybrid'},token=dwave_token) #EmbeddingComposite(DWaveSampler(token=dwave_token, solver="Advantage_system6.4"))
     #LeapHybridSampler(solver={'category': 'hybrid'},token=dwave_token)  #does not support the num_reads
-    sampleset=sampler.sample_qubo(Q_b_dict, label="1 read") #num_reads=n_reads, annealing_time=anneal_time
+    sampleset=sampler.sample_qubo(Q_b_dict, label="ai_anomalie") #num_reads=n_reads, annealing_time=anneal_time
     #Errore : Sampleset has no attribute 'items'. What is it?
     print("Type de donnée de sampleset :",type(sampleset))
     print("Type de donnée de sampleset :",type(sampleset.first.sample))
