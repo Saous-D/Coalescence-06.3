@@ -144,23 +144,19 @@ def extract_rgb():
     if not image_path:
         return jsonify({'error': 'No image path provided'})
     try:
+        # Appliquer la fonction extract_rgb_bands() sur l'image
         processed_matrix = quantum_segmentation.extract_rgb_bands(image_path)
+
+        # Convertir la matrice en image base64
         buf = io.BytesIO()
         plt.imsave(buf, processed_matrix, format='png', cmap='viridis')
         buf.seek(0)
         img_bytes = buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
-        # Nettoyage
-        buf.close()
-        del buf, img_bytes, processed_matrix
-        import gc
-        gc.collect()
-
         return jsonify({'image_data': img_base64})
     except Exception as e:
         return jsonify({'error': str(e)})
-
 
 
 
@@ -176,19 +172,11 @@ def upload_image():
 
     try:
         original_matrix = quantum_segmentation.extract_rgb_bands(filepath)
-
         buf = io.BytesIO()
         plt.imsave(buf, original_matrix, format='png', cmap='viridis')
         buf.seek(0)
         img_bytes = buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
-
-        # Nettoyage mémoire
-        del original_matrix
-        del img_bytes
-        buf.close()
-        del buf
-        gc.collect()
 
         return jsonify({'image_path': filepath, 'image_data': img_base64})
     except Exception as e:
@@ -210,17 +198,10 @@ def generate_heatmap():
 
         color = request.form.get('color', 'winter_r')
 
-        # Génération du heatmap
         heatmap_buf = quantum_segmentation.return_heatmap(filepath, color=color)
 
         img_bytes = heatmap_buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
-
-        # Nettoyage mémoire
-        heatmap_buf.close()
-        del heatmap_buf
-        del img_bytes
-        gc.collect()
 
         return jsonify({'image_data': img_base64})
 
@@ -237,80 +218,56 @@ def run_quantum_segmentation(image_path, image_height, image_width, water_penalt
     try:
         matrix = quantum_segmentation.super_segmentation(
             image_path, image_height, image_width, water_penalty,
-            no_water_penalty, sigma, mu, k,
-            callback=lambda msg: socketio.emit('messages', {'data': msg})
-        )
+            no_water_penalty, sigma, mu,k,
+            callback=lambda msg: socketio.emit('messages', {'data': msg}))
 
         messages = buffer.getvalue()
-
         return matrix
-
     finally:
         sys.stdout = old_stdout
 
-        # Nettoyage mémoire explicite
-        buffer.close()
-        del buffer
-        gc.collect()
+def convert(string, form):
+    if request.form[string] != 'null':
+        if form=='float':
+            return float(request.form[string])
+        else:
+            return int(request.form[string])
+    else:
+        return None
 
 @app.route('/process', methods=['POST'])
 def process_image():
-    try:
-        image_path = request.form['image_path']
-        if not image_path:
-            return jsonify({'error': 'No image path provided'})
+    image_path = request.form['image_path']
+    if not image_path:
+        return jsonify({'error': 'No image path provided'})
 
-        image_height = int(request.form['image_height'])
-        image_width = int(request.form['image_width'])
-        water_penalty = float(request.form['water_penalty'])
-        no_water_penalty = float(request.form['no_water_penalty'])
-        sigma = float(request.form['sigma'])
-        mu = int(request.form['mu'])
-        k = int(request.form['k'])
+    image_height = int(request.form['image_height'])
+    image_width = int(request.form['image_width'])
+    water_penalty = float(request.form['water_penalty'])
+    no_water_penalty = float(request.form['no_water_penalty'])
+    sigma = float(request.form['sigma'])
+    mu = int(request.form['mu'])
+    k = int(request.form['k'])
+    print("app.py : water_penalty = " +str(water_penalty))
+    matrix = quantum_segmentation.quantum_scan(image_path, "water")
 
-        print("app.py : water_penalty = " + str(water_penalty))
+    print("app.py : water done ")
 
-        # Segmentation eau
-        matrix = quantum_segmentation.quantum_scan(image_path, "water")
-        print("app.py : water done")
+    matrix2 = quantum_segmentation.overlay_masks(matrix, quantum_segmentation.quantum_scan(image_path, "vegetation"))
 
-        # Segmentation végétation + fusion
-        vegetation = quantum_segmentation.quantum_scan(image_path, "vegetation")
-        matrix2 = quantum_segmentation.overlay_masks(matrix, vegetation)
-        print("app.py : seg done")
-
-        # Sauvegarde de la première image (eau)
-        buf = io.BytesIO()
-        plt.imsave(buf, matrix, format='png', cmap='winter_r')
-        buf.seek(0)
-        img_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
-        buf.close()
-
-        # Sauvegarde de l’image combinée
-        buf2 = io.BytesIO()
-        plt.imsave(buf2, matrix2, format='png', cmap='viridis')  # ou autre colormap
-        buf2.seek(0)
-        img_base642 = base64.b64encode(buf2.getvalue()).decode('utf-8')
-        buf2.close()
-
-        # Nettoyage mémoire
-        del matrix
-        del vegetation
-        del matrix2
-        gc.collect()
-
-        return jsonify({
-            'image_water': img_base64,
-            'image_data': img_base642
-        })
-
-    except Exception as e:
-        import traceback
-        traceback.print_exc()
-        return jsonify({'error': str(e)}), 500
+    print("app.py : seg done ")
 
 
+    buf = io.BytesIO()
+    plt.imsave(buf, matrix, format='png', cmap='winter_r')
+    buf.seek(0)
+    img_bytes = buf.getvalue()
+    img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
+
+    img_base642 = base64.b64encode(matrix2.read()).decode('utf-8')
+
+    return jsonify({'image_water': img_base64, 'image_data': img_base642})
 
 #*************AI_Detection*************
 @app.route('/convert_to_ela_image', methods=['POST'])
