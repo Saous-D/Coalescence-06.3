@@ -318,7 +318,16 @@ def conv_to_ela():
 
 
 @app.route('/analyze_ela', methods=['POST'])
-def analyze_ela_image():    
+def analyze_ela_image():
+    import gc
+    import traceback
+
+    temp_image_path = 'temp_uploaded_image.png'
+    image = None
+    buffered = None
+    bn_image = None
+    segm_image = None
+
     try:
         data = request.get_json()
         image_base64 = data.get('image_base64')
@@ -331,28 +340,20 @@ def analyze_ela_image():
         image = Image.open(io.BytesIO(image_data)).convert("RGB")
 
         # Sauvegarde temporaire
-        temp_image_path = 'temp_uploaded_image.png'
         image.save(temp_image_path)
 
         # Prédiction
         n_pix_h, n_pix_v = 128, 128
         test_image, test_image_d, scale, prediction, confidence = predict_result(temp_image_path, n_pix_h, n_pix_v)
 
-        bn_image_base64 = ""
-        # if prediction == "Falsified":
+        # Détection et conversion en image noir/blanc
         segm_image = find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
         bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
 
-        if os.path.exists(temp_image_path):
-            os.remove(temp_image_path)
         # Encodage en base64
         buffered = io.BytesIO()
         bn_image.save(buffered, format="PNG")
         bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
-
-        buffered.close()
-
-        gc.collect()
 
         return jsonify({
             'success': True,
@@ -364,9 +365,27 @@ def analyze_ela_image():
         })
 
     except Exception as e:
-        import traceback
         traceback.print_exc()
         return jsonify({'error': str(e)}), 500
+
+    finally:
+        # Nettoyage mémoire et fichier temporaire
+        try:
+            if buffered:
+                buffered.close()
+            if bn_image:
+                bn_image.close()
+            if segm_image:
+                segm_image.close()
+            if image:
+                image.close()
+        except Exception as cleanup_error:
+            print("Erreur lors du nettoyage : ", cleanup_error)
+
+        if os.path.exists(temp_image_path):
+            os.remove(temp_image_path)
+
+        gc.collect()
 
 
 
