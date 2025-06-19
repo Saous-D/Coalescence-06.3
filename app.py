@@ -380,16 +380,16 @@ def analyze_ela_image():
         test_image, test_image_d, scale, prediction, confidence = predict_result(temp_image_path, n_pix_h, n_pix_v)
 
         bn_image_base64 = ""
-        if prediction == "Falsified":
-            segm_image = find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
-            bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
+        # if prediction == "Falsified":
+        segm_image = find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
+        bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
 
-            # Encodage en base64
-            buffered = io.BytesIO()
-            bn_image.save(buffered, format="PNG")
-            bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
+        # Encodage en base64
+        buffered = io.BytesIO()
+        bn_image.save(buffered, format="PNG")
+        bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
 
-            buffered.close()
+        buffered.close()
 
         gc.collect()
 
