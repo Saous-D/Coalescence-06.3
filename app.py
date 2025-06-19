@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 from werkzeug.utils import secure_filename
 from PIL import Image, ImageChops, ImageEnhance
 import os
+import gc
 import sys
 from PIL import Image
 from Image_forgery_detection.ela import convert_to_ela_image, convert_to_bn_image
@@ -143,19 +144,23 @@ def extract_rgb():
     if not image_path:
         return jsonify({'error': 'No image path provided'})
     try:
-        # Appliquer la fonction extract_rgb_bands() sur l'image
         processed_matrix = quantum_segmentation.extract_rgb_bands(image_path)
-
-        # Convertir la matrice en image base64
         buf = io.BytesIO()
         plt.imsave(buf, processed_matrix, format='png', cmap='viridis')
         buf.seek(0)
         img_bytes = buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
 
+        # Nettoyage
+        buf.close()
+        del buf, img_bytes, processed_matrix
+        import gc
+        gc.collect()
+
         return jsonify({'image_data': img_base64})
     except Exception as e:
         return jsonify({'error': str(e)})
+
 
 
 
@@ -171,11 +176,19 @@ def upload_image():
 
     try:
         original_matrix = quantum_segmentation.extract_rgb_bands(filepath)
+
         buf = io.BytesIO()
         plt.imsave(buf, original_matrix, format='png', cmap='viridis')
         buf.seek(0)
         img_bytes = buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+
+        # Nettoyage mémoire
+        del original_matrix
+        del img_bytes
+        buf.close()
+        del buf
+        gc.collect()
 
         return jsonify({'image_path': filepath, 'image_data': img_base64})
     except Exception as e:
@@ -197,10 +210,17 @@ def generate_heatmap():
 
         color = request.form.get('color', 'winter_r')
 
+        # Génération du heatmap
         heatmap_buf = quantum_segmentation.return_heatmap(filepath, color=color)
 
         img_bytes = heatmap_buf.getvalue()
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+
+        # Nettoyage mémoire
+        heatmap_buf.close()
+        del heatmap_buf
+        del img_bytes
+        gc.collect()
 
         return jsonify({'image_data': img_base64})
 
@@ -217,56 +237,77 @@ def run_quantum_segmentation(image_path, image_height, image_width, water_penalt
     try:
         matrix = quantum_segmentation.super_segmentation(
             image_path, image_height, image_width, water_penalty,
-            no_water_penalty, sigma, mu,k,
-            callback=lambda msg: socketio.emit('messages', {'data': msg}))
+            no_water_penalty, sigma, mu, k,
+            callback=lambda msg: socketio.emit('messages', {'data': msg})
+        )
 
         messages = buffer.getvalue()
+
         return matrix
+
     finally:
         sys.stdout = old_stdout
 
-def convert(string, form):
-    if request.form[string] != 'null':
-        if form=='float':
-            return float(request.form[string])
-        else:
-            return int(request.form[string])
-    else:
-        return None
+        # Nettoyage mémoire explicite
+        buffer.close()
+        del buffer
+        gc.collect()
 
 @app.route('/process', methods=['POST'])
 def process_image():
-    image_path = request.form['image_path']
-    if not image_path:
-        return jsonify({'error': 'No image path provided'})
+    try:
+        image_path = request.form['image_path']
+        if not image_path:
+            return jsonify({'error': 'No image path provided'})
 
-    image_height = int(request.form['image_height'])
-    image_width = int(request.form['image_width'])
-    water_penalty = float(request.form['water_penalty'])
-    no_water_penalty = float(request.form['no_water_penalty'])
-    sigma = float(request.form['sigma'])
-    mu = int(request.form['mu'])
-    k = int(request.form['k'])
-    print("app.py : water_penalty = " +str(water_penalty))
-    matrix = quantum_segmentation.quantum_scan(image_path, "water")
+        image_height = int(request.form['image_height'])
+        image_width = int(request.form['image_width'])
+        water_penalty = float(request.form['water_penalty'])
+        no_water_penalty = float(request.form['no_water_penalty'])
+        sigma = float(request.form['sigma'])
+        mu = int(request.form['mu'])
+        k = int(request.form['k'])
 
-    print("app.py : water done ")
+        print("app.py : water_penalty = " + str(water_penalty))
 
-    matrix2 = quantum_segmentation.overlay_masks(matrix, quantum_segmentation.quantum_scan(image_path, "vegetation"))
+        # Segmentation eau
+        matrix = quantum_segmentation.quantum_scan(image_path, "water")
+        print("app.py : water done")
 
-    print("app.py : seg done ")
+        # Segmentation végétation + fusion
+        vegetation = quantum_segmentation.quantum_scan(image_path, "vegetation")
+        matrix2 = quantum_segmentation.overlay_masks(matrix, vegetation)
+        print("app.py : seg done")
 
+        # Sauvegarde de la première image (eau)
+        buf = io.BytesIO()
+        plt.imsave(buf, matrix, format='png', cmap='winter_r')
+        buf.seek(0)
+        img_base64 = base64.b64encode(buf.getvalue()).decode('utf-8')
+        buf.close()
 
-    buf = io.BytesIO()
-    plt.imsave(buf, matrix, format='png', cmap='winter_r')
-    buf.seek(0)
-    img_bytes = buf.getvalue()
-    img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+        # Sauvegarde de l’image combinée
+        buf2 = io.BytesIO()
+        plt.imsave(buf2, matrix2, format='png', cmap='viridis')  # ou autre colormap
+        buf2.seek(0)
+        img_base642 = base64.b64encode(buf2.getvalue()).decode('utf-8')
+        buf2.close()
 
+        # Nettoyage mémoire
+        del matrix
+        del vegetation
+        del matrix2
+        gc.collect()
 
-    img_base642 = base64.b64encode(matrix2.read()).decode('utf-8')
+        return jsonify({
+            'image_water': img_base64,
+            'image_data': img_base642
+        })
 
-    return jsonify({'image_water': img_base64, 'image_data': img_base642})
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({'error': str(e)}), 500
 
 
 
@@ -318,51 +359,59 @@ def conv_to_ela():
 
 
 @app.route('/analyze_ela', methods=['POST'])
-def analyze_ela_image():
+def analyze_ela_image():    
     try:
-        # 1. Récupération de l'image envoyée en base64 (par exemple)
         data = request.get_json()
         image_base64 = data.get('image_base64')
         if not image_base64:
             return jsonify({'error': 'Aucune image transmise.'}), 400
 
-        # 2. Décodage base64 vers image
+        # Décodage base64 vers image
         header, encoded = image_base64.split(',', 1)
         image_data = base64.b64decode(encoded)
         image = Image.open(io.BytesIO(image_data)).convert("RGB")
 
-        # 3. Sauvegarde temporaire de l’image
+        # Sauvegarde temporaire
         temp_image_path = 'temp_uploaded_image.png'
         image.save(temp_image_path)
 
-        # 4. Prédiction avec ELA
-        n_pix_h, n_pix_v = 128,128
+        # Prédiction
+        n_pix_h, n_pix_v = 128, 128
         test_image, test_image_d, scale, prediction, confidence = predict_result(temp_image_path, n_pix_h, n_pix_v)
 
-        print(prediction)
-        if prediction=="Forged":
-            segm_image=find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
-            # 5. Conversion en N&B
+        bn_image_base64 = ""
+        if prediction == "Falsified":
+            segm_image = find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
             bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
 
-        # 6. Encodage du résultat en base64 pour l’affichage dans le frontend
-        buffered = io.BytesIO()
-        bn_image.save(buffered, format="PNG")
-        bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
+            # Encodage en base64
+            buffered = io.BytesIO()
+            bn_image.save(buffered, format="PNG")
+            bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
+
+            # Nettoyage des images PIL
+            # bn_image.close()
+            # segm_image.close()
+            buffered.close()
+
+        # Nettoyage général
+        # image.close()
+        # del image, image_data, test_image, scale
+
+        gc.collect()
 
         return jsonify({
             'success': True,
             'pixel_count': len(test_image_d.flatten()),
-            'prediction':prediction,
-            'confidence':confidence,
+            'prediction': prediction,
+            'confidence': confidence,
             'details': f"Prédiction : {prediction} (confiance : {float(confidence):.2f})",
-            'bw_image': f"data:image/png;base64,{bn_image_base64}"
+            'bw_image': f"data:image/png;base64,{bn_image_base64}" if bn_image_base64 else None
         })
+
     except Exception as e:
-        
         import traceback
-        traceback.print_exc()  # <-- Ceci affichera l’erreur dans la console
-        return jsonify({'error': str(e)}), 500
+        traceback.print_exc()
         return jsonify({'error': str(e)}), 500
 
 
