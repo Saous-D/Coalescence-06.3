@@ -29,7 +29,7 @@ def prepare_image(fname, n_pix_h, n_pix_v):
 #supervised image classification based on ELA image and a training set contained in the file "trained_model.h5"
 def predict_result(fname, n_pix_h, n_pix_v):
     model = load_model("Image_forgery_detection/trained_model.h5")  # load the trained model
-    class_names = ["Forged", "Authentic"]  # classification outputs
+    class_names = ["Falsified", "Authentic"]  # classification outputs
 
     n_pix_h, n_pix_v = 128, 128
 
@@ -59,7 +59,7 @@ def predict_result(fname, n_pix_h, n_pix_v):
     if class_names[y_pred_class]=="Authentic":
         prediction="Authentic"
     else:
-        prediction="Forged"
+        prediction="Falsified"
     if y_pred <= 0.5:
         confidence = f"{(1-(y_pred[0][0])) * 100:0.2f}"
     else:

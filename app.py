@@ -389,14 +389,7 @@ def analyze_ela_image():
             bn_image.save(buffered, format="PNG")
             bn_image_base64 = base64.b64encode(buffered.getvalue()).decode()
 
-            # Nettoyage des images PIL
-            # bn_image.close()
-            # segm_image.close()
             buffered.close()
-
-        # Nettoyage général
-        # image.close()
-        # del image, image_data, test_image, scale
 
         gc.collect()
 
