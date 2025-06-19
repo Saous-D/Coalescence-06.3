@@ -163,7 +163,7 @@
           </div>
 
 <div id="authenticity" class="image-q-processed2 valign-text-middle inter-bold-white-20px">IMAGE AUTHENTICITY:</div>
-<div id="rate" class="image-q-processed2 valign-text-middle inter-bold-white-20px">AUTHENTICITY RATE:</div>
+<div id="rate" class="image-q-processed2 valign-text-middle inter-bold-white-20px">CONFIDENCE RATE:</div>
 
         </div>
       </div>
@@ -270,8 +270,8 @@ $.ajax({
         downloadBtn2.download = fileName.replace(/\.[^/.]+$/, "") + "_bw.png"; // nom de fichier pour téléchargement
       }
 
-      document.getElementById("authenticity").innerHTML += data.prediction;
-      document.getElementById("rate").innerHTML += data.confidence;
+      document.getElementById("authenticity").innerHTML += " "+data.prediction;
+      document.getElementById("rate").innerHTML += " "+data.confidence+"%";
 
   },
   error: function(xhr, status, error) {
