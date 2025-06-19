@@ -296,6 +296,8 @@ def conv_to_ela():
         # Appliquer ELA (supposons que cette fonction est déjà définie quelque part)
         scale, ela_image = convert_to_ela_image(temp_path, quality=95)
 
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
 
         show_image = ImageEnhance.Brightness(ela_image).enhance(40)
         show_image = ImageEnhance.Contrast(show_image).enhance(1.5)
@@ -341,6 +343,8 @@ def analyze_ela_image():
         segm_image = find_forged_region(temp_image_path, test_image_d, n_pix_h, n_pix_v)
         bn_image = convert_to_bn_image(segm_image, n_pix_h, n_pix_v)
 
+        if os.path.exists(temp_image_path):
+            os.remove(temp_image_path)
         # Encodage en base64
         buffered = io.BytesIO()
         bn_image.save(buffered, format="PNG")

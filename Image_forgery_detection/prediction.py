@@ -49,7 +49,16 @@ def predict_result(fname, n_pix_h, n_pix_v):
     test_image_d=test_image    
     test_image = test_image.reshape(-1, n_pix_h, n_pix_v, 3)
     
-    
+    try:
+        os.remove(folder_name+file_name)
+        print("Fichier supprimé avec succès.")
+    except FileNotFoundError:
+        print("Le fichier n'existe pas.")
+    except PermissionError:
+        print("Permission refusée.")
+    except Exception as e:
+        print(f"Erreur lors de la suppression : {e}")
+
     y_pred = model.predict(test_image)
     
     print("Keras prediction result :",y_pred)
@@ -59,7 +68,7 @@ def predict_result(fname, n_pix_h, n_pix_v):
     if class_names[y_pred_class]=="Authentic":
         prediction="Authentic"
     else:
-        prediction="Falsified"
+        prediction="Forged"
     if y_pred <= 0.5:
         confidence = f"{(1-(y_pred[0][0])) * 100:0.2f}"
     else:
