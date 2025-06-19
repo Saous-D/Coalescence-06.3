@@ -1,8 +1,8 @@
-import sys
 import os
+import sys
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1" # on doit forcer Tensorflow à désactiver Cuda pour éviter les erreurs de mémoire GPU
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' # pour éviter les messages d'avertissement de Tensorflow
 import numpy as np
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1' 
-#os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 #{import pdb #solo per debug
 from PIL import Image
 from PyQt5 import QtWidgets

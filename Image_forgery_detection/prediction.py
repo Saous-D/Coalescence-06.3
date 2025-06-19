@@ -1,3 +1,5 @@
+import gc
+import tensorflow as tf
 import numpy as np
 import os
 from keras.models import load_model
@@ -60,7 +62,6 @@ def predict_result(fname, n_pix_h, n_pix_v):
         print(f"Erreur lors de la suppression : {e}")
 
     y_pred = model.predict(test_image)
-    
     print("Keras prediction result :",y_pred)
     y_pred_class = round(y_pred[0][0])
 
@@ -73,8 +74,15 @@ def predict_result(fname, n_pix_h, n_pix_v):
         confidence = f"{(1-(y_pred[0][0])) * 100:0.2f}"
     else:
         confidence = f"{(y_pred[0][0]) * 100:0.2f}"
-
+    #**********************************************************
+    #*******Forcer Python à nettoyer les objets inutiles*******
+    #**********************************************************
+    del model
+    gc.collect()
+    tf.keras.backend.clear_session()
+    #**********************************************************
     return (test_image, test_image_d, scale, prediction, confidence)
+
     
 #computation of the QUBO matrix, useful for the quantum-annealing-based image segmentation    
 def calc_QUBO_matrix(pixs_mat,x_opt, i_b, j_b, np_bh, np_bv):
@@ -186,7 +194,9 @@ def find_forged_region(fname, test_image,n_pix_h,n_pix_v):
     time_f=time.time()
     duration=time_f-time_i
     print("Temps d'exécution de la routine d'identification des régions falsifiées :",duration," s")
+    gc.collect() # Pour libérer les blocs mémoire temporaires après avoir manipuler les grosses matrices
     return(segm_image)
+    
 
 #get the best quantum solution among the Sampleset
 def get_min_xt(best_sample,n_pixs_b):
