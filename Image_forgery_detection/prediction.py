@@ -1,7 +1,3 @@
-a remetre dans Coalescence-06.3
-# *********************************
-
-
 import gc
 import tensorflow as tf
 import numpy as np
