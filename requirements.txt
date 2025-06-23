@@ -17,8 +17,8 @@ opencv-python
 pandas
 python-dotenv
 gunicorn
-#eventlet
-gevent 
+eventlet
+#gevent 
 dwave-ocean-sdk
 keras
 pillow
